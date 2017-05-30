@@ -1,6 +1,6 @@
 #------.destroy_all----#
-OrderItems.destroy_all
-ChildOrders.destroy_all
+OrderItem.destroy_all
+ChildOrder.destroy_all
 Order.destroy_all
 Item.destroy_all
 Shop.destroy_all
@@ -13,8 +13,6 @@ vincent =  User.create!(
   email:'vincent.textoris@gmail.com',
   phone: '0611111111',
   delivery_address: '2 avenue des saules, lille',
-  lat: 50.632811,
-  lng: 3.017600,
   password: '123456'
   )
 
@@ -24,8 +22,6 @@ romain =  User.create!(
   email:'rdespature @gmail.com',
   phone: '0622222222',
   delivery_address: '165 Avenue de Bretagne, lille',
-  lat: 50.633247,
-  lng: 3.020348,
   password: '123456'
   )
 
@@ -35,8 +31,6 @@ manuel =  User.create!(
   email:'manuel.sabine@gmail.com',
   phone: '0633333333',
   delivery_address: '2 Allée de la haye du temple, lomme',
-  lat: 50.632736,
-  lng: 3.018513,
   password: '123456'
   )
 
@@ -46,24 +40,18 @@ juliette =  User.create!(
   email:'juscheidecker@gmail.com',
   phone: '0644444444',
   delivery_address: '124 Avenue de Bretagne, lille',
-  lat: 50.634871,
-  lng: 3.021997,
   password: '123456'
   )
 
 #------SEED de SHOPS-----#
 sogood = Shop.create!(
   name:'So Good',
-  delivery_address: '163 Avenue de Bretagne, Lille',
-  lat: 50.634384,
-  lng: 3.021068
+  delivery_address: '163 Avenue de Bretagne, Lille'
   )
 
 classcroute = Shop.create!(
   name:'Class croute',
-  delivery_address: '166 Avenue de Bretagne, Lille',
-  lat: 50.634422,
-  lng: 3.020132
+  delivery_address: '166 Avenue de Bretagne, Lille'
   )
 
 #------SEED d' ITEM-----#
