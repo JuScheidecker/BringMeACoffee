@@ -1,3 +1,4 @@
 class ChildOrder < ApplicationRecord
-  belongs_to :orders
+  belongs_to :order
+  belongs_to :main_order
 end
