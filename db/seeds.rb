@@ -1,3 +1,4 @@
+
 #------.destroy_all----#
 OrderItem.destroy_all
 ChildOrder.destroy_all
@@ -8,50 +9,50 @@ User.destroy_all
 
 #------SEED de USERS-----#
 vincent =  User.create!(
-  first_name:'Vincent',
-  last_name: 'Textoris',
+  #first_name:'Vincent',
+  #last_name: 'Textoris',
   email:'vincent.textoris@gmail.com',
-  phone: '0611111111',
-  delivery_address: '2 avenue des saules, lille',
+  #phone: '0611111111',
+  #delivery_address: '2 avenue des saules, lille',
   password: '123456'
   )
 
 romain =  User.create!(
-  first_name:'Romain',
-  last_name: ' Despature',
-  email:'rdespature @gmail.com',
-  phone: '0622222222',
-  delivery_address: '165 Avenue de Bretagne, lille',
+  #first_name:'Romain',
+  #last_name: ' Despature',
+  email:'rdespature@gmail.com',
+  #phone: '0622222222',
+  #delivery_address: '165 Avenue de Bretagne, lille',
   password: '123456'
   )
 
 manuel =  User.create!(
-  first_name:'Manuel',
-  last_name: 'Sabine',
+  #first_name:'Manuel',
+  #last_name: 'Sabine',
   email:'manuel.sabine@gmail.com',
-  phone: '0633333333',
-  delivery_address: '2 Allée de la haye du temple, lomme',
+  #phone: '0633333333',
+  #delivery_address: '2 Allée de la haye du temple, lomme',
   password: '123456'
   )
 
 juliette =  User.create!(
-  first_name:'Juliette',
-  last_name: 'Scheidecker ',
+  #first_name:'Juliette',
+  #last_name: 'Scheidecker ',
   email:'juscheidecker@gmail.com',
-  phone: '0644444444',
-  delivery_address: '124 Avenue de Bretagne, lille',
+  #phone: '0644444444',
+  #delivery_address: '124 Avenue de Bretagne, lille',
   password: '123456'
   )
 
 #------SEED de SHOPS-----#
 sogood = Shop.create!(
   name:'So Good',
-  delivery_address: '163 Avenue de Bretagne, Lille'
+  address: '163 Avenue de Bretagne, Lille'
   )
 
 classcroute = Shop.create!(
   name:'Class croute',
-  delivery_address: '166 Avenue de Bretagne, Lille'
+  address: '166 Avenue de Bretagne, Lille'
   )
 
 #------SEED d' ITEM-----#
@@ -129,7 +130,7 @@ ChildOrder.create!(main_order: order3_confirmed_takeaway, order: order2_pending_
 #------SEED d' ORDER ITEM-----#
 OrderItem.create!(order: order1_pending_takeaway, item: latte_sogood)
 OrderItem.create!(order: order1_pending_takeaway, item: capuccino_sogood)
-OrderItem.create!(order: order1_confirmed_delivery, item: frappucino_sogood)
+OrderItem.create!(order: order1_pending_takeaway, item: frappucino_sogood)
 OrderItem.create!(order: order2_pending_delivery, item: expresso_classcroute)
 OrderItem.create!(order: order2_pending_delivery, item: theglace_classcroute)
 OrderItem.create!(order: order2_pending_delivery, item: infusion_classcroute)
