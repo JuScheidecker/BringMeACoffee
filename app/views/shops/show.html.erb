@@ -1,2 +1,9 @@
 <h3><%= @shop.name %></h3>
 <p><%= @shop.address %></p>
+<% @shop.items.each do |item| %>
+  <p>Name : <%= item.name %></p>
+  <p>Description : <%= item.description %></p>
+  <p>Price (€) : <%= item.price %></p>
+<% end %>
+
+
