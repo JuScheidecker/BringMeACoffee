@@ -16,10 +16,12 @@ ActiveRecord::Schema.define(version: 20170530075902) do
   enable_extension "plpgsql"
 
   create_table "child_orders", force: :cascade do |t|
-    t.integer  "orders_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["orders_id"], name: "index_child_orders_on_orders_id", using: :btree
+    t.integer  "order_id"
+    t.integer  "main_order_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["main_order_id"], name: "index_child_orders_on_main_order_id", using: :btree
+    t.index ["order_id"], name: "index_child_orders_on_order_id", using: :btree
   end
 
   create_table "items", force: :cascade do |t|
@@ -33,21 +35,21 @@ ActiveRecord::Schema.define(version: 20170530075902) do
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.integer  "items_id"
-    t.integer  "orders_id"
+    t.integer  "item_id"
+    t.integer  "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["items_id"], name: "index_order_items_on_items_id", using: :btree
-    t.index ["orders_id"], name: "index_order_items_on_orders_id", using: :btree
+    t.index ["item_id"], name: "index_order_items_on_item_id", using: :btree
+    t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
   end
 
   create_table "orders", force: :cascade do |t|
     t.boolean  "status"
     t.boolean  "delivery_type"
-    t.integer  "users_id"
+    t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["users_id"], name: "index_orders_on_users_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
   create_table "shops", force: :cascade do |t|
@@ -76,9 +78,9 @@ ActiveRecord::Schema.define(version: 20170530075902) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "child_orders", "orders", column: "orders_id"
+  add_foreign_key "child_orders", "orders"
   add_foreign_key "items", "shops"
-  add_foreign_key "order_items", "items", column: "items_id"
-  add_foreign_key "order_items", "orders", column: "orders_id"
-  add_foreign_key "orders", "users", column: "users_id"
+  add_foreign_key "order_items", "items"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "users"
 end
