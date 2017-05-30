@@ -26,3 +26,65 @@ Migrating to DeviseCreateUsers (20170529152557)
   [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1387794601620059115)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (38.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (23.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1387794601620059115);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20170529152557)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (34.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (6.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170529152557"]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateShops (20170530075449)
+  [1m[35m (6.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (19.3ms)[0m  [1m[35mCREATE TABLE "shops" ("id" serial primary key, "name" character varying, "address" character varying, "lat" float, "lng" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170530075449"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateItems (20170530075536)
+  [1m[35m (5.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (35.7ms)[0m  [1m[35mCREATE TABLE "items" ("id" serial primary key, "name" character varying, "description" character varying, "price" float, "shop_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_0a464a9919"
+FOREIGN KEY ("shop_id")
+  REFERENCES "shops" ("id")
+)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_items_on_shop_id" ON "items"  ("shop_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170530075536"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrders (20170530075738)
+  [1m[35m (11.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "orders" ("id" serial primary key, "status" boolean, "delivery_type" boolean, "users_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_d3f93ab604"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_users_id" ON "orders"  ("users_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170530075738"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrderItems (20170530075826)
+  [1m[35m (6.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.4ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" serial primary key, "items_id" integer, "orders_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_4f8fb28908"
+FOREIGN KEY ("items_id")
+  REFERENCES "items" ("id")
+, CONSTRAINT "fk_rails_9db2f798b2"
+FOREIGN KEY ("orders_id")
+  REFERENCES "orders" ("id")
+)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE  INDEX  "index_order_items_on_items_id" ON "order_items"  ("items_id")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE  INDEX  "index_order_items_on_orders_id" ON "order_items"  ("orders_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170530075826"]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateChildOrders (20170530075902)
+  [1m[35m (6.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "child_orders" ("id" serial primary key, "orders_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_2688155860"
+FOREIGN KEY ("orders_id")
+  REFERENCES "orders" ("id")
+)[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE  INDEX  "index_child_orders_on_orders_id" ON "child_orders"  ("orders_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170530075902"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-30 08:03:23.998448"], ["updated_at", "2017-05-30 08:03:23.998448"]]
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(1387794601620059115)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (6.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
