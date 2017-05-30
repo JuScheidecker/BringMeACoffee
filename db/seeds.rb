@@ -1,3 +1,4 @@
+
 #------.destroy_all----#
 OrderItem.destroy_all
 ChildOrder.destroy_all
@@ -19,7 +20,7 @@ vincent =  User.create!(
 romain =  User.create!(
   first_name:'Romain',
   last_name: ' Despature',
-  email:'rdespature @gmail.com',
+  email:'rdespature@gmail.com',
   phone: '0622222222',
   delivery_address: '165 Avenue de Bretagne, lille',
   password: '123456'
@@ -46,12 +47,12 @@ juliette =  User.create!(
 #------SEED de SHOPS-----#
 sogood = Shop.create!(
   name:'So Good',
-  delivery_address: '163 Avenue de Bretagne, Lille'
+  address: '163 Avenue de Bretagne, Lille'
   )
 
 classcroute = Shop.create!(
   name:'Class croute',
-  delivery_address: '166 Avenue de Bretagne, Lille'
+  address: '166 Avenue de Bretagne, Lille'
   )
 
 #------SEED d' ITEM-----#
@@ -129,7 +130,7 @@ ChildOrder.create!(main_order: order3_confirmed_takeaway, order: order2_pending_
 #------SEED d' ORDER ITEM-----#
 OrderItem.create!(order: order1_pending_takeaway, item: latte_sogood)
 OrderItem.create!(order: order1_pending_takeaway, item: capuccino_sogood)
-OrderItem.create!(order: order1_confirmed_delivery, item: frappucino_sogood)
+OrderItem.create!(order: order1_pending_takeaway, item: frappucino_sogood)
 OrderItem.create!(order: order2_pending_delivery, item: expresso_classcroute)
 OrderItem.create!(order: order2_pending_delivery, item: theglace_classcroute)
 OrderItem.create!(order: order2_pending_delivery, item: infusion_classcroute)
