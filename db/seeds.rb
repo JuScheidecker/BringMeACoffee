@@ -9,38 +9,38 @@ User.destroy_all
 
 #------SEED de USERS-----#
 vincent =  User.create!(
-  #first_name:'Vincent',
-  #last_name: 'Textoris',
+  first_name:'Vincent',
+  last_name: 'Textoris',
   email:'vincent.textoris@gmail.com',
-  #phone: '0611111111',
-  #delivery_address: '2 avenue des saules, lille',
+  phone: '0611111111',
+  delivery_address: '2 avenue des saules, lille',
   password: '123456'
   )
 
 romain =  User.create!(
-  #first_name:'Romain',
-  #last_name: ' Despature',
+  first_name:'Romain',
+  last_name: ' Despature',
   email:'rdespature@gmail.com',
-  #phone: '0622222222',
-  #delivery_address: '165 Avenue de Bretagne, lille',
+  phone: '0622222222',
+  delivery_address: '165 Avenue de Bretagne, lille',
   password: '123456'
   )
 
 manuel =  User.create!(
-  #first_name:'Manuel',
-  #last_name: 'Sabine',
+  first_name:'Manuel',
+  last_name: 'Sabine',
   email:'manuel.sabine@gmail.com',
-  #phone: '0633333333',
-  #delivery_address: '2 Allée de la haye du temple, lomme',
+  phone: '0633333333',
+  delivery_address: '2 Allée de la haye du temple, lomme',
   password: '123456'
   )
 
 juliette =  User.create!(
-  #first_name:'Juliette',
-  #last_name: 'Scheidecker ',
+  first_name:'Juliette',
+  last_name: 'Scheidecker ',
   email:'juscheidecker@gmail.com',
-  #phone: '0644444444',
-  #delivery_address: '124 Avenue de Bretagne, lille',
+  phone: '0644444444',
+  delivery_address: '124 Avenue de Bretagne, lille',
   password: '123456'
   )
 
