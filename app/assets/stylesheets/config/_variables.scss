@@ -3,8 +3,11 @@
  * ------------------------------------- */
 // Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
-$base-font: "Open Sans", "Helvetica", "sans-serif";
-$header-font: "Raleway", "Helvetica", "sans-serif";
+@import url(http://fonts.googleapis.com/css?family=Dancing+Script:700); // Romain 30.05-16h18
+@import url(http://fonts.googleapis.com/css?family=Crimson+Text:400,600,700,400italic); // Romain 30.05-16h22
+
+$base-font: "Dancing Script", "Open Sans", "Helvetica", "sans-serif";
+$header-font: "Crimson Text","Raleway", "Helvetica", "sans-serif";
 
 // Local fonts (uncomment following lines)
 // @font-face {
