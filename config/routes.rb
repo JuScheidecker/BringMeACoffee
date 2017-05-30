@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'shops/index'
+
+  get 'shops/show'
+
   devise_for :users
 
   resources :shops, only: [:index, :show]
