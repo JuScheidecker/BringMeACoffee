@@ -1,9 +1,38 @@
-<h3><%= @shop.name %></h3>
-<p><%= @shop.address %></p>
-<% @shop.items.each do |item| %>
-  <p>Name : <%= item.name %></p>
-  <p>Description : <%= item.description %></p>
-  <p>Price (€) : <%= item.price %></p>
-<% end %>
+<div class='container'>
+  <div class='row'>
+    <h3 class="module-title"><%= "Coffee's from" + ' ' + @shop.name %></h3>
+    <% @shop.items.each do |item| %>
+    <div class="col-sm-3">
+      <div class="menu-classic">
+        <figure class="overlay">
+          <%= image_tag('cappucino.jpg') %>
+            <div class="col-sm-9">
+            <h4 class='menu-title'><%= item.name %></h4>
+            </div>
+            <div class="col-sm-3">
+            <h4 class='menu-price'><%= item.price.to_s + '€' %></h4>
+            </div>
+        </figure>
+      </div>
+    </div>
+    <% end %>
+  </div>
 
+  </br>
+  </br>
+
+  <div class="row">
+    <div class="col-sm-4">
+    <h3 class="module-title"><%= @shop.name %></h3>
+    <p class='menu-detail'><%= @shop.address %></p>
+    </div>
+    <div class="col-sm-8">
+      <div id="map">
+      <h4>Placeholder map</h4>
+      </div>
+    </div>
+
+  </div>
+
+</div>
 
