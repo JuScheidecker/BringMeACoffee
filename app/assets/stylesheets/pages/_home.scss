@@ -5,3 +5,18 @@
 
 
 
+.flex-align-3{
+width:100%;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-content:center;
+  margin:auto 0;
+    padding:0;
+}
+
+.flex-align-3-item{
+  min-width:260px;
+  width:25%;
+  margin:20px;
+}
