@@ -1,10 +1,14 @@
+<%= session[:carts].inspect %>
+
 <h3><%= @shop.name %></h3>
 <p><%= @shop.address %></p>
+<% @order %>
 <% @shop.items.each do |item| %>
   <p>Name : <%= item.name %></p>
   <p>Description : <%= item.description %></p>
   <p>Price (€) : <%= item.price %></p>
-  <%= link_to 'Add to cart', cart_path %>
+  <%= link_to 'Add to cart', add_to_cart_shop_path(@shop, item_id: item.id) %>
+
   <br>
 <% end %>
 
