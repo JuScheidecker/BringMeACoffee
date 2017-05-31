@@ -1,0 +1,79 @@
+<h1>Your Cart</h1>
+
+  <% @order %>
+  <!-- METHODS A COMPLETER POUR AFFICHER LES INFOS -->
+
+<div> <!-- Container YOUR ORDER RECAP / UPPER VIEW PART -->
+  <div><h3>YOUR ORDER LIST :</h3></div>
+
+  <div> <!-- List of order_items / card by card -->
+    <div> <!-- EXEMPLE DE CARD A EACHER -->
+      <div> <!-- card upper part -->
+        <%= 'item_picture' %>
+        <div><%= 'item_name' %></div>
+        <div><%= 'item_price_to_s' %></div>
+      </div>
+      <div> <!-- card lower part -->
+        <div><%= 'item_quantity_to_s' %></div>
+        <div><%= 'item_total_priceXquantity' %></div>
+      </div>
+    </div>
+  </div>
+
+  <div> <!-- Add ons -->
+    <div><%= link_to 'Back to Coffee shop', shop_path(7) %></div> <!-- path a updaté -->
+    <div><%= 'Total amount :' 'sum_of_item_prices' %></div>
+  </div>
+
+</div>
+
+<div> <!-- Container DELIVERY METHOD CHOICE / LOWER VIEW PART -->
+  <div><h3>SELECT YOUR DELIVERY METHOD</h3></div>
+  <div>
+    <div>
+      <%= 'take_away_picture' %> <!-- if selected Afficher div Pending_orders -->
+      <div><p>Meet the barista</p></div>
+    </div>
+    <div>
+      <%= 'delivery_picture' %>
+      <div><p>Meet the delivery guy</p></div> <!-- else -->
+    </div>
+  </div>
+  <div> <!-- affichage seulement si take_away_picture selected -->
+    <div><h3>CHOOSE AN ORDER TO DELIVER</h3></div>
+    <div> <!-- IF - EXEMPLE DE CHILDORDER CARD A EACHER (MAX 3) -->
+      <div><!-- bloc list -->
+        <div>ORDER INFO
+          <h4>Order n°<%= @Order.id %></h4></div>
+        <div>
+          <h4>Items list :</h4>
+          <!-- Set order_item list -->
+          <% @orderitem = OrderItem.all %>
+          <!-- Iteration on each order_item -->
+          <% @orderitem.each do |order_item| %>
+          <!-- Condition same order n° -->
+            <% if @Order.id == order_item.order_id %>
+              <% @item = Item.find(order_item.item_id) %>
+              <p><%= @item.name + '-' + @item.price.to_s + '€' + ' - ' + 'item_order_qty' %></p>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div>MAP<!-- bloc map direction --></div>
+
+      <div>SELECT DELIVERY ORDER <!-- need css --></div>
+
+    </div>
+    <div> <!-- ELSE  -->
+      SORRY, NOTHING TO DELIVER FOR NOW
+    </div>
+
+  </div>
+  <div><h3><%= link_to 'ORDER_VALIDATION_BUTTON', 'order_validate_path' %></h3></div>
+</div>
+
+
+
+
+
