@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 ruby '2.3.3'
 
@@ -10,7 +11,7 @@ gem 'devise'
 gem 'redis'
 
 gem 'sass-rails'
-#gem 'jquery-rails'  According to Martin (video on WrapBootstrap Integration) we need to switch this gem off here
+gem 'jquery-rails'  #According to Martin (video on WrapBootstrap Integration) we need to switch this gem off here
 gem 'uglifier'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'

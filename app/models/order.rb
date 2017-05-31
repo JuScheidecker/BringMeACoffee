@@ -11,6 +11,10 @@ class Order < ApplicationRecord
   def main_order
     main_orders.first
   end
+
+  def total_price
+    self.order_items.map {|x| x.item.price}.reduce(:+)
+  end
 end
 
 
