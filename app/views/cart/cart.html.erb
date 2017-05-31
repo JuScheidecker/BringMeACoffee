@@ -1,0 +1,14 @@
+<h1>Cart</h1>
+
+<!-- Set order_item list -->
+<% @orderitem = OrderItem.all %>
+<!-- Iteration on each order_item -->
+<% @orderitem.each do |order_item| %>
+<!-- Condition same order n° -->
+  <% if @Order.id == order_item.order_id %>
+    <% @item = Item.find(order_item.item_id) %>
+    <h2><%= @item.name + '-' + @item.price.to_s + '€' %></h2>
+    <p><%= @item.description %></p>
+  <% end %>
+<% end %>
+
