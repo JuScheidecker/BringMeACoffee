@@ -5,5 +5,7 @@ class OrdersController < ApplicationController
 
   def show
     @Order = Order.find(params[:id])
+    # A setting orderitem pour le show des child_orders
+    @orderitem = @Order.orders.first.order_items if @Order.orders.first
   end
 end

@@ -1,5 +1,22 @@
-<% @shops.each do |shop| %>
-  <h2><%= shop.name %></h2>
-  <p><%= shop.address %></p>
+<div class='container'>
+  <div class='row'>
 
-<% end %>
+    <div class="col-sm-6">
+      <% @shops.each do |shop| %>
+      <div class="col-sm-6">
+        <figure class="overlay">
+          <%= image_tag('shop.jpg') %>
+          <h4 class='menu-title'><%= shop.name %></h4>
+        </figure>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="col-sm-6">
+      <div class='map'>
+        <h4>Placeholder map</h4>
+      </div>
+    </div>
+  </div>
+
+</div>
