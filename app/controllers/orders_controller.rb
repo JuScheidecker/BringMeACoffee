@@ -6,4 +6,12 @@ class OrdersController < ApplicationController
   def show
     @Order = Order.find(params[:id])
   end
+
+  def cart
+    @Order = Order.new
+  end
+
+  def validate
+  end
+
 end
