@@ -1,15 +1,5 @@
 <h1>Orders#show</h1>
 
-<% @orderitem = OrderItem.all %>
-<% @orderitem.each do |order_item| %>
-  <% if @Order.id == order_item.order_id %>
-    <% @item = Item.find(order_item.item_id) %>
-    <h2><%= @item.name + '-' + @item.price.to_s + '€' %></h2>
-    <p><%= @item.description %></p>
-  <% end %>
-<% end %>
-
-
 
 
 
