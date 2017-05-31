@@ -1,6 +1,5 @@
-<%= session[:carts].inspect %>
-
 <h3><%= @shop.name %></h3>
+<p><%= link_to 'Back to list', shops_path %></p>
 <p><%= @shop.address %></p>
 <% @order %>
 <% @shop.items.each do |item| %>
@@ -11,5 +10,6 @@
 
   <br>
 <% end %>
+<h4><%= link_to 'Check my cart', cart_shop_path(@shop.id) %></h4>
 
 

@@ -6,14 +6,12 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    reset_cart
+    reset_cart(params[:id])
   end
 
   private
 
-  def reset_cart
-    session[:carts].each do |id, _|
-      session[:carts][id] = {} unless id == params[:id]
-    end
+  def reset_cart(id)
+    session[:carts] = {} unless id == session[:carts].keys.first.to_s
   end
 end

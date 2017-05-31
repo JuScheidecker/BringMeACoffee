@@ -20,6 +20,10 @@ class OrdersController < ApplicationController
 
   def cart
     session[:carts]
+    @shop = Shop.find(session[:carts].keys.first.to_i)
+
+    @item_data = session[:carts][params[:id]].to_a
+
 
     respond_to do |format|
       format.html { render 'orders/cart'}
