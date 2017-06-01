@@ -1,0 +1,85 @@
+<h1>Your Cart</h1>
+  <!-- METHODS A COMPLETER POUR AFFICHER LES INFOS -->
+
+<div class='container'> <!-- Container YOUR ORDER RECAP / UPPER VIEW PART -->
+  <div class ='row text-center'><h3>YOUR ORDER LIST FROM <%= @shop.name %> </h3></div>
+
+  <div class ='row text-center'>
+    <% @total = 0 %>
+    <% @item_data.each do |k, v| %>
+
+      <div class='col-sm-3 position_relative'>
+
+        <div class='col-sm-12 position_relative'>
+          <%= image_tag 'test_cart_vincent.png' %>
+          <span class='col-sm-9 bottom_left'><%= Item.find(k.to_i).name %></span>
+          <span class='col-sm-3 bottom_right'><%= Item.find(k.to_i).price.round(2).to_s + '€' %></span>
+        </div>
+
+        <div class='col-sm-12 position_relative'>
+          <span class='col-sm-6'><%= 'Qty : ' + v.to_s %></span>
+          <span class='col-sm-6'><%= 'Total : ' + (Item.find(k.to_i).price * v).round(2).to_s + '€' %></span>
+        </div>
+
+      </div>
+
+      <% @total += (Item.find(k.to_i).price * v) %>
+    <% end %>
+  </div>
+
+    <div class ='row'> <!-- Add ons -->
+      <div class='col-md-6 text-center'><%= link_to 'Back to Coffee shop', shop_path(@shop.id) %></div> <!-- path a updaté -->
+      <div class='col-md-6 text-center'><%= 'Total amount : ' + @total.round(2).to_s + '€' %></div>
+    </div>
+</div>
+
+<div class='container'> <!-- Container DELIVERY METHOD CHOICE / LOWER VIEW PART -->
+  <div class ='row text-center'><h3>SELECT YOUR DELIVERY METHOD</h3></div>
+  <div class ='row'>
+    <div class= 'col-md-6 position_relative'>
+      <%= image_tag 'barista_test_cart.jpg' %> <!-- if selected Afficher div Pending_orders -->
+     <span class='delivery_bottom'>Meet the barista</span>
+    </div>
+    <div class= 'col-md-6 position_relative'>
+      <%= image_tag 'delivery_guy_test.jpg' %>
+      <span class='delivery_bottom'>Meet the delivery guy</span> <!-- else -->
+    </div>
+  </div>
+  <div class ='row'> <!-- affichage seulement si take_away_picture selected -->
+    <div class='text-center'><h3>CHOOSE AN ORDER TO DELIVER</h3></div>
+    <div> <!-- IF - EXEMPLE DE CHILDORDER CARD A EACHER (MAX 3) -->
+      <div><!-- bloc list -->
+        <div>ORDER INFO
+          <h4>Order n°<%= 'Order_id' %></h4></div>
+        <div>
+          <h4>Items list :</h4>
+          <!-- Set order_item list -->
+          <% @orderitem = OrderItem.all %>
+          <!-- Iteration on each order_item -->
+          <% @orderitem.each do |order_item| %>
+          <!-- Condition same order n° -->
+            <% if '@Order.id' == order_item.order_id %>
+              <% @item = Item.find(order_item.item_id) %>
+              <p><%= @item.name + '-' + @item.price.to_s + '€' + ' - ' + 'item_order_qty' %></p>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div>MAP<!-- bloc map direction --></div>
+
+      <div>SELECT DELIVERY ORDER <!-- need css --></div>
+
+    </div>
+    <div> <!-- ELSE  -->
+      SORRY, NOTHING TO DELIVER FOR NOW
+    </div>
+
+  </div>
+  <div class ='row text-center'><h3><%= link_to 'ORDER_VALIDATION_BUTTON', 'order_validate_path' %></h3></div>
+</div>
+
+
+
+
+

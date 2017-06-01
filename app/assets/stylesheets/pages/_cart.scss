@@ -1,0 +1,30 @@
+.position_relative {
+  position: relative;
+}
+
+.bottom_left {
+  position: absolute;
+  top: 120px;
+  left: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.bottom_right {
+  position: absolute;
+  top: 120px;
+  right: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.delivery_bottom {
+  position: absolute;
+  bottom: 15px;
+  left: 40px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
