@@ -51,8 +51,10 @@
   </head>
   <body>
     <%= render 'shared/flashes' %>
-    <%= render 'shared/logged_navbar' %>
-    <%= yield %>
+    <%= render 'shared/home_navbar' %>
+    <main class="min-heightfull">
+      <%= yield %>
+    </main>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <!-- FROM WRAPBOOTSTRAP THEME LEAF -->
