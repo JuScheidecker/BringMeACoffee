@@ -9,3 +9,7 @@
 # production:
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+
+CLOUDINARY_URL: "cloudinary://336424197839693:IRQ563aQ_zDy-n097pMMR06LbHI@dqzbzynrl"
+GOOGLE_API_SERVER_KEY: "AIzaSyBHtslNL2IV_VmSpgaxj-qNf2_AL8dT-fc"
+GOOGLE_PLACES_WEBSERVICE_API_KEY: AIzaSyDGrVO35Q7qAbisPXaTeyLh63bcxgRX43o
