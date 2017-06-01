@@ -3,8 +3,6 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
-
-
 .flex-align-3{
 width:100%;
   display:flex;
@@ -19,4 +17,9 @@ width:100%;
   min-width:260px;
   width:25%;
   margin:20px;
+}
+
+
+.flex-align-3-height{
+  height:100%;
 }
