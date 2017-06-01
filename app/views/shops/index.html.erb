@@ -3,12 +3,14 @@
 
     <div class="col-sm-6">
       <% @shops.each do |shop| %>
+      <%= link_to shop_path(shop.id) do %>
       <div class="col-sm-6">
         <figure class="overlay">
           <%= image_tag('shop.jpg') %>
           <h4 class='menu-title'><%= shop.name %></h4>
         </figure>
       </div>
+      <% end %>
       <% end %>
     </div>
 
