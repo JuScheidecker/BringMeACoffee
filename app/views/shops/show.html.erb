@@ -1,15 +1,42 @@
-<h3><%= @shop.name %></h3>
-<p><%= link_to 'Back to list', shops_path %></p>
-<p><%= @shop.address %></p>
-<% @order %>
-<% @shop.items.each do |item| %>
-  <p>Name : <%= item.name %></p>
-  <p>Description : <%= item.description %></p>
-  <p>Price (€) : <%= item.price %></p>
-  <%= link_to 'Add to cart', add_to_cart_shop_path(@shop, item_id: item.id) %>
 
-  <br>
-<% end %>
-<h4><%= link_to 'Check my cart', cart_shop_path(@shop.id) %></h4>
+<div class='container'>
+  <div class='row'>
+    <h3 class="module-title"><%= "Coffee's from" + ' ' + @shop.name %></h3>
+    <p><%= link_to 'Back to list', shops_path %></p>
+    <% @shop.items.each do |item| %>
+    <div class="col-sm-3">
+      <div class="menu-classic">
+        <figure class="overlay">
+          <%= image_tag('cappucino.jpg') %>
+            <div class="col-sm-9">
+            <h4 class='menu-title'><%= item.name %></h4>
+            </div>
+            <div class="col-sm-3">
+            <h4 class='menu-price'><%= item.price.to_s + '€' %></h4>
+             <%= link_to 'Add to cart', add_to_cart_shop_path(@shop, item_id: item.id) %>
+            </div>
+        </figure>
+      </div>
+    </div>
+    <% end %>
+    <h4><%= link_to 'Check my cart', cart_shop_path(@shop.id) %></h4>
+  </div>
 
+
+  </br>
+  </br>
+
+  <div class="row">
+    <div class="col-sm-4">
+    <h3 class="module-title"><%= @shop.name %></h3>
+    <p class='menu-detail'><%= @shop.address %></p>
+    </div>
+    <div class="col-sm-8">
+      <div id="map">
+      <h4>Placeholder map</h4>
+      </div>
+    </div>
+  </div>
+
+</div>
 

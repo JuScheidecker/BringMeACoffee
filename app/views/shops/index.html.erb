@@ -1,5 +1,26 @@
-<% @shops.each do |shop| %>
-  <h2><%= link_to shop.name, shop_path(shop.id) %></h2>
-  <p><%= shop.address %></p>
 
-<% end %>
+<div class='container'>
+  <div class='row'>
+
+
+    <div class="col-sm-6">
+      <% @shops.each do |shop| %>
+      <%= link_to shop_path(shop.id) do %>
+      <div class="col-sm-6">
+        <figure class="overlay">
+          <%= image_tag('shop.jpg') %>
+          <h4 class='menu-title'><%= shop.name %></h4>
+        </figure>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+
+    <div class="col-sm-6">
+      <div class='map'>
+        <h4>Placeholder map</h4>
+      </div>
+    </div>
+  </div>
+
+</div>
