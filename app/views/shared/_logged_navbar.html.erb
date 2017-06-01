@@ -15,6 +15,9 @@
     <div class="collapse navbar-collapse" id="custom-collapse">
       <div class="nav navbar-nav navbar-right">
 
+      <% if user_signed_in? %>
+
+        <!-- Logged Navbar -->
         <div class="dropdown">
           <%= link_to '#', class: "dropdown", 'data-toggle' => "dropdown" do %>
 
@@ -23,10 +26,27 @@
 
             <ul class="dropdown-menu" role="menu">
               <li><a href="#">Profile</a></li>
-              <li><%= link_to 'Log out' %></li>
+              <li>
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+              </li>
             </ul>
-
         </div>
+        <!-- end Logged Navbar -->
+
+      <% else %>
+
+        <!-- Home Navbar -->
+        <ul class="nav navbar-nav navbar-right">
+          <li class="page-scroll"><a href="#home">Home</a></li>
+          <li class="page-scroll"><a href="#services">How it works</a></li>
+          <li class="page-scroll"><a href="#dishes">Gallerie</a></li>
+          <li class="page-scroll">
+            <%= link_to 'Login', new_user_session_path, class: 'login-btn' %>
+          </li>
+        </ul>
+        <!-- Home Navbar -->
+
+      <% end %>
 
       </div>
     </div>
