@@ -37,18 +37,21 @@
         <p class='menu-detail'><%= 'shop.address' %></p>
       </div>
 
-      <div class='delivery' >
-        <!-- Set condition to display delivery guy -->
-        <% if @Order.delivery_type == true %>
-        <% if @Order.main_orders.first %>
-        <% @user = @Order.main_orders.first.user.first_name %>
-        <% @user_phone = @Order.main_orders.first.user.phone %>
-        <h3 class="module-title">You'll be delivered by : <%= @user + ' - ' + @user_phone %></h3>
-        <% end %>
-        <% end %>
-      </div>
     </div>
   </div>
+
+      <div class='delivery' >
+        <div class='title'>
+          <!-- Set condition to display delivery guy -->
+          <% if @Order.delivery_type == true %>
+          <% if @Order.main_orders.first %>
+          <% @user = @Order.main_orders.first.user.first_name %>
+          <% @user_phone = @Order.main_orders.first.user.phone %>
+          <h3 class="module-title">You'll be delivered by : <%= @user + ' - ' + @user_phone %></h3>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
   <!-- Set condition to display child-order -->
 
   <div class="row">
