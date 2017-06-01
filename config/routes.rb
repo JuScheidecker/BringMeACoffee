@@ -15,8 +15,7 @@ devise_for :users
     resources :order_items, only: [:create, :destroy]
     post 'validate', to: 'orders#validate'
   end
-
-
+  get '/profile', to: 'orders#index', as: 'profile'
 
   root to: 'pages#home'
 end
