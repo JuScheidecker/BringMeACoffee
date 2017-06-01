@@ -66,7 +66,6 @@
     <div> <!-- PRENDRE EN COMPTE LE STATUT PENDING !!!!! -->
 
       <% @total_orders = 0 %>
-
       <% @orders.each do |order| %>
         <% if order.order_items.first.item.shop_id == @shop.id && order.status == true %>
         <% @total_orders += 1 %>
