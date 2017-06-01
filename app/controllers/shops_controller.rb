@@ -6,7 +6,7 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    reset_cart(params[:id])
+    reset_cart(params[:id]) unless session[:carts] == nil
   end
 
   private
