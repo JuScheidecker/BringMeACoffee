@@ -73,13 +73,13 @@
           <% @orderitem.each do |order_item| %>
           <!-- Condition same order n° -->
           <% if @child_order.first.id == @Order.orders.first.id %>
-          <div class="col-sm-8">
-          <h4 class='menu-title'><%= order_item.item.name %></h4>
-          <p class='menu-detail'><%= order_item.item.description %></p>
-          </div>
-          <div class="col-sm-4">
-          <h4 class='menu-price'><%= order_item.item.price.to_s + '€' %></h4>
-          </div>
+            <div class="col-sm-8">
+            <h4 class='menu-title'><%= order_item.item.name %></h4>
+            <p class='menu-detail'><%= order_item.item.description %></p>
+            </div>
+            <div class="col-sm-4">
+            <h4 class='menu-price'><%= order_item.item.price.to_s + '€' %></h4>
+            </div>
           <% end %>
           <% end %>
 
