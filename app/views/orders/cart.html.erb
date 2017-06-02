@@ -1,5 +1,5 @@
 <div class='container margin-top-page'> <!-- Container YOUR ORDER RECAP / UPPER VIEW PART -->
-  <div class ='row text-center'><h3>Your order list of items <%= @shop.name %> </h3></div>
+  <div class ='row text-center'><h3 class='module-title'>Your order list of items from <%= @shop.name %> </h3></div>
 
   <div class ='row text-center'>
     <% @total = 0 %>
@@ -24,7 +24,7 @@
     <% end %>
   </div>
 
-    <div class ='row'> <!-- Add ons -->
+    <div class ='row'> <!-- Add ons -->1
       <br>
       <div class='col-md-6 text-center'>
         <button class='btn btn-custom-1'>
@@ -34,8 +34,10 @@
       <div class='col-md-6 text-center'>
         <%= 'Total amount : ' + @total.round(2).to_s + '€' %>
       </div>
+
     </div>
 </div>
+
 
 <div class='container'> <!-- Container DELIVERY METHOD CHOICE / LOWER VIEW PART -->
   <br>
@@ -86,8 +88,11 @@
           <div class='col-md-6'><!-- bloc Map with direction -->
             <%= cl_image_tag ("directions_test_cart_ngvhih") %>
           </div>
-          <div class='col-md-2'>
-            <%= cl_image_tag ("icon_check_test_cart_ytybcy"), id:'select_order' %> <!-- bloc SELECT DELIVERY ORDER -->
+
+          <div class='col-md-2'><!-- select delivery button -->
+            <form>
+              <button id=<%= 'button_' + order.id.to_s %> style='border:none; background-color: white'><%= cl_image_tag ("icon_check_test_cart_ytybcy"), id:'select_order' %></button>
+            </form>
           </div>
         </div>
         <% end %>
@@ -107,7 +112,7 @@
   <!-- TODO # Method de validation / bouton à créer -->
   <div class ='row text-center'>
   <br>
-    <button type='button' class='btn btn-custom-3 btn-lg'><%= link_to 'ORDER_VALIDATION_BUTTON', 'order_validate_path' %></button>
+    <button type='button' class='btn btn-custom-3 btn-lg'><%= link_to 'CONFIRM ORDER(S)', order_path(10) %></button>
   </div>
   <br>
 </div>
@@ -116,5 +121,7 @@
 <% content_for :after_js do %>
   <%= javascript_include_tag 'cart.js' %>
 <%end%>
+
+
 
 
