@@ -176,4 +176,3 @@ OrderItem.create!(order: order8_pending_delivery, item: expresso_classcroute)
 OrderItem.create!(order: order8_pending_delivery, item: expresso_classcroute)
 OrderItem.create!(order: order8_pending_delivery, item: theglace_classcroute)
 OrderItem.create!(order: order8_pending_delivery, item: theglace_classcroute)
-
