@@ -1,5 +1,5 @@
 
-<div class='container'>
+<div class='container margin-top-page'>
   <div class='row'>
     <h3 class="module-title"><%= "Coffee's from" + ' ' + @shop.name %></h3>
     <p><%= link_to 'Back to list', shops_path %></p>
@@ -34,9 +34,7 @@
     <p class='menu-detail'><%= @shop.address %></p>
     </div>
     <div class="col-sm-8">
-      <div id="map">
-      <h4>Placeholder map</h4>
-      </div>
+      <%= render 'shop-show-map' %>
     </div>
   </div>
 

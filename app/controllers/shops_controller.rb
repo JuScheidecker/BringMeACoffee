@@ -1,12 +1,33 @@
 class ShopsController < ApplicationController
 
   def index
-    @shops = Shop.all
+    # shop geolocation set-up
+
+    if params[:address] != ""
+      @shops = Shop.near(params[:address], 0.5)
+    else
+      @shops = Shop.where.not(latitude: nil, longitude: nil)
+    end
+
+
+    @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
+      marker.lat shop.latitude
+      marker.lng shop.longitude
+      marker.infowindow render_to_string(partial: "/shops/map_box", locals: { shop: shop })
+    end
   end
 
   def show
     @shop = Shop.find(params[:id])
     reset_cart(params[:id]) unless session[:carts] == nil
+
+    # shop geolocation set-up
+    @shop_coordinates = { lat: @shop.latitude, lng: @shop.longitude }
+
+    @hash = Gmaps4rails.build_markers(@shop) do |shop, marker|
+      marker.lat shop.latitude
+      marker.lng shop.longitude
+    end
   end
 
   private
