@@ -57,42 +57,42 @@
     </div>
   </div>
 
-  <div id='pending_orders' style='display: none'>
+  <div class='row' id='pending_orders' style='display: none'>
       <br>
     <div class='text-center'>
       <h3 class='module-title'>CHOOSE AN ORDER TO DELIVER</h3>
     </div>
 
-    <div> <!-- PRENDRE EN COMPTE LE STATUT PENDING !!!!! -->
+    <div class='child col-md-offset-2 col-md-8'> <!-- PRENDRE EN COMPTE LE STATUT PENDING !!!!! -->
 
       <% @total_orders = 0 %>
       <% @orders.each do |order| %>
         <% if order.order_items.first.item.shop_id == @shop.id && order.status == true %>
         <% @total_orders += 1 %>
-          <div><!-- bloc list -->
-            <div>ORDER INFO
+          <div class='col-md-3'><!-- bloc Item list -->
+            <div>
               <h4>Order n°<%= order.id %></h4>
             </div>
-            <div>
+            <div >
               <h4>Items list :</h4>
               <% order.order_items.each do |order_item| %>
-                <p><%= order_item.item.name + ' - ' + order_item.item.price.to_s + '€' %></p> <!-- Set order_item list -->
+                <p><%= order_item.item.name + ' - ' + order_item.item.price.to_s + '€' %></p>
               <% end %>
             </div>
-            <div>
-              MAP<!-- bloc map direction -->
-            </div>
-            <div>
-              SELECT DELIVERY ORDER <!-- need css -->
-            </div>
+          </div>
+          <div class='col-md-7'><!-- bloc Map with direction -->
+            <%= image_tag 'directions_test_cart.png' %>
+          </div>
+          <div class='col-md-2'>
+            <%= image_tag 'icon_check_test_cart.png' %> <!-- bloc SELECT DELIVERY ORDER -->
           </div>
         <% end %>
       <% end %>
-
-
+    </div>
+    <div>
       <% if @total_orders == 0 %>
         <div>
-          SORRY, NOTHING TO DELIVER FOR NOW,
+          <h3>Thanks but no ones needs a delivery right now.</h3>
         </div>
       <% end %>
     </div>

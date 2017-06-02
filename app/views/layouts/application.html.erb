@@ -56,7 +56,6 @@
       <%= yield %>
     </main>
     <%= render 'shared/footer' %>
-    <%= javascript_include_tag 'application' %>
     <!-- FROM WRAPBOOTSTRAP THEME LEAF -->
     <!-- Javascript files -->
     <script src="/theme/js/jquery-1.11.1.min.js"></script>
@@ -91,5 +90,6 @@
     <!-- Custom scripts -->
     <script src="/theme/js/custom.js"></script>
     <!-- END OF WRAPBOOTSTRAP THEME LEAF -->
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>
