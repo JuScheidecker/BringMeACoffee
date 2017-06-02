@@ -1,17 +1,4 @@
 
- <div class="row">
-
-<div class="col-sm-10 col-sm-offset-1">
-
-<div class="container margin-top-page">
-
-
-  <div class="row">
-      <div class="col-sm-6-offset-3">
-        <div class="module-header">
-          <h2 class= "module-title" >My Profile (order#index)</h2>
-
-
 <div class="container margin-top-page">
 
  <div class="row">
@@ -20,7 +7,6 @@
         <div class="module-header" style="margin: 20px;">
           <h2 class= "module-title" >My Profile</h2>
           <h2 class="module-subtitle"> All my data </h2>
-
         </div>
       </div>
     </div>
@@ -51,40 +37,10 @@
                     <%= link_to "Edit my profile",edit_user_registration_path, class: 'btn btn-custom-1'%>
                   </div>
                 </div>
-
               </div>
           </div>
         </div>
       </div>
-
-    </div>
-  </section>
-
-  <div class="col-sm-12">
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-custom-1'%>
-  </div>
-
-  <h2>My previous orders </h2>
-  <% @orders.each do |order| %>
-    <h3>Order n°: <%= link_to order.id, order_path(order) %></h3>
-    <p>Order from: <%= order.user.first_name + ' ' + order.user.last_name %> </p>
-    <p>Order date: <%= order.updated_at.to_formatted_s(:long) %></p>
-    <p>Order status: <%= order.status %></p>
-    <p>Order delivery type : <%= order.delivery_type %></p>
-    <p>Total amount: <%=order.total_price%>€</p>
-
-    <% if order.orders.first%>
-      <p>Associated Child Order is Order n°: <%= link_to order.orders.first.id, order_path(order.orders.first.id) %></p>
-    <% elsif order.main_orders.first %>
-      <p> Associated main Order is Order n°: <%= link_to order.main_orders.first.id, order_path( order.main_orders.first.id) %></p>
-    <% else %>
-    <p> <em>No associated order</em></p>
-    <% end %>
-
-  <% end %>
-
-</div>
-
     </section>
 
     <section class="module" style="padding: 10px 0;">
@@ -134,4 +90,3 @@
     </section>
   </div>
 </div>
-
