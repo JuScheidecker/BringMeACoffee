@@ -9,13 +9,15 @@
         <figure class="overlay">
           <%= image_tag('cappucino.jpg') %>
             <div class="col-sm-9">
-            <h4 class='menu-title'><%= item.name %></h4>
+              <h4 class='menu-title'><%= item.name %></h4>
             </div>
             <div class="col-sm-3">
-            <h4 class='menu-price'><%= item.price.to_s + '€' %></h4>
-             <%= link_to 'Add to cart', add_to_cart_shop_path(@shop, item_id: item.id) %>
+              <h4 class='menu-price'><%= item.price.to_s + '€' %></h4>
             </div>
         </figure>
+          <div>
+            <h4><%= link_to 'Add', add_to_cart_shop_path(@shop, item_id: item.id) %></h4>
+          </div>
       </div>
     </div>
     <% end %>
