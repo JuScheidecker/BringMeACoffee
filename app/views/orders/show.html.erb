@@ -1,5 +1,5 @@
 
-<div class='container'>
+<div class='container margin-top-page'>
   <div class="title">
     <h3 class="module-title">Your order n°<%= @Order.id %></h3>
   </div>
@@ -28,8 +28,10 @@
 
     <!-- A compléter-->
     <div class="col-sm-6">
-      <div class='shop photo' >
-        <h4>Placeholder shop photo</h4>
+      <div class='shop'>
+        <figure class="overlay">
+        <%= image_tag('cappucino.jpg') %>
+        </figure>
       </div>
 
       <div class='shop description'>
@@ -38,7 +40,7 @@
       </div>
 
     </div>
-  </div>
+
 
       <div class='delivery' >
         <div class='title'>
@@ -52,8 +54,9 @@
           <% end %>
         </div>
       </div>
-  <!-- Set condition to display child-order -->
+    </div>
 
+  <!-- Set condition to display child-order -->
   <div class="row">
     <% if @Order.orders.first nil? %>
     <div class='child-order'>
@@ -86,18 +89,18 @@
         </div>
       </div>
 
-      <div class='right-side'>
-        <div class='map' >
-          <h4>Placeholder map</h4>
-        </div>
-        <!-- A compléter-->
-        <div class='shop description'>
+      <div class="col-sm-6">
+        <div class='map'>
+          <%= render 'order-show-map' %>
           <h4 class='menu-title'><%= 'shop.name' %></h4>
           <p class='menu-detail'><%= 'shop.address' %></p>
         </div>
+        <!-- A compléter-->
 
-        <div class='amount'>
 
+
+        <div class="col-sm-4">
+        < placeholder amount >
         </div>
       </div>
 
