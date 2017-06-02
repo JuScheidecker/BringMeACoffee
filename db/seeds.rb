@@ -127,17 +127,53 @@ order4_pending_delivery = Order.create!(
   delivery_type: true # delivery
   )
 
+order5_pending_delivery = Order.create!(
+  user: romain,
+  status: true, #pending
+  delivery_type: true # delivery
+  )
+
+order6_pending_delivery = Order.create!(
+  user: vincent,
+  status: true, #pending
+  delivery_type: true # delivery
+  )
+
+order7_pending_delivery = Order.create!(
+  user: manuel,
+  status: true, #pending
+  delivery_type: true # delivery
+  )
+
+order8_pending_delivery = Order.create!(
+  user: juliette,
+  status: true, #pending
+  delivery_type: true # delivery
+  )
+
 #------SEED de CHILD ORDER-----#
 ChildOrder.create!(main_order: order1_confirmed_takeaway, order: order4_pending_delivery)
 # ChildOrder.create!(main_order: order3_confirmed_takeaway, order: order4_confirmed_delivery)
 
 #------SEED d' ORDER ITEM-----#
-OrderItem.create!(order: order1_pending_takeaway, item: latte_sogood)
-OrderItem.create!(order: order1_pending_takeaway, item: capuccino_sogood)
-OrderItem.create!(order: order1_pending_takeaway, item: frappucino_sogood)
-OrderItem.create!(order: order2_pending_delivery, item: expresso_classcroute)
-OrderItem.create!(order: order2_pending_delivery, item: theglace_classcroute)
-OrderItem.create!(order: order2_pending_delivery, item: infusion_classcroute)
-OrderItem.create!(order: order3_confirmed_takeaway, item: theglace_classcroute)
-OrderItem.create!(order: order4_confirmed_delivery, item: latte_sogood)
-OrderItem.create!(order: order4_confirmed_delivery, item: frappucino_sogood)
+OrderItem.create!(order: order1_confirmed_takeaway, item: latte_sogood)
+OrderItem.create!(order: order1_confirmed_takeaway, item: capuccino_sogood)
+OrderItem.create!(order: order1_confirmed_takeaway, item: frappucino_sogood)
+OrderItem.create!(order: order2_confirmed_delivery, item: expresso_classcroute)
+OrderItem.create!(order: order2_confirmed_delivery, item: theglace_classcroute)
+OrderItem.create!(order: order2_confirmed_delivery, item: infusion_classcroute)
+OrderItem.create!(order: order3_pending_takeaway, item: theglace_classcroute)
+OrderItem.create!(order: order4_pending_delivery, item: latte_sogood)
+OrderItem.create!(order: order4_pending_delivery, item: frappucino_sogood)
+OrderItem.create!(order: order5_pending_delivery, item: expresso_classcroute)
+OrderItem.create!(order: order5_pending_delivery, item: theglace_classcroute)
+OrderItem.create!(order: order5_pending_delivery, item: infusion_classcroute)
+OrderItem.create!(order: order6_pending_delivery, item: capuccino_sogood)
+OrderItem.create!(order: order6_pending_delivery, item: latte_sogood)
+OrderItem.create!(order: order7_pending_delivery, item: frappucino_sogood)
+OrderItem.create!(order: order7_pending_delivery, item: frappucino_sogood)
+OrderItem.create!(order: order8_pending_delivery, item: expresso_classcroute)
+OrderItem.create!(order: order8_pending_delivery, item: expresso_classcroute)
+OrderItem.create!(order: order8_pending_delivery, item: theglace_classcroute)
+OrderItem.create!(order: order8_pending_delivery, item: theglace_classcroute)
+
