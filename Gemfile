@@ -19,6 +19,9 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem "geocoder"
 
+
+gem 'cloudinary'
+
 gem "coffee-rails"
 gem "gmaps4rails"
 source 'https://rails-assets.org' do
