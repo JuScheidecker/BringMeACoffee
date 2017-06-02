@@ -16,7 +16,7 @@
 
         <!-- Iteration on each order_item -->
 
-        <% @total = 0 %>
+        <% @main_total = 0 %>
 
         <% @Order.order_items.each do |order_item| %>
 
@@ -25,21 +25,13 @@
         <% if @Order.id == order_item.order_id %>
 
         <% @item = Item.find(order_item.item_id) %>
-
         <div class="col-sm-8">
-
           <h4 class='menu-title'><%= @item.name %></h4>
-
           <p class='menu-detail'><%= @item.description %></p>
-
         </div>
-
         <div class="col-sm-4">
-
           <h4 class='menu-price'><%= @item.price.to_s + '€' %></h4>
-
-          <% @total += @item.price %>
-
+          <% @main_total += @item.price %>
         </div>
 
         <% end %>
@@ -50,7 +42,7 @@
 
       <div class="col-sm-6">
 
-        <h4 class='menu-price'>Total : <%= @total.to_s + '€'%></h4>
+        <h4 class='menu-price'>Total : <%= @main_total.to_s + '€'%></h4>
 
       </div>
 
@@ -87,15 +79,10 @@
         <% if @Order.delivery_type == true %>
 
         <% if @Order.main_orders.first %>
-
         <% @main_user = @Order.main_orders.first.user.first_name %>
-
         <% @main_user_phone = @Order.main_orders.first.user.phone %>
-
         <% @main_user_address = @Order.main_orders.first.user.delivery_address %>
-
         <h3 class="module-title">You'll be delivered by : <%= @main_user + ' - ' + @main_user_phone %></h3>
-
         <% end %>
 
         <% end %>
@@ -127,7 +114,6 @@
         <% @child_user_phone = @child_order.first.user.phone %>
 
         <h3 class="module-title">Your delivery for : <%= @child_user %> - Order n°<%= @child_order.first.id %></h3>
-
       </div>
 
       <div class="col-sm-6">
@@ -138,7 +124,7 @@
 
           <!-- Iteration on each order_item -->
 
-          <% @total = 0 %>
+          <% @child_total = 0 %>
 
           <% @orderitem.each do |order_item| %>
 
@@ -147,19 +133,12 @@
           <% if @child_order.first.id == @Order.orders.first.id %>
 
           <div class="col-sm-8">
-
             <h4 class='menu-title'><%= order_item.item.name %></h4>
-
             <p class='menu-detail'><%= order_item.item.description %></p>
-
           </div>
-
           <div class="col-sm-4">
-
             <h4 class='menu-price'><%= order_item.item.price.to_s + '€' %></h4>
-
-            <% @total += @item.price %>
-
+            <% @child_total += @item.price %>
           </div>
 
           <% end %>
@@ -170,9 +149,7 @@
 
         <div class="col-sm-6">
 
-          <h4 class='menu-price'>Total : <%= @total.to_s + '€'%></h4>
-
-          <% @total += @item.price %>
+          <h4 class='menu-price'>Total : <%= @child_total.to_s + '€'%></h4>
 
         </div>
 
@@ -196,6 +173,10 @@
 
       </div>
 
+    </div>
+
+    <div class="col-sm-6">
+      <h4 class='menu-price'>Total : <%= (@main_total + @child_total).to_s + '€'%></h4>
     </div>
 
     <% end %>
