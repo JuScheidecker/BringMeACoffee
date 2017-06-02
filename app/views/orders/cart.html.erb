@@ -1,5 +1,5 @@
 <div class='container margin-top-page'> <!-- Container YOUR ORDER RECAP / UPPER VIEW PART -->
-  <div class ='row text-center'><h3>YOUR ORDER LIST FROM <%= @shop.name %> </h3></div>
+  <div class ='row text-center'><h3>Your order list of items <%= @shop.name %> </h3></div>
 
   <div class ='row text-center'>
     <% @total = 0 %>
@@ -39,7 +39,7 @@
 
 <div class='container'> <!-- Container DELIVERY METHOD CHOICE / LOWER VIEW PART -->
   <br>
-  <div class ='row text-center'><h3 class='module-title'>SELECT YOUR DELIVERY METHOD</h3></div>
+  <div class ='row text-center'><h3 class='module-title'>Select your delivery method</h3></div>
 
 
 
@@ -60,7 +60,7 @@
   <div class='row' id='pending_orders' style='display: none'>
       <br>
     <div class='text-center'>
-      <h3 class='module-title'>CHOOSE AN ORDER TO DELIVER</h3>
+      <h3 class='module-title'>Choose an order to deliver</h3>
     </div>
 
     <div class='child col-md-offset-2 col-md-8'> <!-- PRENDRE EN COMPTE LE STATUT PENDING !!!!! -->
@@ -84,7 +84,7 @@
             <%= image_tag 'directions_test_cart.png' %>
           </div>
           <div class='col-md-2'>
-            <%= image_tag 'icon_check_test_cart.png' %> <!-- bloc SELECT DELIVERY ORDER -->
+            <%= image_tag 'icon_check_test_cart.png', id:'select_order' %> <!-- bloc SELECT DELIVERY ORDER -->
           </div>
         <% end %>
       <% end %>
