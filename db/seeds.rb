@@ -47,12 +47,16 @@ juliette =  User.create!(
 #------SEED de SHOPS-----#
 sogood = Shop.create!(
   name:'So Good',
-  address: '163 Avenue de Bretagne, Lille'
+  address: '163 Avenue de Bretagne, Lille',
+  latitude: 50.634213,
+  longitude: 3.021055
   )
 
 classcroute = Shop.create!(
   name:'Class croute',
-  address: '166 Avenue de Bretagne, Lille'
+  address: '166 Avenue de Bretagne, Lille',
+  latitude: 50.634238,
+  longitude: 3.020883
   )
 
 #------SEED d' ITEM-----#
@@ -99,32 +103,32 @@ infusion_classcroute = Item.create!(
   )
 
 #------SEED d' ORDER-----#
-order1_pending_takeaway = Order.create!(
+order1_confirmed_takeaway = Order.create!(
   user: vincent,
-  status: false, #pending
+  status: false, #confirmed
   delivery_type: false #take away
   )
 
-order2_pending_delivery = Order.create!(
+order2_confirmed_delivery = Order.create!(
   user: romain,
-  status: false, #pending
+  status: false, #confirmed
   delivery_type: true # delivery
   )
 
-order3_confirmed_takeaway = Order.create!(
+order3_pending_takeaway = Order.create!(
   user: manuel,
-  status: true, #confirmed
+  status: true, #pending
   delivery_type: false #take away
   )
 
-order4_confirmed_delivery = Order.create!(
+order4_pending_delivery = Order.create!(
   user: juliette,
-  status: true, #confirmed
+  status: true, #pending
   delivery_type: true # delivery
   )
 
 #------SEED de CHILD ORDER-----#
-ChildOrder.create!(main_order: order3_confirmed_takeaway, order: order2_pending_delivery)
+ChildOrder.create!(main_order: order1_confirmed_takeaway, order: order4_pending_delivery)
 # ChildOrder.create!(main_order: order3_confirmed_takeaway, order: order4_confirmed_delivery)
 
 #------SEED d' ORDER ITEM-----#
