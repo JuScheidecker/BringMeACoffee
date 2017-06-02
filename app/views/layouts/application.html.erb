@@ -51,8 +51,12 @@
   </head>
   <body>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <%= render 'shared/home_navbar' %>
+    <main class="min-heightfull">
+      <%= yield %>
+    </main>
     <%= render 'shared/footer' %>
+    <%= javascript_include_tag 'application' %>
     <!-- FROM WRAPBOOTSTRAP THEME LEAF -->
     <!-- Javascript files -->
     <script src="/theme/js/jquery-1.11.1.min.js"></script>
@@ -81,8 +85,9 @@
     <script src="/theme/js/wow.min.js"></script>
 
     <!-- Custom scripts -->
-    <script src="theme/js/custom.js"></script>
+    <script src="/theme/js/custom.js"></script>
     <!-- END OF WRAPBOOTSTRAP THEME LEAF -->
+
 
     <!-- Google map scripts -->
     <script src="https://maps.google.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_PLACES_WEBSERVICE_API_KEY']%>"></script>
@@ -91,5 +96,6 @@
     <!-- <script src="theme/js/gmaps.js"></script> -->
     <%= javascript_include_tag 'application' %>
     <%= yield :after_js %>
+
   </body>
 </html>
