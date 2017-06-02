@@ -6,12 +6,6 @@
     </div>
   </div>
 
-  <!-- Navigation start -->
-
-  <%= render 'shared/theme_navbar' %>
-
-  <!-- Navigation end -->
-
   <!-- Home start -->
 
   <section id="home" class="intro-module module-image heightfull bg-dark-alfa-30">
@@ -32,17 +26,22 @@
         </div>
       </div><!-- .intro-slider -->
 
+
+
+
+
       <div class="container"> <!-- home searchbar -->
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
-              <div id="custom-search-input">
-                <div class="input-group col-md-12">
-                  <input type="text" class="form-control input-lg" placeholder="Search for a shop around you" />
-                  <span class="input-group-btn">
-                  <button class="btn btn-info btn-lg" type="button">
-                    <i class="glyphicon glyphicon-search"></i>
-                  </button>
-                  </span>
+            <div id="custom-search-input">
+              <form action="/shops" class="input-group col-md-12">
+                <input type="text" name='address' class="form-control input-lg shop-search-input" placeholder="Search for a shop around you" />
+                <span class="input-group-btn">
+                <button  class="btn btn-info btn-lg" type="submit">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+                </span>
+              </form>
                 </div>
             </div>
           </div><!-- end col -->
@@ -67,7 +66,6 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
           <div class="module-header wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-            <h2 class="module-title">Never too far from a good coffee</h2>
             <h3 class="module-subtitle">How it works</h3>
           </div>
         </div>
@@ -75,20 +73,17 @@
 
       <div class="flex-align-3">
 
-
           <div class="iconbox flex-align-3-item">
             <div class="iconbox-body flex-align-3-height" >
-              <div class="iconbox-icon"><span class="icon-calendar"></span></div>
+              <div class="iconbox-icon"><span class=" icon-basket"></span></div>
               <div class="iconbox-text">
                 <h3 class="iconbox-title">Order</h3>
                 <div class="iconbox-desc">
-                  You're too short in time to go catch your coffee ? The weather is too bad today ? Just select a shop and order your favorite coffee. Someone will bring it back for you !
+                  You're too short in time or the weather is too bad today ? Order your favorite coffee. Someone will bring it to you !
                 </div>
               </div>
             </div>
           </div>
-
-
 
           <div class="iconbox flex-align-3-item">
             <div class="iconbox-body flex-align-3-height" >
@@ -96,39 +91,30 @@
               <div class="iconbox-text">
                 <h3 class="iconbox-title">Deliver</h3>
                 <div class="iconbox-desc">
-                  You choosed to get delivered ? Just wait for a little while, one of your neighbourgh is on its way ! You choosed to deliver coffee ? You just earned some credits and made savings!
+                  You choosed to get delivered ? Just wait for a little while ! You choosed to deliver ? You just made savings!
                 </div>
               </div>
             </div>
           </div>
-
-
 
           <div class="iconbox flex-align-3-item">
             <div class="iconbox-body flex-align-3-height" >
-              <div class="iconbox-icon"><span class="icon-map"></span></div>
+              <div class="iconbox-icon"><span class="icon-cup"></span></div>
               <div class="iconbox-text">
                 <h3 class="iconbox-title">Enjoy</h3>
                 <div class="iconbox-desc">
-                  Enjoy your favorite coffee under all occasions. If you want to earn credits, do not hesitate to become a deliver your-self. This is really easy. This will be proposed to you when validating your order.
+                  Enjoy your favorite coffee under all circumstances. If you want to earn credits, why not become a deliver !?
                 </div>
               </div>
             </div>
           </div>
 
-
-      </div><!-- .row -->
-
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 text-center long-up">
-          * Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it.
-        </div>
       </div><!-- .row -->
 
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
           <div class="devider">
-            <img src="assets/images/divider-down.svg" alt="">
+            <%= image_tag "/theme/images/divider-down.svg" %>
           </div>
         </div>
       </div><!-- .row -->
@@ -145,7 +131,7 @@
 
       <div class="row">
         <div class="col-sm-2 col-sm-offset-5 text-center long-down">
-          <img src="assets/images/divider-top.svg" alt="">
+          <%= image_tag "/theme/images/divider-top.svg" %>
         </div>
       </div><!-- .row -->
 
@@ -317,7 +303,7 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
           <div class="devider">
-            <img src="assets/images/divider-down.svg" alt="">
+            <%= image_tag "/theme/images/divider-down.svg" %>
           </div>
         </div>
       </div><!-- .row -->
@@ -332,3 +318,7 @@
   <div class="scroll-up">
     <a href="#totop"><i class="fa fa-angle-double-up"></i></a>
   </div>
+
+  <% content_for :after_js do %>
+    <%= javascript_include_tag 'search_autocomplete.js' %>
+  <%end%>
