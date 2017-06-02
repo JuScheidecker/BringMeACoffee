@@ -7,11 +7,14 @@ class OrdersController < ApplicationController
   def show
 
     @Order = Order.find(params[:id])
+
     # Setting orderitem pour le show des child_orders
     @orderitem = @Order.orders.first.order_items if @Order.orders.first
     # Setting shop_id pour récupérer l'id du shop à partir de l'order
     @orders = Order.all
     @shop_id = @orders.first.order_items.first.item.shop_id
+
+
 
   end
 
