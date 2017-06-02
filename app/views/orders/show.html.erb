@@ -82,7 +82,7 @@
         <% @main_user = @Order.main_orders.first.user.first_name %>
         <% @main_user_phone = @Order.main_orders.first.user.phone %>
         <% @main_user_address = @Order.main_orders.first.user.delivery_address %>
-        <h3 class="module-title">You'll be delivered by : <%= @main_user + ' - ' + @main_user_phone %></h3>
+        <h3 class="module-title">Delivered by : <%= @main_user + ' - ' + @main_user_phone %></h3>
         <% end %>
 
         <% end %>
