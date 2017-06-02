@@ -24,7 +24,7 @@
     <% end %>
   </div>
 
-    <div class ='row'> <!-- Add ons -->
+    <div class ='row'> <!-- Add ons -->1
       <br>
       <div class='col-md-6 text-center'>
         <button class='btn btn-custom-1'>
@@ -34,8 +34,10 @@
       <div class='col-md-6 text-center'>
         <%= 'Total amount : ' + @total.round(2).to_s + '€' %>
       </div>
+
     </div>
 </div>
+
 
 <div class='container'> <!-- Container DELIVERY METHOD CHOICE / LOWER VIEW PART -->
   <br>
@@ -84,7 +86,7 @@
             </div>
           </div>
           <div class='col-md-6'><!-- bloc Map with direction -->
-              <%= image_tag 'directions_test_cart.png'%>
+            <%= image_tag 'directions_test_cart.png' %>
           </div>
           <div class='col-md-2'><!-- select delivery button -->
             <form>
@@ -119,5 +121,7 @@
 <% content_for :after_js do %>
   <%= javascript_include_tag 'cart.js' %>
 <%end%>
+
+
 
 

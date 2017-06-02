@@ -6,4 +6,5 @@ tmp/*
 .DS_Store
 public/assets
 
+
 config/application.yml
