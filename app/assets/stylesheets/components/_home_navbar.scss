@@ -20,6 +20,25 @@ a.login-btn:hover {
   color:white;
   font-size:38px;
   margin:0px 30px;
-  margin-top:4px;
+  margin-top:4.3px;
   font-weight:100;
+}
+
+.cart-items{
+  background-color:red;
+  color:white;
+  font-weight:bold;
+  border-radius:50%;
+  width:25px;
+  height:25px;
+  text-align:center;
+  padding:0px;
+
+  position:relative;
+  top:0px;
+  right:40px;
+}
+
+.cart-hidden{
+  visibility:hidden;
 }
