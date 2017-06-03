@@ -5,20 +5,22 @@ class OrdersController < ApplicationController
   end
 
   def show
-
     @Order = Order.find(params[:id])
-
-
-
     # Setting orderitem pour le show des child_orders
     @orderitem = @Order.orders.first.order_items if @Order.orders.first
     # Setting shop_id pour récupérer l'id du shop à partir de l'order
     @orders = Order.all
     @shop_id = @orders.first.order_items.first.item.shop_id
 
+    # child_user geolocation set-up
+    #@order_latitude = @Order.orders.first.user.latitude
+    #@order_longitude = @Order.orders.first.user.longitude
+    @shop_coordinates = { lat: @Order.orders.first.user.latitude, lng: @Order.orders.first.user.longitude }
 
-
-
+    @hash = Gmaps4rails.build_markers(@shop) do |shop, marker|
+      marker.lat shop.latitude
+      marker.lng shop.longitude
+    end
 
   end
 
@@ -39,15 +41,9 @@ class OrdersController < ApplicationController
 
     @item_data = session[:carts][params[:id]].to_a
 
-
-
-
     @orders = Order.all
     # @orderitem = @Order.orders.first.order_items if @Order.orders.first
     @shop_id = @orders.first.order_items.first.item.shop_id
-
-
-
 
     respond_to do |format|
       format.html { render 'orders/cart'}

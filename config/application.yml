@@ -11,6 +11,6 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
 CLOUDINARY_URL:
-GOOGLE_PLACES_WEBSERVICE_API_KEY:
+GOOGLE_PLACES_WEBSERVICE_API_KEY: AIzaSyBgo8u7c0A8QTq-LyeXkhn7Jl0w60eXUGg
 
 #NB: si vous voyez ce message, merci de prévenir, signé Manuel
