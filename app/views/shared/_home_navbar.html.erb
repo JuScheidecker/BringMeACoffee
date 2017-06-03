@@ -22,7 +22,16 @@
 
           <div style="display: flex">
             <span class=" icon-basket-loaded icon-navbar"></span>
-            <span id="cart-red-circle" class="cart-items cart-hidden">0</span>
+            <span id="cart-red-circle" class="cart-items cart-hidden">
+            <% sum = 0 %>
+            <% if session[:carts][params[:id]] %>
+            <% session[:carts][params[:id]].each do |k, v| %>
+            <% sum += v %>
+            <% end %>
+            <% end %>
+            <%= sum %>
+
+            </span>
 
             <div class="dropdown">
               <%= link_to '#', class: "dropdown", 'data-toggle' => "dropdown" do %>
