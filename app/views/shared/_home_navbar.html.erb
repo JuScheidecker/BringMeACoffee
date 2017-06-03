@@ -21,17 +21,20 @@
 
 
           <div style="display: flex">
-            <span class=" icon-basket-loaded icon-navbar"></span>
-            <span id="cart-red-circle" class="cart-items cart-hidden">
+            <!-- Calculate whether cart is empty or not -->
             <% sum = 0 %>
-            <% if session[:carts][params[:id]] %>
-            <% session[:carts][params[:id]].each do |k, v| %>
-            <% sum += v %>
+            <% unless (session[:carts].empty? || params[:id].nil?) %>
+              <% session[:carts][params[:id]].each { |k, v| sum += v } %>
             <% end %>
-            <% end %>
-            <%= sum %>
 
-            </span>
+            <% if sum.zero? %>
+              <span class="icon-basket icon-navbar"></span>
+            <% else %>
+              <span class="icon-basket-loaded icon-navbar"></span>
+            <% end %>
+              <span id="cart-red-circle" class="cart-items cart-hidden">
+                <%= sum %>
+              </span>
 
             <div class="dropdown">
               <%= link_to '#', class: "dropdown", 'data-toggle' => "dropdown" do %>
