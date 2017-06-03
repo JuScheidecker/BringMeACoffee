@@ -6,3 +6,8 @@
 //= require underscore
 //= require gmaps/google
 
+//= require js_components/cart-icon
+
+
+
+
