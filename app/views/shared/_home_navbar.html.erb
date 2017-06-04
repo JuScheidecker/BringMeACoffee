@@ -23,14 +23,14 @@
           <div style="display: flex">
             <!-- Calculate whether cart is empty or not -->
             <% sum = 0 %>
-            <% unless (session[:carts].empty? || params[:id].nil?) %>
+            <% unless (session[:carts].nil? || session[:carts].empty? || params[:id].nil?) %>
               <% session[:carts][params[:id]].each { |k, v| sum += v } %>
             <% end %>
 
             <% if sum.zero? %>
-              <span class="icon-basket icon-navbar"></span>
+              <span id="icon-basket-status" class="icon-basket icon-navbar"></span>
             <% else %>
-              <span class="icon-basket-loaded icon-navbar"></span>
+              <span id="icon-basket-status" class="icon-basket-loaded icon-navbar"></span>
             <% end %>
               <span id="cart-red-circle" class="cart-items cart-hidden">
                 <%= sum %>
