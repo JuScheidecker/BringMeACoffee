@@ -12,6 +12,7 @@
       <%= link_to 'BringMeACoffee', root_path, class: 'navbar-brand' %>
     </div> <!-- end navbar-header -->
 
+
     <div class="collapse navbar-collapse" id="custom-collapse">
       <div class="nav navbar-nav navbar-right">
 
@@ -38,8 +39,11 @@
 
             <div class="dropdown">
               <%= link_to '#', class: "dropdown", 'data-toggle' => "dropdown" do %>
-
-              <%= image_tag ('jake-young-168598.jpg'), class: "avatar-large avatar-navbar-margin" %>
+                <% if current_user.photo? %>
+                  <%= cl_image_tag current_user.photo.path, class: "avatar-large avatar-navbar-margin" %>
+                <% else %>
+                  <%= cl_image_tag ("Profile_avatar"), class: "avatar-large avatar-navbar-margin" %>
+                <% end %>
               <% end %>
 
                 <ul class="dropdown-menu" role="menu">
