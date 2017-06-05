@@ -1,5 +1,5 @@
 <div class='container margin-top-page'> <!-- Container YOUR ORDER RECAP / UPPER VIEW PART -->
-  <div class ='row text-center'><h3>Your order list of items <%= @shop.name %> </h3></div>
+  <div class ='row text-center'><h3 class='module-title'>Your order list of items from <%= @shop.name %> </h3></div>
 
   <div class ='row text-center'>
     <% @total = 0 %>
@@ -8,7 +8,7 @@
       <div class='col-sm-3 position_relative'>
 
         <div class='col-sm-12 position_relative'>
-          <%= image_tag 'test_cart_vincent.png' %>
+          <%= cl_image_tag ("shop_tqpajv") %>
           <span class='col-sm-9 bottom_left'><%= Item.find(k.to_i).name %></span>
           <span class='col-sm-3 bottom_right'><%= Item.find(k.to_i).price.round(2).to_s + '€' %></span>
         </div>
@@ -24,7 +24,7 @@
     <% end %>
   </div>
 
-    <div class ='row'> <!-- Add ons -->1
+    <div class ='row'> <!-- Add ons -->
       <br>
       <div class='col-md-6 text-center'>
         <button class='btn btn-custom-1'>
@@ -47,14 +47,16 @@
 
   <div class ='row'>
     <!-- TODO # IF CLICK  SET orders.delivery_type = false (take away) -->
-    <div class= 'col-md-6 position_relative iconbox show-orders' id='take_away' style='background: none'>
-      <%= image_tag 'barista_test_cart.jpg' %>
+
+    <div class= 'col-md-6 position_relative iconbox' id='take_away' style='background: none'>
+      <%= cl_image_tag ("barista_test_cart_zbkngq") %>
      <span class='delivery_bottom'>Meet the barista</span>
     </div>
 
     <!-- TODO # ELSE SET orders.delivery_type = true (delivery) -->
-    <div class= 'col-md-6 position_relative iconbox show-orders' id='delivery' style='background: none'>
-      <%= image_tag 'delivery_guy_test.jpg' %>
+
+    <div class= 'col-md-6 position_relative iconbox' id='delivery' style='background: none'>
+      <%= cl_image_tag ("delivery_guy_test_ijiutj") %>
       <span class='delivery_bottom'>Meet the delivery guy</span>
     </div>
   </div>
@@ -85,12 +87,15 @@
               <h4><%= 'Total : ' + @total_list.to_s + '€' %></h4>
             </div>
           </div>
-          <div class='col-md-6'>
             <!-- set order to map -->
             <%= render 'cart-show-map', order: order %>
           </div>
-          <div class='col-md-2'>
-            <%= image_tag 'icon_check_test_cart.png', id:'select_order' %> <!-- bloc SELECT DELIVERY ORDER -->
+
+          <div class='col-md-2'><!-- select delivery button -->
+            
+              <div id=<%= 'child_' + order.id.to_s %>'>
+                <%= cl_image_tag ("icon_check_test_cart_ytybcy")
+              </div>
           </div>
         </div>
         <% end %>
@@ -110,7 +115,7 @@
   <!-- TODO # Method de validation / bouton à créer -->
   <div class ='row text-center'>
   <br>
-    <button type='button' class='btn btn-custom-3 btn-lg'><%= link_to 'ORDER_VALIDATION_BUTTON', 'order_validate_path' %></button>
+    <button type='button' class='btn btn-custom-3 btn-lg'><%= link_to 'CONFIRM ORDER(S)', order_path(5) %></button>
   </div>
   <br>
 </div>
