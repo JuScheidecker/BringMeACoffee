@@ -1,4 +1,10 @@
 class Order < ApplicationRecord
+
+  geocoded_by :address, latitude: :lat, longitude: :lng
+
+  mount_uploader :photo, PhotoUploader
+
+
   belongs_to :user
   has_many :order_items
 

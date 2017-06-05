@@ -1,0 +1,33 @@
+ <div style='width: 400px;'>
+    <div id="map-<%= order.id%>" style='width: 400px; height: 200px;'></div>
+</div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $('.show-orders').on('orders-shown', function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({
+       internal: {
+        id: "map-<%= order.id%>",
+        zoom: 1,
+        center: ([{ lat: <%= order.user.latitude %>, lng: <%= order.user.longitude %>}]),
+        MapOptions: {
+        }
+      },
+      provider: {
+      <!-- disable UI content -->
+        disableDefaultUI: true,
+      <!-- -->
+        styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
+        },
+      }, function() {
+        markers = handler.addMarkers([{ lat: <%= order.user.latitude %>, lng: <%= order.user.longitude %>}]);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 1) {
+          handler.getMap().setZoom(16);
+       };
+    });
+  });
+  <% end %>
+<% end %>
