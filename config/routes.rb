@@ -19,7 +19,5 @@ devise_for :users
 
   root to: 'pages#home'
 
-  mount Attachinary::Engine => "/attachinary"
-
 end
 
