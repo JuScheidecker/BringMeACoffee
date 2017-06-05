@@ -1,0 +1,13 @@
+<!-- Cart Icon with basket number of items -->
+
+
+<% if session[:numbcart].nil? || session[:numbcart].empty?%>
+  <span id="icon-basket-status" class="icon-basket icon-navbar"></span>
+<% else %>
+  <span id="icon-basket-status" class="icon-basket-loaded icon-navbar"></span>
+<% end %>
+
+<span id="cart-red-circle" class="cart-items cart-hidden">
+  <%= session[:numbcart]['sum'] unless session[:numbcart].nil? %>
+</span>
+

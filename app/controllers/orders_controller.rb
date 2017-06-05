@@ -23,6 +23,7 @@ class OrdersController < ApplicationController
   end
 
   def add_to_cart
+    session[:numbcart] = { sum: sum_cart + 1, shop: params[:id] || nil }
     session[:carts] = {} unless session[:carts].present?
     session[:carts][params[:id]] = {} unless session[:carts][params[:id]].present?
     session[:carts][params[:id]][params[:item_id]] = session[:carts][params[:id]][params[:item_id]].to_i + 1
@@ -58,4 +59,13 @@ class OrdersController < ApplicationController
 
   end
 
+  private
+
+  def sum_cart
+    sum = 0
+    unless (session[:carts].nil? || session[:carts].empty? || params[:id].nil?)
+      session[:carts][params[:id]].each { |k, v| sum += v }
+    end
+    sum
+  end
 end
