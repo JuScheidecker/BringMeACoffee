@@ -47,12 +47,14 @@
 
   <div class ='row'>
     <!-- TODO # IF CLICK  SET orders.delivery_type = false (take away) -->
+
     <div class= 'col-md-6 position_relative iconbox' id='take_away' style='background: none'>
       <%= cl_image_tag ("barista_test_cart_zbkngq") %>
      <span class='delivery_bottom'>Meet the barista</span>
     </div>
 
     <!-- TODO # ELSE SET orders.delivery_type = true (delivery) -->
+
     <div class= 'col-md-6 position_relative iconbox' id='delivery' style='background: none'>
       <%= cl_image_tag ("delivery_guy_test_ijiutj") %>
       <span class='delivery_bottom'>Meet the delivery guy</span>
@@ -85,25 +87,14 @@
               <h4><%= 'Total : ' + @total_list.to_s + '€' %></h4>
             </div>
           </div>
-          <div class='col-md-6'><!-- bloc Map with direction -->
-            <%= cl_image_tag ("directions_test_cart_ngvhih") %>
+          <div class='col-md-6'>
+            <!-- set order to map -->
+            <%= render 'cart-show-map', order: order %>
           </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <div class='col-md-2'>
-            <%= cl_image_tag ("icon_check_test_cart_ytybcy"), id:'select_order' %> <!-- bloc SELECT DELIVERY ORDER -->
-=======
-=======
-
->>>>>>> 3eb6c100010b4c560399cc6394797c19e531159b
           <div class='col-md-2'><!-- select delivery button -->
-            <form>
-              <button id=<%= 'button_' + order.id.to_s %> style='border:none; background-color: white'><%= cl_image_tag ("icon_check_test_cart_ytybcy"), id:'select_order' %></button>
-            </form>
-<<<<<<< HEAD
->>>>>>> fd025da58d1e8ad77a421136ed70b085a82600e5
-=======
->>>>>>> 3eb6c100010b4c560399cc6394797c19e531159b
+              <div id=<%= 'child_' + order.id.to_s %>>
+                <%= cl_image_tag ("icon_check_test_cart_ytybcy")
+              </div>
           </div>
         </div>
         <% end %>

@@ -14,6 +14,8 @@ vincent =  User.create!(
   email:'vincent.textoris@gmail.com',
   phone: '0611111111',
   delivery_address: '2 avenue des saules, lille',
+  latitude: 50.632675,
+  longitude: 3.018079,
   password: '123456'
   )
 
@@ -23,6 +25,8 @@ romain =  User.create!(
   email:'rdespature@gmail.com',
   phone: '0622222222',
   delivery_address: '165 Avenue de Bretagne, lille',
+  latitude: 50.632875,
+  longitude: 3.021348,
   password: '123456'
   )
 
@@ -32,6 +36,8 @@ manuel =  User.create!(
   email:'manuel.sabine@gmail.com',
   phone: '0633333333',
   delivery_address: '2 Allée de la haye du temple, lomme',
+  latitude: 50.631419,
+  longitude: 3.019951,
   password: '123456'
   )
 
@@ -41,6 +47,8 @@ juliette =  User.create!(
   email:'juscheidecker@gmail.com',
   phone: '0644444444',
   delivery_address: '124 Avenue de Bretagne, lille',
+  latitude: 50.635148,
+  longitude: 3.021968,
   password: '123456'
   )
 
