@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
   end
 
   def add_to_cart
-    session[:numbcart] = { sum: sum_cart + 1, shop: params[:id] || nil }
+    session[:numbcart] = { sum: sum_cart + 1, shop: params[:id] || nil } #Rom1 : crée une variable de session pour stocker le nb d'items dans le cart + l'id du shop
     session[:carts] = {} unless session[:carts].present?
     session[:carts][params[:id]] = {} unless session[:carts][params[:id]].present?
     session[:carts][params[:id]][params[:item_id]] = session[:carts][params[:id]][params[:item_id]].to_i + 1

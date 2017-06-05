@@ -34,6 +34,6 @@ class ShopsController < ApplicationController
 
   def reset_cart(id)
     session[:carts] = {} unless id == session[:carts].keys.first.to_s
-    session[:numbcart] = {} unless id == session[:carts].keys.first.to_s
+    session[:numbcart] = {} #Rom1: remet cette variable de session à zéro si on change de shop
   end
 end
