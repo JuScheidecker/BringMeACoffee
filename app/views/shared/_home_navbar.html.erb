@@ -40,7 +40,7 @@
             <div class="dropdown">
               <%= link_to '#', class: "dropdown", 'data-toggle' => "dropdown" do %>
                 <% if current_user.photo? %>
-                  <%= cl_image_tag current_user.photo.path, class: "avatar-large avatar-navbar-margin" %>
+                  <%= cl_image_tag current_user.photo, class: "avatar-large avatar-navbar-margin" %>
                 <% else %>
                   <%= cl_image_tag ("Profile_avatar"), class: "avatar-large avatar-navbar-margin" %>
                 <% end %>

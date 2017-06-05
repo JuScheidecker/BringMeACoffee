@@ -35,4 +35,8 @@ class ShopsController < ApplicationController
   def reset_cart(id)
     session[:carts] = {} unless id == session[:carts].keys.first.to_s
   end
+
+  def shop_params
+  params.require(:shop).permit(:name, :address, :latitude, :longitude, :photo)
+  end
 end
