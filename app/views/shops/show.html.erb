@@ -7,7 +7,7 @@
     <div class="col-sm-3">
       <div class="menu-classic">
         <figure class="overlay">
-          <%= image_tag('cappucino.jpg') %>
+          <%= cl_image_tag("cappucino_imdb6j") %>
             <div class="col-sm-9">
               <h4 class='menu-title'><%= item.name %></h4>
             </div>
@@ -16,7 +16,7 @@
             </div>
         </figure>
           <div>
-            <h4><%= link_to 'Add', add_to_cart_shop_path(@shop, item_id: item.id) %></h4>
+            <h4 class="add-button"><%= link_to 'Add', add_to_cart_shop_path(@shop, item_id: item.id), remote: true %></h4>
           </div>
       </div>
     </div>

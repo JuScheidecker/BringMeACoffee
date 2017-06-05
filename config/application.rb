@@ -10,6 +10,7 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
 require "sprockets/railtie"
+require "attachinary/orm/active_record"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -21,6 +22,7 @@ module BringMeACoffee
     config.generators do |generate|
       generate.assets false
       generate.helper false
+      config.action_view.embed_authenticity_token_in_remote_forms = true #Rom1 04.06
     end
 
     # Settings in config/environments/* take precedence over those specified here.

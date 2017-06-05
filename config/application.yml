@@ -10,7 +10,14 @@
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
+<<<<<<< HEAD
 CLOUDINARY_URL:
 GOOGLE_PLACES_WEBSERVICE_API_KEY: AIzaSyBgo8u7c0A8QTq-LyeXkhn7Jl0w60eXUGg
+=======
+CLOUDINARY_URL: "cloudinary://365112858234794:wdtupKvSz_dCpoZRHfPvwGWKwec@dmsqo6pm0"
+GOOGLE_PLACES_WEBSERVICE_API_KEY: 'AIzaSyCghJtNOctcAPqV8uBL0HBQkguJ3eaOWJw'
+>>>>>>> 6881aa11edf59cca1ef01cb26516c9eb0d04478c
 
+# SI VOUS VOYEZ CE MESAGE C'EST QUE NOUS AVONS TOUJOURS UN PROBLEME AVEC LE GITIGNORE - VINCENT
 #NB: si vous voyez ce message, merci de prévenir, signé Manuel
+
