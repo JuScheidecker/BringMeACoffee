@@ -5,7 +5,7 @@
 .bottom_left {
   position: absolute;
   top: 120px;
-  left: 10px;
+  left: 20px;
   color: white;
   font-size: 20px;
   font-weight: bold;
@@ -36,7 +36,11 @@
   align-items: center;
   margin-top: 5px;
   margin-bottom: 5px;
+<<<<<<< HEAD
   border : solid 1px lightgrey;
+=======
+  border: solid 1px lightgrey;
+>>>>>>> fd025da58d1e8ad77a421136ed70b085a82600e5
   border-radius: 4px;
   padding-top: 5px;
   padding-bottom: 5px;

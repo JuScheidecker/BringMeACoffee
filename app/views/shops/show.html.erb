@@ -16,7 +16,7 @@
             </div>
         </figure>
           <div>
-            <h4><%= link_to 'Add', add_to_cart_shop_path(@shop, item_id: item.id) %></h4>
+            <h4 class="add-button"><%= link_to 'Add', add_to_cart_shop_path(@shop, item_id: item.id), remote: true %></h4>
           </div>
       </div>
     </div>

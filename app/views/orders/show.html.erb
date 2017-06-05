@@ -1,118 +1,187 @@
-
 <div class='container margin-top-page'>
+
   <div class="title">
+
     <h3 class="module-title">Your order n°<%= @Order.id %></h3>
+
   </div>
 
   <div class="row">
+
     <div class="col-sm-6">
-      <div class='items list'>
-        <h4 class="module-subtitle">Items list : </h4>
+
+      <div class='items_list'>
+
+        <h4 class="module-subtitle" id='list'>Items list : </h4>
+
         <!-- Iteration on each order_item -->
-        <% @total = 0 %>
+
+        <% @main_total = 0 %>
+
         <% @Order.order_items.each do |order_item| %>
+
         <!-- Condition same order n° -->
+
         <% if @Order.id == order_item.order_id %>
-          <% @item = Item.find(order_item.item_id) %>
-          <div class="col-sm-8">
+
+        <% @item = Item.find(order_item.item_id) %>
+        <div class="col-sm-8">
           <h4 class='menu-title'><%= @item.name %></h4>
           <p class='menu-detail'><%= @item.description %></p>
-          </div>
-          <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
           <h4 class='menu-price'><%= @item.price.to_s + '€' %></h4>
-          <% @total += @item.price %>
-          </div>
+          <% @main_total += @item.price %>
+        </div>
+
         <% end %>
+
         <% end %>
+
       </div>
+
       <div class="col-sm-6">
-      <h4 class='menu-price'>Total : <%= @total.to_s + '€'%></h4>
+
+        <h4 class='menu-price'>Total : <%= @main_total.to_s + '€'%></h4>
+
       </div>
+
     </div>
 
     <div class="col-sm-6">
+
       <div class='shop'>
+
         <figure class="overlay">
-        <%= image_tag('cappucino.jpg') %>
+
+          <%= image_tag('cappucino.jpg') %>
+
         </figure>
+
       </div>
-      <div class='shop description'>
+
+      <div class='description'>
+
         <h4 class='menu-title'><%= Shop.find(@shop_id).name %></h4>
+
         <p class='menu-detail'><%= Shop.find(@shop_id).address %></p>
+
       </div>
+
     </div>
 
+    <div class='delivery' >
 
-      <div class='delivery' >
-        <div class='title'>
-          <!-- Set condition to display delivery guy -->
-          <% if @Order.delivery_type == true %>
-          <% if @Order.main_orders.first %>
-          <% @main_user = @Order.main_orders.first.user.first_name %>
-          <% @main_user_phone = @Order.main_orders.first.user.phone %>
-          <% @main_user_address = @Order.main_orders.first.user.delivery_address %>
-          <h3 class="module-title">You'll be delivered by : <%= @main_user + ' - ' + @main_user_phone %></h3>
-          <% end %>
-          <% end %>
-        </div>
+      <div class='title'>
+
+        <!-- Set condition to display delivery guy -->
+
+        <% if @Order.delivery_type == true %>
+
+        <% if @Order.main_orders.first %>
+        <% @main_user = @Order.main_orders.first.user.first_name %>
+        <% @main_user_phone = @Order.main_orders.first.user.phone %>
+        <% @main_user_address = @Order.main_orders.first.user.delivery_address %>
+        <h3 class="module-title">Delivered by : <%= @main_user + ' - ' + @main_user_phone %></h3>
+        <% end %>
+
+        <% end %>
+
       </div>
+
     </div>
+
+  </div>
 
   <!-- Set condition to display child-order -->
+
   <div class="row">
+
     <% if @Order.orders.first nil? %>
+
     <div class='child-order'>
+
       <div class='title'>
+
         <!-- Set child_order -->
+
         <% @child_order = @Order.orders %>
+
         <% @child_user = @child_order.first.user.first_name %>
+
         <% @child_user_address = @child_order.first.user.delivery_address %>
+
         <% @child_user_phone = @child_order.first.user.phone %>
+
         <h3 class="module-title">Your delivery for : <%= @child_user %> - Order n°<%= @child_order.first.id %></h3>
       </div>
 
-
       <div class="col-sm-6">
-        <div class='items list'>
-          <h4 class="module-subtitle">Items list: </h4>
+
+        <div class='items_list'>
+
+          <h4 class="module-subtitle" id="list">Items list: </h4>
+
           <!-- Iteration on each order_item -->
-          <% @total = 0 %>
+
+          <% @child_total = 0 %>
+
           <% @orderitem.each do |order_item| %>
+
           <!-- Condition same order n° -->
+
           <% if @child_order.first.id == @Order.orders.first.id %>
-            <div class="col-sm-8">
+
+          <div class="col-sm-8">
             <h4 class='menu-title'><%= order_item.item.name %></h4>
             <p class='menu-detail'><%= order_item.item.description %></p>
-            </div>
-            <div class="col-sm-4">
+          </div>
+          <div class="col-sm-4">
             <h4 class='menu-price'><%= order_item.item.price.to_s + '€' %></h4>
-            <% @total += @item.price %>
-            </div>
+            <% @child_total += @item.price %>
+          </div>
+
           <% end %>
+
           <% end %>
+
         </div>
+
         <div class="col-sm-6">
-        <h4 class='menu-price'>Total : <%= @total.to_s + '€'%></h4>
+
+          <h4 class='menu-price'>Total : <%= @child_total.to_s + '€'%></h4>
+
         </div>
+
       </div>
 
       <div class="col-sm-6">
+
         <div class='map'>
+
           <%= render 'order-show-map' %>
+
+        </div>
+
+        <div class='description'>
+
           <h4 class='menu-title'>Delivery Address : <%= @child_user_address %></h4>
+
           <p class='menu-detail'><%= @child_user + "'s phone : "  %><%= @child_user_phone %></p>
+
         </div>
 
-
-        <!-- A compléter-->
-
-        <div class="col-sm-4">
-        < placeholder amount >
-        </div>
       </div>
 
     </div>
+
+    <div class="col-sm-6">
+      <h4 class='menu-price'>Total : <%= (@main_total + @child_total).to_s + '€'%></h4>
+    </div>
+
     <% end %>
+
   </div>
+
 </div>
 
