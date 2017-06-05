@@ -87,11 +87,12 @@
               <h4><%= 'Total : ' + @total_list.to_s + '€' %></h4>
             </div>
           </div>
+          <div class='col-md-6'>
             <!-- set order to map -->
             <%= render 'cart-show-map', order: order %>
           </div>
           <div class='col-md-2'><!-- select delivery button -->
-              <div id=<%= 'child_' + order.id.to_s %>'>
+              <div id=<%= 'child_' + order.id.to_s %>>
                 <%= cl_image_tag ("icon_check_test_cart_ytybcy")
               </div>
           </div>

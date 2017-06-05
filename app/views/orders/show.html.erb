@@ -30,6 +30,10 @@
     </div>
 
     <div class="col-sm-6">
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> aac97f8f0ee55573b0799bd7eae8abc6e1156547
       <!-- Set condition to display child-order -->
       <% if @Order.orders.first nil? %>
         <div class='child-order'>
@@ -64,6 +68,47 @@
             <h4 class='menu-price text-center'>Total : <%= @child_total.to_s + '€'%></h4>
           </div>
           </div>
+<<<<<<< HEAD
+=======
+
+      <div class='shop'>
+
+        <figure class="overlay">
+
+          <%= image_tag('cappucino.jpg') %>
+
+        </figure>
+
+      </div>
+
+      <div class='description'>
+
+        <h4 class='menu-title'><%= Shop.find(@shop_id).name %></h4>
+
+        <p class='menu-detail'><%= Shop.find(@shop_id).address %></p>
+
+      </div>
+
+    </div>
+
+    <div class='delivery' >
+
+      <div class='title'>
+
+        <!-- Set condition to display delivery guy -->
+
+        <% if @Order.delivery_type == true %>
+
+        <% if @Order.main_orders.first %>
+        <% @main_user = @Order.main_orders.first.user.first_name %>
+        <% @main_user_phone = @Order.main_orders.first.user.phone %>
+        <% @main_user_address = @Order.main_orders.first.user.delivery_address %>
+        <h3 class="module-title">Delivered by : <%= @main_user + ' - ' + @main_user_phone %></h3>
+        <% end %>
+
+>>>>>>> 6881aa11edf59cca1ef01cb26516c9eb0d04478c
+=======
+>>>>>>> aac97f8f0ee55573b0799bd7eae8abc6e1156547
         <% end %>
       </div>
     </div>
