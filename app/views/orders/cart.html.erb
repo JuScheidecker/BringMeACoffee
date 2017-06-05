@@ -47,13 +47,13 @@
 
   <div class ='row'>
     <!-- TODO # IF CLICK  SET orders.delivery_type = false (take away) -->
-    <div class= 'col-md-6 position_relative iconbox' id='take_away' style='background: none'>
+    <div class= 'col-md-6 position_relative iconbox show-orders' id='take_away' style='background: none'>
       <%= image_tag 'barista_test_cart.jpg' %>
      <span class='delivery_bottom'>Meet the barista</span>
     </div>
 
     <!-- TODO # ELSE SET orders.delivery_type = true (delivery) -->
-    <div class= 'col-md-6 position_relative iconbox' id='delivery' style='background: none'>
+    <div class= 'col-md-6 position_relative iconbox show-orders' id='delivery' style='background: none'>
       <%= image_tag 'delivery_guy_test.jpg' %>
       <span class='delivery_bottom'>Meet the delivery guy</span>
     </div>
@@ -85,8 +85,9 @@
               <h4><%= 'Total : ' + @total_list.to_s + '€' %></h4>
             </div>
           </div>
-          <div class='col-md-6'><!-- bloc Map with direction -->
-            <%= image_tag 'directions_test_cart.png' %>
+          <div class='col-md-6'>
+            <!-- set order to map -->
+            <%= render 'cart-show-map', order: order %>
           </div>
           <div class='col-md-2'>
             <%= image_tag 'icon_check_test_cart.png', id:'select_order' %> <!-- bloc SELECT DELIVERY ORDER -->

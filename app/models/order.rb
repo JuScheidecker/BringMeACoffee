@@ -1,9 +1,6 @@
 class Order < ApplicationRecord
   geocoded_by :address, latitude: :lat, longitude: :lng
 
-
-
-
   belongs_to :user
   has_many :order_items
 
