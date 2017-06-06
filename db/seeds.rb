@@ -17,7 +17,7 @@ vincent =  User.create!(
   latitude: 50.632675,
   longitude: 3.018079,
   password: '123456'
-  )
+)
 
 romain =  User.create!(
   first_name:'Romain',
@@ -28,7 +28,7 @@ romain =  User.create!(
   latitude: 50.632875,
   longitude: 3.021348,
   password: '123456'
-  )
+)
 
 manuel =  User.create!(
   first_name:'Manuel',
@@ -39,7 +39,7 @@ manuel =  User.create!(
   latitude: 50.631419,
   longitude: 3.019951,
   password: '123456'
-  )
+)
 
 juliette =  User.create!(
   first_name:'Juliette',
@@ -50,7 +50,7 @@ juliette =  User.create!(
   latitude: 50.635148,
   longitude: 3.021968,
   password: '123456'
-  )
+)
 
 #------SEED de SHOPS-----#
 
@@ -76,7 +76,7 @@ starbucks_euralille = Shop.create!(
   remote_photo_url: "https://lavoixdezoe.files.wordpress.com/2015/09/r-dsc_0825.jpg"
 )
 
-cafeine = Shop.create!(
+cafeine_coffee = Shop.create!(
   name:'Caféine Coffee',
   address: '20 rue des trois Mollettes',
   latitude: 50.640391,
@@ -154,145 +154,454 @@ nottinghill_vieuxlille= Shop.create!(
   remote_photo_url: "https://s-media-cache-ak0.pinimg.com/564x/e9/73/f6/e973f6de76b467d2a3de62e2e10fcde3.jpg"
 )
 
-#A SUPPPRIMER
-sogood = Shop.create!(
-  name:'So Good',
-  address: '163 Avenue de Bretagne, Lille',
-  latitude: 50.634213,
-  longitude: 3.021055
-  )
-
-#A SUPPPRIMER
-classcroute = Shop.create!(
-  name:'Class croute',
-  address: '166 Avenue de Bretagne, Lille',
-  latitude: 50.634238,
-  longitude: 3.020883
-)
-
 #------SEED d' ITEM-----#
 
-# espresso_nh = Item.create!(
-#   name:'espresso',
-#   description:'7 grammes de café fraîchement moulu',
-#   price: 2 ,
-#   shop: nottinghill_gdplace,
-#   remote_photo_url: "http://www.nottinghill-coffee.com/wp-content/uploads/2014/08/bossonschaudes-a.jpg",
-# )
+# Starbucks menu
+blonde_roast = Item.create!(
+  name: "Blonde Roast",
+  description: "Lightly roasted coffee that's soft, mellow and flavorful. Easy-drinking on its own and delicious with milk, sugar or flavored with vanilla, caramel or hazelnut",
+  price: 4,
+  shop: starbucks_euralille,
+  remote_photo_url: "https://globalassets.starbucks.com/assets/594ffeee3b1442ccbd7e926c51f45776.jpg"
+)
 
-latte_sogood = Item.create!(
-  name:'Cafe latte',
-  description:'Un mélange de 50% robusta et 50% arabica',
+caffè_misto = Item.create!(
+  name: "Caffè Misto",
+  description: "A one-to-one mix of fresh brewed coffee and steamed milk add up to one distinctly delicious coffee drink",
+  price: 3,
+  shop: starbucks_euralille,
+  remote_photo_url: "https://globalassets.starbucks.com/assets/60058630d5a14a679054712b6afa77c3.jpg"
+)
+
+decaf_pike = Item.create!(
+  name: "Decaf Pike Place® Roast",
+  description: "Our signature medium roasted coffee with a smooth, balanced and rich flavor, minus the caffeine",
+  price: 4,
+  shop: starbucks_euralille,
+  remote_photo_url: "https://globalassets.starbucks.com/assets/376e8381434049798635d370bee0d7f0.jpg"
+)
+
+iced_coffee = Item.create!(
+  name: "Iced Coffee",
+  description: "Freshly brewed Starbucks® Iced Coffee Blend served chilled and lightly sweetened over ice",
+  price: 4.2,
+  shop: starbucks_euralille,
+  remote_photo_url: "https://globalassets.starbucks.com/assets/12be45c393e94b0e934535c905d9d44c.jpg"
+)
+
+nitro_cold = Item.create!(
+  name: "Nitro Cold Brew with Sweet Cream",
+  description: "Served cold, straight from the tap, our Nitro Cold Brew is topped with a float of house-made vanilla sweet cream. The result is a subtly-sweet cascade of velvety coffee that is more sippable than ever",
+  price: 4,
+  shop: starbucks_euralille,
+  remote_photo_url: "https://globalassets.starbucks.com/assets/9a317780dd034d3fa681c3ec10ffd35a.jpg"
+)
+
+toasted_coconut = Item.create!(
+  name: "Toasted Coconut Cold Brew",
+  description: "Served cold, straight from the tap, our Nitro Cold Brew is topped with a float of house-made vanilla sweet cream. The result is a subtly-sweet cascade of velvety coffee that is more sippable than ever",
+  price: 5,
+  shop: starbucks_euralille,
+  remote_photo_url: "https://globalassets.starbucks.com/assets/ce4a720e2e104fc2a803196d74652eda.jpg"
+)
+
+blonde_roast = Item.create!(
+  name: "Blonde Roast",
+  description: "Lightly roasted coffee that's soft, mellow and flavorful. Easy-drinking on its own and delicious with milk, sugar or flavored with vanilla, caramel or hazelnut",
+  price: 4,
+  shop: starbucks_vieuxlille,
+  remote_photo_url: "https://globalassets.starbucks.com/assets/594ffeee3b1442ccbd7e926c51f45776.jpg"
+)
+
+caffè_misto = Item.create!(
+  name: "Caffè Misto",
+  description: "A one-to-one mix of fresh brewed coffee and steamed milk add up to one distinctly delicious coffee drink",
+  price: 3,
+  shop: starbucks_vieuxlille,
+  remote_photo_url: "https://globalassets.starbucks.com/assets/60058630d5a14a679054712b6afa77c3.jpg"
+)
+
+decaf_pike = Item.create!(
+  name: "Decaf Pike Place® Roast",
+  description: "Our signature medium roasted coffee with a smooth, balanced and rich flavor, minus the caffeine",
+  price: 4,
+  shop: starbucks_vieuxlille,
+  remote_photo_url: "https://globalassets.starbucks.com/assets/376e8381434049798635d370bee0d7f0.jpg"
+)
+
+iced_coffee = Item.create!(
+  name: "Iced Coffee",
+  description: "Freshly brewed Starbucks® Iced Coffee Blend served chilled and lightly sweetened over ice",
+  price: 4.2,
+  shop: starbucks_vieuxlille,
+  remote_photo_url: "https://globalassets.starbucks.com/assets/12be45c393e94b0e934535c905d9d44c.jpg"
+)
+
+nitro_cold = Item.create!(
+  name: "Nitro Cold Brew with Sweet Cream",
+  description: "Served cold, straight from the tap, our Nitro Cold Brew is topped with a float of house-made vanilla sweet cream. The result is a subtly-sweet cascade of velvety coffee that is more sippable than ever",
+  price: 4,
+  shop: starbucks_vieuxlille,
+  remote_photo_url: "https://globalassets.starbucks.com/assets/9a317780dd034d3fa681c3ec10ffd35a.jpg"
+)
+
+toasted_coconut = Item.create!(
+  name: "Toasted Coconut Cold Brew",
+  description: "Served cold, straight from the tap, our Nitro Cold Brew is topped with a float of house-made vanilla sweet cream. The result is a subtly-sweet cascade of velvety coffee that is more sippable than ever",
+  price: 5,
+  shop: starbucks_vieuxlille,
+  remote_photo_url: "https://globalassets.starbucks.com/assets/ce4a720e2e104fc2a803196d74652eda.jpg"
+)
+
+#NottingHill menu
+ristretto = Item.create!(
+  name: "Ristretto",
+  description: "Our signature blend of pure espresso coffee served with a glass of water on the side",
+  price: 3,
+  shop: nottinghill_vieuxlille,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/ristretto-655x370.jpg"
+)
+
+macchiato = Item.create!(
+  name: "Macchiato",
+  description: "Our signature blend of coffee topped with one spoon of milk crema.",
   price: 3.5,
-  shop: sogood
-  )
+  shop: nottinghill_vieuxlille,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/macchiato-655x370.jpg"
+)
 
-capuccino_sogood = Item.create!(
-  name:'Capuccino',
-  description: "Café italien, servi dans une grande tasse, à base d'un expresso et coiffé de sa mousse de lait",
-  price: 4.2,
-  shop: sogood
-  )
+vienna = Item.create!(
+  name: "Vienna",
+  description: "Our signature blend of coffee blended with hot water and topped with whipped cream, chocolate powder and a chocolate square",
+  shop: nottinghill_vieuxlille,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/vienna-655x370.jpg"
+)
 
-frappucino_sogood = Item.create!(
-  name:'Frappucino',
-  description: "Summer capuccino",
-  price: 4.2,
-  shop: sogood
-  )
+hot_chocolate = Item.create!(
+  name: "Hot Chocolate",
+  description: "Hot creamy milk blended with our favourite chocolate powder, topped with marshmallows and dusted with chocolate",
+  shop: nottinghill_vieuxlille,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/Hot-Chocolate-655x370.jpg"
+)
 
-expresso_classcroute = Item.create!(
-  name:'Expresso',
-  description: "Café court, très corsé avec un arôme puissant",
-  price: 2.5 ,
-  shop: classcroute
-  )
+affogato = Item.create!(
+  name: "Affogato",
+  description: "Our signature blend of double shot coffee with one scoop of vanilla ice cream",
+  shop: nottinghill_vieuxlille,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/affogato-655x370.jpg"
+)
 
-theglace_classcroute = Item.create!(
-  name:'The glacé',
-  description: "Du thé vert, des glaçons et un soupçon de citron",
-  price: 3.5 ,
-  shop: classcroute,
-  )
+ristretto = Item.create!(
+  name: "Ristretto",
+  description: "Our signature blend of pure espresso coffee served with a glass of water on the side",
+  price: 3,
+  shop: nottinghill_gdplace,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/ristretto-655x370.jpg"
+)
 
-infusion_classcroute = Item.create!(
-  name:'Infusion',
-  description: "Petite tisane pour les amateurs de sensations douces",
-  price: 3 ,
-  shop: classcroute,
-  )
+macchiato = Item.create!(
+  name: "Macchiato",
+  description: "Our signature blend of coffee topped with one spoon of milk crema.",
+  price: 3.5,
+  shop: nottinghill_gdplace,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/macchiato-655x370.jpg"
+)
+
+vienna = Item.create!(
+  name: "Vienna",
+  description: "Our signature blend of coffee blended with hot water and topped with whipped cream, chocolate powder and a chocolate square",
+  shop: nottinghill_gdplace,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/vienna-655x370.jpg"
+)
+
+hot_chocolate = Item.create!(
+  name: "Hot Chocolate",
+  description: "Hot creamy milk blended with our favourite chocolate powder, topped with marshmallows and dusted with chocolate",
+  shop: nottinghill_gdplace,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/Hot-Chocolate-655x370.jpg"
+)
+
+affogato = Item.create!(
+  name: "Affogato",
+  description: "Our signature blend of double shot coffee with one scoop of vanilla ice cream",
+  shop: nottinghill_gdplace,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/affogato-655x370.jpg"
+)
+
+#Other coffee shops menu
+short_latte = Item.create!(
+  name: "Short Latte",
+  description: "Our signature blend of coffee blended with hot creamy milk in a short glass",
+  price: 3,
+  shop: cafeine_coffee,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/short-latte-655x370.jpg"
+)
+
+tall_latte = Item.create!(
+  name: "Tall Latte",
+  description: "Our signature blend of coffee blended with hot creamy milk in a tall glass.",
+  price: 4.5,
+  shop: cafeine_coffee,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/tall-latte-655x370.jpg"
+)
+
+piccolo_latte = Item.create!(
+  name: "Piccolo Latte",
+  description: "Our signature blend of coffee blended with hot creamy milk and served in a piccolo glass",
+  price: 3,
+  shop: cafeine_coffee,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/piccolo-latte-655x370.jpg"
+)
+
+cappuccino_cafeine = Item.create!(
+  name: "Cappuccino",
+  description: "Our signature blend of coffee with a hot creamy milk and dusted with chocolate powder",
+  price: 3,
+  shop: cafeine_coffee,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/piccolo-latte-655x370.jpg"
+)
+
+chai_latte = Item.create!(
+  name: "Chai Latte",
+  description: "Our signature blend of coffee with hot textured milk infused with Chai syrup and dusted with cinnamon sugar",
+  price: 4,
+  shop: cafeine_coffee,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/chai-latte-655x370.jpg"
+)
+#-------------------------#
+
+short_latte = Item.create!(
+  name: "Short Latte",
+  description: "Our signature blend of coffee blended with hot creamy milk in a short glass",
+  price: 3,
+  shop: impertinente,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/short-latte-655x370.jpg"
+)
+
+tall_latte = Item.create!(
+  name: "Tall Latte",
+  description: "Our signature blend of coffee blended with hot creamy milk in a tall glass.",
+  price: 4.5,
+  shop: impertinente,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/tall-latte-655x370.jpg"
+)
+
+piccolo_latte = Item.create!(
+  name: "Piccolo Latte",
+  description: "Our signature blend of coffee blended with hot creamy milk and served in a piccolo glass",
+  price: 3,
+  shop: impertinente,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/piccolo-latte-655x370.jpg"
+)
+
+cappuccino_cafeine = Item.create!(
+  name: "Cappuccino",
+  description: "Our signature blend of coffee with a hot creamy milk and dusted with chocolate powder",
+  price: 3,
+  shop: impertinente,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/piccolo-latte-655x370.jpg"
+)
+
+chai_latte = Item.create!(
+  name: "Chai Latte",
+  description: "Our signature blend of coffee with hot textured milk infused with Chai syrup and dusted with cinnamon sugar",
+  price: 4,
+  shop: impertinente,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/chai-latte-655x370.jpg"
+)
+#-------------------------#
+
+short_latte = Item.create!(
+  name: "Short Latte",
+  description: "Our signature blend of coffee blended with hot creamy milk in a short glass",
+  price: 3,
+  shop: tamper,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/short-latte-655x370.jpg"
+)
+
+tall_latte = Item.create!(
+  name: "Tall Latte",
+  description: "Our signature blend of coffee blended with hot creamy milk in a tall glass.",
+  price: 4.5,
+  shop: tamper,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/tall-latte-655x370.jpg"
+)
+
+piccolo_latte = Item.create!(
+  name: "Piccolo Latte",
+  description: "Our signature blend of coffee blended with hot creamy milk and served in a piccolo glass",
+  price: 3,
+  shop: tamper,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/piccolo-latte-655x370.jpg"
+)
+
+cappuccino_cafeine = Item.create!(
+  name: "Cappuccino",
+  description: "Our signature blend of coffee with a hot creamy milk and dusted with chocolate powder",
+  price: 3,
+  shop: tamper,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/piccolo-latte-655x370.jpg"
+)
+
+chai_latte = Item.create!(
+  name: "Chai Latte",
+  description: "Our signature blend of coffee with hot textured milk infused with Chai syrup and dusted with cinnamon sugar",
+  price: 4,
+  shop: tamper,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/chai-latte-655x370.jpg"
+)
+#-------------------------#
+
+short_latte = Item.create!(
+  name: "Short Latte",
+  description: "Our signature blend of coffee blended with hot creamy milk in a short glass",
+  price: 3,
+  shop: coffee_makers,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/short-latte-655x370.jpg"
+)
+
+tall_latte = Item.create!(
+  name: "Tall Latte",
+  description: "Our signature blend of coffee blended with hot creamy milk in a tall glass.",
+  price: 4.5,
+  shop: coffee_makers,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/tall-latte-655x370.jpg"
+)
+
+piccolo_latte = Item.create!(
+  name: "Piccolo Latte",
+  description: "Our signature blend of coffee blended with hot creamy milk and served in a piccolo glass",
+  price: 3,
+  shop: coffee_makers,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/piccolo-latte-655x370.jpg"
+)
+
+cappuccino_cafeine = Item.create!(
+  name: "Cappuccino",
+  description: "Our signature blend of coffee with a hot creamy milk and dusted with chocolate powder",
+  price: 3,
+  shop: coffee_makers,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/piccolo-latte-655x370.jpg"
+)
+
+chai_latte = Item.create!(
+  name: "Chai Latte",
+  description: "Our signature blend of coffee with hot textured milk infused with Chai syrup and dusted with cinnamon sugar",
+  price: 4,
+  shop: coffee_makers,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/chai-latte-655x370.jpg"
+)
+#-------------------------#
+short_latte = Item.create!(
+  name: "Short Latte",
+  description: "Our signature blend of coffee blended with hot creamy milk in a short glass",
+  price: 3,
+  shop: wallys_coffee,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/short-latte-655x370.jpg"
+)
+
+tall_latte = Item.create!(
+  name: "Tall Latte",
+  description: "Our signature blend of coffee blended with hot creamy milk in a tall glass.",
+  price: 4.5,
+  shop: wallys_coffee,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/tall-latte-655x370.jpg"
+)
+
+piccolo_latte = Item.create!(
+  name: "Piccolo Latte",
+  description: "Our signature blend of coffee blended with hot creamy milk and served in a piccolo glass",
+  price: 3,
+  shop: wallys_coffee,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/piccolo-latte-655x370.jpg"
+)
+
+cappuccino_cafeine = Item.create!(
+  name: "Cappuccino",
+  description: "Our signature blend of coffee with a hot creamy milk and dusted with chocolate powder",
+  price: 3,
+  shop: wallys_coffee,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/piccolo-latte-655x370.jpg"
+)
+
+chai_latte = Item.create!(
+  name: "Chai Latte",
+  description: "Our signature blend of coffee with hot textured milk infused with Chai syrup and dusted with cinnamon sugar",
+  price: 4,
+  shop: wallys_coffee,
+  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/chai-latte-655x370.jpg"
+)
 
 #------SEED d' ORDER-----#
 order1_confirmed_takeaway = Order.create!(
   user: vincent,
   status: false, #confirmed
   delivery_type: false #take away
-  )
+)
 
 order2_confirmed_delivery = Order.create!(
   user: romain,
   status: false, #confirmed
   delivery_type: true # delivery
-  )
+)
 
-order3_pending_takeaway = Order.create!(
+order3_confirmed_takeaway = Order.create!(
   user: manuel,
   status: true, #pending
   delivery_type: false #take away
-  )
+)
 
 order4_pending_delivery = Order.create!(
   user: juliette,
   status: true, #pending
   delivery_type: true # delivery
-  )
+)
 
 order5_pending_delivery = Order.create!(
   user: romain,
   status: true, #pending
   delivery_type: true # delivery
-  )
+)
 
 order6_pending_delivery = Order.create!(
   user: vincent,
   status: true, #pending
   delivery_type: true # delivery
-  )
+)
 
 order7_pending_delivery = Order.create!(
   user: manuel,
   status: true, #pending
   delivery_type: true # delivery
-  )
+)
 
 order8_pending_delivery = Order.create!(
   user: juliette,
   status: true, #pending
   delivery_type: true # delivery
-  )
+)
+
+#------SEED d' ORDER ITEM-----#
+OrderItem.create!(order: order1_confirmed_takeaway, item: blonde_roast)
+OrderItem.create!(order: order1_confirmed_takeaway, item: caffè_misto)
+OrderItem.create!(order: order1_confirmed_takeaway, item: decaf_pike)
+OrderItem.create!(order: order2_confirmed_delivery, item: chai_latte)
+OrderItem.create!(order: order2_confirmed_delivery, item: cappuccino_cafeine)
+OrderItem.create!(order: order2_confirmed_delivery, item: piccolo_latte)
+OrderItem.create!(order: order3_confirmed_takeaway, item: iced_coffee)
+OrderItem.create!(order: order4_pending_delivery, item: toasted_coconut)
+OrderItem.create!(order: order4_pending_delivery, item: nitro_cold)
+OrderItem.create!(order: order5_pending_delivery, item: piccolo_latte)
+OrderItem.create!(order: order5_pending_delivery, item: chai_latte)
+OrderItem.create!(order: order6_pending_delivery, item: blonde_roast)
+OrderItem.create!(order: order6_pending_delivery, item: iced_coffee)
+OrderItem.create!(order: order7_pending_delivery, item: piccolo_latte)
+OrderItem.create!(order: order7_pending_delivery, item: chai_latte)
+OrderItem.create!(order: order8_pending_delivery, item: blonde_roast)
+OrderItem.create!(order: order8_pending_delivery, item: caffè_misto)
+OrderItem.create!(order: order8_pending_delivery, item: iced_coffee)
+OrderItem.create!(order: order8_pending_delivery, item: toasted_coconut)
 
 #------SEED de CHILD ORDER-----#
 ChildOrder.create!(main_order: order1_confirmed_takeaway, order: order4_pending_delivery)
-# ChildOrder.create!(main_order: order3_confirmed_takeaway, order: order4_confirmed_delivery)
-
-#------SEED d' ORDER ITEM-----#
-OrderItem.create!(order: order1_confirmed_takeaway, item: latte_sogood)
-OrderItem.create!(order: order1_confirmed_takeaway, item: capuccino_sogood)
-OrderItem.create!(order: order1_confirmed_takeaway, item: frappucino_sogood)
-OrderItem.create!(order: order2_confirmed_delivery, item: expresso_classcroute)
-OrderItem.create!(order: order2_confirmed_delivery, item: theglace_classcroute)
-OrderItem.create!(order: order2_confirmed_delivery, item: infusion_classcroute)
-OrderItem.create!(order: order3_pending_takeaway, item: theglace_classcroute)
-OrderItem.create!(order: order4_pending_delivery, item: latte_sogood)
-OrderItem.create!(order: order4_pending_delivery, item: frappucino_sogood)
-OrderItem.create!(order: order5_pending_delivery, item: expresso_classcroute)
-OrderItem.create!(order: order5_pending_delivery, item: theglace_classcroute)
-OrderItem.create!(order: order5_pending_delivery, item: infusion_classcroute)
-OrderItem.create!(order: order6_pending_delivery, item: capuccino_sogood)
-OrderItem.create!(order: order6_pending_delivery, item: latte_sogood)
-OrderItem.create!(order: order7_pending_delivery, item: frappucino_sogood)
-OrderItem.create!(order: order7_pending_delivery, item: frappucino_sogood)
-OrderItem.create!(order: order8_pending_delivery, item: expresso_classcroute)
-OrderItem.create!(order: order8_pending_delivery, item: expresso_classcroute)
-OrderItem.create!(order: order8_pending_delivery, item: theglace_classcroute)
-OrderItem.create!(order: order8_pending_delivery, item: theglace_classcroute)
+ChildOrder.create!(main_order: order3_confirmed_takeaway, order: order8_pending_delivery)
