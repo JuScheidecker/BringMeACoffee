@@ -2,12 +2,29 @@
   padding-top: 10px;
 }
 
-#list {
-  padding-bottom: 10px;
+.order {
+  margin-top: 0px;
 }
 
-.order {
+.left {
   border-right: solid 1px lightgrey;
-  background-color: #E5E5E5;
-  padding: 10px;
+}
+
+.direction{
+  padding-bottom: 20px;
+}
+
+.total {
+  border: solid 1px lightgrey;
+  margin-top: 15px;
+  padding-top: 10px;
+}
+
+.address {
+  padding-left: 0px !important;
+  margin-top: 10px;
+}
+
+.sous-total {
+  margin-bottom: 10px
 }

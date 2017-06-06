@@ -18,10 +18,11 @@ a.login-btn:hover {
 
 .icon-navbar{
   color:white;
-  font-size:30px;
-  margin:0px 30px;
-  margin-top:6px;
+  margin-right:10px;
+  font-size:26px;
   font-weight:100;
+  position:relative;
+  bottom:3px;
 }
 
 .cart-items{
@@ -33,14 +34,30 @@ a.login-btn:hover {
   width: 18px;
   height: 18px;
   text-align: center;
-  padding-top: 0.1px;
   position: absolute;
-  top: 4px;
-  right: 19px;
+  top: 7px;
+  right: 15px;
   vertical-align: baseline;
   line-height: 21px;
 }
 
   .cart-hidden{
+  visibility:hidden;
+}
+
+
+#darkvador{
+  width:150px;
+  color:black;
+  text-align:center;
+  border:1px solid white;
+  background:#F4F3F2;
+  border-radius:5px;
+  position:absolute;
+  top:45px;
+  left:-50px;
+}
+
+.visible-message{
   visibility:hidden;
 }
