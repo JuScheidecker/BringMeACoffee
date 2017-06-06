@@ -25,20 +25,22 @@ a.login-btn:hover {
 }
 
 .cart-items{
-  background-color:red;
-  color:white;
-  font-weight:bold;
-  border-radius:50%;
-  width:23px;
-  height:23px;
-  text-align:center;
-  padding:0px;
-
-  position:absolute;
-  top:0px;
-  right:15px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  padding-top: 0.1px;
+  position: absolute;
+  top: 4px;
+  right: 19px;
+  vertical-align: baseline;
+  line-height: 21px;
 }
 
-.cart-hidden{
+  .cart-hidden{
   visibility:hidden;
 }
