@@ -54,7 +54,6 @@
 
   </head>
   <body>
-    <%= render 'shared/flashes' %>
     <%= render 'shared/home_navbar' %>
     <main class="min-heightfull">
       <%= yield %>
@@ -99,6 +98,8 @@
     <!-- <script src="theme/js/gmaps.js"></script> -->
     <%= javascript_include_tag 'application' %>
     <%= yield :after_js %>
+
+    <%= cloudinary_js_config %>
 
   </body>
 </html>

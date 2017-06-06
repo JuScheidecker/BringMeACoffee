@@ -18,5 +18,6 @@ devise_for :users
   get '/profile', to: 'orders#index', as: 'profile'
 
   root to: 'pages#home'
+
 end
 

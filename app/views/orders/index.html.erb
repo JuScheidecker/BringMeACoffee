@@ -17,7 +17,9 @@
           <div class="iconbox">
             <div class="iconbox-body" style="overflow:auto;">
               <div class="col-sm-4">
-                <%= image_tag "jake-young-168598.jpg", class: 'gallery' %>
+                <% if current_user.photo? %>
+                  <%= cl_image_tag current_user.photo, class: 'gallery' %>
+                <% end %>
               </div>
               <div class="col-sm-8">
                 <div class="iconbox-desc">
