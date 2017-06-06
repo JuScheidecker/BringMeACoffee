@@ -2,11 +2,14 @@ class ShopsController < ApplicationController
 
   def index
     # shop geolocation set-up
-
-    if params[:address] != ""
-      @shops = Shop.near(params[:address], 0.5)
+    if params[:address] == nil
+      @shops = Shop.all
     else
-      @shops = Shop.where.not(latitude: nil, longitude: nil)
+      if params[:address] != ""
+        @shops = Shop.near(params[:address], 0.5)
+      else
+        @shops = Shop.where.not(latitude: nil, longitude: nil)
+      end
     end
 
 
