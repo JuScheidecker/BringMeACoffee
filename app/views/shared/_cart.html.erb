@@ -1,5 +1,4 @@
 <!-- Cart Icon with basket number of items -->
-
 <% if session[:numbcart].nil? || session[:numbcart].empty?%>
   <div id="icon-basket-status" class="icon-basket icon-navbar"></div>
 <% else %>
@@ -10,4 +9,3 @@
   <%= (session[:numbcart].nil? || session[:numbcart].empty?) ? 0 : session[:numbcart]['sum'] %>
 </span>
 <span id="darkvador" class="visible-message"> Your cart is empty ! </span>
-
