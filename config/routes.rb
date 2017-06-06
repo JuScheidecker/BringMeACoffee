@@ -11,7 +11,7 @@ devise_for :users
     end
   end
 
-  resources :orders, only: [:index, :show] do
+  resources :orders, only: [:index, :show, :create] do
     resources :order_items, only: [:create, :destroy]
     post 'validate', to: 'orders#validate'
   end

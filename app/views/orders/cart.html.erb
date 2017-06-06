@@ -1,127 +1,43 @@
-<div class='container margin-top-page'> <!-- Container YOUR ORDER RECAP / UPPER VIEW PART -->
-  <div class ='row text-center'><h3 class='module-title'>Your order list of items from <%= @shop.name %> </h3></div>
+<%= form_tag orders_path do %>
+  <%= hidden_field_tag("order[delivery_type]", "true") %>
+  <%= hidden_field_tag("order[child_order_id]", "") %>
 
-  <div class ='row text-center'>
-    <% @total = 0 %>
-    <% @item_data.each do |k, v| %>
-
-      <div class='col-sm-3 position_relative'>
-
-        <div class='col-sm-12 position_relative'>
-          <%= image_tag 'cappucino.jpg' %>
-          <span class='col-sm-9 bottom_left'><%= Item.find(k.to_i).name %></span>
-          <span class='col-sm-3 bottom_right'><%= Item.find(k.to_i).price.round(2).to_s + '€' %></span>
-        </div>
-
-        <div class='col-sm-12 position_relative'>
-          <span class='col-sm-6'><%= 'Qty : ' + v.to_s %></span>
-          <span class='col-sm-6'><%= 'Total : ' + (Item.find(k.to_i).price * v).round(2).to_s + '€' %></span>
-        </div>
-
-      </div>
-
-      <% @total += (Item.find(k.to_i).price * v) %>
-    <% end %>
-  </div>
-
-    <div class ='row'> <!-- Add ons -->1
-      <br>
-      <div class='col-md-6 text-center'>
-        <button class='btn btn-custom-1'>
-          <%= link_to 'Back to Coffee shop', shop_path(@shop.id) %>
-        </button>
-      </div> <!-- path a updaté -->
-      <div class='col-md-6 text-center'>
-        <%= 'Total amount : ' + @total.round(2).to_s + '€' %>
-      </div>
-
-    </div>
-</div>
-
-
-<div class='container'> <!-- Container DELIVERY METHOD CHOICE / LOWER VIEW PART -->
-  <br>
-  <div class ='row text-center'><h3 class='module-title'>Select your delivery method</h3></div>
-
-
-
-  <div class ='row'>
-    <!-- TODO # IF CLICK  SET orders.delivery_type = false (take away) -->
-    <div class= 'col-md-6 position_relative iconbox' id='take_away' style='background: none'>
-      <%= image_tag 'barista_test_cart.jpg' %>
-     <span class='delivery_bottom'>Meet the barista</span>
-    </div>
-
-    <!-- TODO # ELSE SET orders.delivery_type = true (delivery) -->
-    <div class= 'col-md-6 position_relative iconbox' id='delivery' style='background: none'>
-      <%= image_tag 'delivery_guy_test.jpg' %>
-      <span class='delivery_bottom'>Meet the delivery guy</span>
-    </div>
-  </div>
-
-  <div class='row' id='pending_orders' style='display: none'>
-      <br>
-    <div class='text-center'>
-      <h3 class='module-title'>Choose an order to deliver</h3>
-    </div>
-
-    <div>
-      <% @total_orders = 0 %>
-      <% @orders.each do |order| %>
-        <% if order.order_items.first.item.shop_id == @shop.id && order.status == true %>
-        <% @total_orders += 1 %>
-        <div class='child col-md-offset-2 col-md-8'>
-          <div class='col-md-4'><!-- bloc Item list -->
-            <div>
-              <h3>Order n°<%= order.id %></h3>
-            </div>
-            <div >
-              <h4>Items list :</h4>
-              <% @total_list = 0 %>
-              <% order.order_items.each do |order_item| %>
-                <% @total_list += order_item.item.price %>
-                <p><%= order_item.item.name + ' - ' + order_item.item.price.to_s + '€' %></p>
-              <% end %>
-              <h4><%= 'Total : ' + @total_list.to_s + '€' %></h4>
-            </div>
-          </div>
-          <div class='col-md-6'><!-- bloc Map with direction -->
-            <%= image_tag 'directions_test_cart.png' %>
-          </div>
-          <div class='col-md-2'><!-- select delivery button -->
-            <form>
-
-              <button id=<%= 'button_' + order.id.to_s %> style='border:none; background-color: white'><%= image_tag 'icon_check_test_cart.png', id:'select_order' %></button>
-            </form>
-          </div>
-        </div>
-        <% end %>
-      <% end %>
-    </div>
-    <div>
-      <% if @total_orders == 0 %>
-        <div>
-          <h3>Thanks but no ones needs a delivery right now.</h3>
-        </div>
-      <% end %>
-    </div>
+  <div class='container margin-top-page' id='cart_details'>
+  <!-- Set the items -->
+    <%= render 'cart_details' %>
   </div>
 
 
+  <div class='container'>
+    <br>
 
-  <!-- TODO # Method de validation / bouton à créer -->
-  <div class ='row text-center'>
-  <br>
-    <button type='button' class='btn btn-custom-3 btn-lg'><%= link_to 'CONFIRM ORDER(S)', order_path(10) %></button>
+
+    <div class ='row text-center'>
+      <h3 class='module-title'>Select your delivery method</h3>
+    </div>
+
+    <div class ='row' id='delivery_method_choice'>
+    <!-- Set the delivery method -->
+      <%= render 'delivery_method_choice' %>
+    </div>
+
+    <div class='row' id='pending_orders' style='display: none'>
+    <!-- set the child_order -->
+      <%= render 'cart_pending_orders' %>
+    </div>
+
+    <div class ='row text-center'>
+    <!-- Submit data to create order -->
+    <br>
+    <% session[:carts][params[:id]] %>
+      <button class='btn btn-custom-3 btn-lg' type="submit"> CONFIRM ORDER(S)
+      </button>
+    </div>
+    <br>
   </div>
-  <br>
-</div>
 
+<% end %>
 
 <% content_for :after_js do %>
   <%= javascript_include_tag 'cart.js' %>
 <%end%>
-
-
-
-
