@@ -13,7 +13,7 @@
 
     <div class="collapse navbar-collapse" id="custom-collapse">
       <div class="nav navbar-nav navbar-right">
-        
+
         <ul class="nav navbar-nav navbar-right">
 
           <!-- Home Menu -->
@@ -25,7 +25,10 @@
 
           <!-- Cart Icon -->
           <li class="page-scroll">
-            <%= render 'shared/cart' %>
+            <% (session[:carts].nil? || session[:carts].empty?) ? link = "#" : link = cart_shop_path(session[:carts].keys.first) %>
+            <%= link_to link do %>
+              <%= render 'shared/cart' %>
+            <% end %>
           </li>
 
           <!-- User Avatar if Signed-in -->

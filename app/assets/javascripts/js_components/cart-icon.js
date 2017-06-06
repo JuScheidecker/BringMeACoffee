@@ -13,5 +13,9 @@ $(document).ready(function(){
     $("#cart-red-circle").text(parseInt($("#cart-red-circle").text()) + 1);
   });
 
+  $('#icon-basket-status').hover(function(){
+      $('#darkvador').toggleClass('visible-message');
+  });
+
 });
 
