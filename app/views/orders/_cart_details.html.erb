@@ -1,0 +1,35 @@
+<div class ='row text-center'>
+  <h3 class='module-title'>Your order list of items from <%= @shop.name %> </h3>
+</div>
+  <div class='row text-center'>
+      <%= link_to 'Back to Coffee shop', shop_path(@shop.id) %>
+      <br>
+  </div>
+
+<div class ='row text-center'>
+  <% @total = 0 %>
+  <% @item_data.each do |k, v| %>
+<br>
+  <div class='col-sm-3 position_relative'>
+    <div class='col-sm-12 position_relative'>
+      <%= cl_image_tag ("shop_tqpajv") %>
+      <span class='col-sm-9 bottom_left'><%= Item.find(k.to_i).name %></span>
+      <span class='col-sm-3 bottom_right'><%= Item.find(k.to_i).price.round(2).to_s + '€' %></span>
+    </div>
+
+    <div class='col-sm-12 position_relative'>
+      <span class='col-sm-6'><%= 'Qty : ' + v.to_s %></span>
+      <span class='col-sm-6'><%= 'Total : ' + (Item.find(k.to_i).price * v).round(2).to_s + '€' %></span>
+    </div>
+  </div>
+
+  <% @total += (Item.find(k.to_i).price * v) %>
+  <% end %>
+</div>
+
+<div class ='row'>
+  <br>
+  <div class='col-md-12 text-center menu-subtitle'>
+    <h4><%= 'Total amount : ' + @total.round(2).to_s + '€' %></h4>
+  </div>
+</div>

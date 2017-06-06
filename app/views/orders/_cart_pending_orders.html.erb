@@ -1,0 +1,44 @@
+<br>
+<div class='text-center'>
+  <h3 class='module-title'>Choose an order to deliver</h3>
+</div>
+
+<div>
+  <% @total_orders = 0 %>
+  <% @orders.each do |order| %>
+    <% if order.order_items.first.item.shop_id == @shop.id && order.status == true %>
+      <% @total_orders += 1 %>
+      <div class='child col-md-offset-2 col-md-8'>
+        <div class='col-md-4'><!-- bloc Item list -->
+          <div>
+            <h3>Order n°<%= order.id %></h3>
+          </div>
+          <div >
+            <h4>Items list :</h4>
+            <% @total_list = 0 %>
+            <% order.order_items.each do |order_item| %>
+              <% @total_list += order_item.item.price %>
+              <p><%= order_item.item.name + ' - ' + order_item.item.price.to_s + '€' %></p>
+            <% end %>
+            <h4><%= 'Total : ' + @total_list.to_s + '€' %></h4>
+          </div>
+        </div>
+        <div class='col-md-6'><!-- bloc Map with direction Render à intégrer / manu -->
+          <%= render 'cart-show-map', order: order %>
+        </div>
+        <div class='col-md-2'><!-- select delivery button -->
+          <div class='child_order' data-child-id="<%= order.id %>">
+            <div class='fa fa-check-circle fa-5x text-center'></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div>
+  <% if @total_orders == 0 %>
+    <div>
+      <h3>Thanks but no ones needs a delivery right now.</h3>
+    </div>
+  <% end %>
+</div>
