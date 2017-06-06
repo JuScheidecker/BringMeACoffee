@@ -32,7 +32,6 @@ class OrdersController < ApplicationController
     @shop = Shop.find(session[:carts].keys.first.to_i)
     @item_data = session[:carts][params[:id]].to_a
 
-
     @orders = Order.all
     @shop_id = @orders.first.order_items.first.item.shop_id
 
@@ -68,6 +67,9 @@ class OrdersController < ApplicationController
       child_order_id = params[:order][:child_order_id]
       if !child_order_id.blank?
         ChildOrder.create(main_order_id: @order.id, order_id: child_order_id.to_i)
+        @child_order_status = Order.find(params[:order][:child_order_id].to_i)
+        @child_order_status.status = false
+        @child_order_status.save
       end
 
       redirect_to order_path(@order)
