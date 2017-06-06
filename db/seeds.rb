@@ -273,6 +273,7 @@ macchiato = Item.create!(
 vienna = Item.create!(
   name: "Vienna",
   description: "Our signature blend of coffee blended with hot water and topped with whipped cream, chocolate powder and a chocolate square",
+  price: 4.5,
   shop: nottinghill_vieuxlille,
   remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/vienna-655x370.jpg"
 )
@@ -280,6 +281,7 @@ vienna = Item.create!(
 hot_chocolate = Item.create!(
   name: "Hot Chocolate",
   description: "Hot creamy milk blended with our favourite chocolate powder, topped with marshmallows and dusted with chocolate",
+  price: 4.5,
   shop: nottinghill_vieuxlille,
   remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/Hot-Chocolate-655x370.jpg"
 )
@@ -287,6 +289,7 @@ hot_chocolate = Item.create!(
 affogato = Item.create!(
   name: "Affogato",
   description: "Our signature blend of double shot coffee with one scoop of vanilla ice cream",
+  price: 3,
   shop: nottinghill_vieuxlille,
   remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/affogato-655x370.jpg"
 )
@@ -310,6 +313,7 @@ macchiato = Item.create!(
 vienna = Item.create!(
   name: "Vienna",
   description: "Our signature blend of coffee blended with hot water and topped with whipped cream, chocolate powder and a chocolate square",
+  price: 4.5,
   shop: nottinghill_gdplace,
   remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/vienna-655x370.jpg"
 )
@@ -317,6 +321,7 @@ vienna = Item.create!(
 hot_chocolate = Item.create!(
   name: "Hot Chocolate",
   description: "Hot creamy milk blended with our favourite chocolate powder, topped with marshmallows and dusted with chocolate",
+  price: 5,
   shop: nottinghill_gdplace,
   remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/Hot-Chocolate-655x370.jpg"
 )
@@ -324,6 +329,7 @@ hot_chocolate = Item.create!(
 affogato = Item.create!(
   name: "Affogato",
   description: "Our signature blend of double shot coffee with one scoop of vanilla ice cream",
+  price: 3.5,
   shop: nottinghill_gdplace,
   remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/affogato-655x370.jpg"
 )
@@ -358,7 +364,7 @@ cappuccino_cafeine = Item.create!(
   description: "Our signature blend of coffee with a hot creamy milk and dusted with chocolate powder",
   price: 3,
   shop: cafeine_coffee,
-  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/piccolo-latte-655x370.jpg"
+  remote_photo_url: "https://images.marmitoncdn.org/recipephotos/multiphoto/0c/0c4f019b-e29d-471c-861a-3a8ae0103c8b_normal.jpg"
 )
 
 chai_latte = Item.create!(
@@ -399,7 +405,7 @@ cappuccino_cafeine = Item.create!(
   description: "Our signature blend of coffee with a hot creamy milk and dusted with chocolate powder",
   price: 3,
   shop: impertinente,
-  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/piccolo-latte-655x370.jpg"
+  remote_photo_url: "https://images.marmitoncdn.org/recipephotos/multiphoto/0c/0c4f019b-e29d-471c-861a-3a8ae0103c8b_normal.jpg"
 )
 
 chai_latte = Item.create!(
@@ -440,7 +446,7 @@ cappuccino_cafeine = Item.create!(
   description: "Our signature blend of coffee with a hot creamy milk and dusted with chocolate powder",
   price: 3,
   shop: tamper,
-  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/piccolo-latte-655x370.jpg"
+  remote_photo_url: "https://images.marmitoncdn.org/recipephotos/multiphoto/0c/0c4f019b-e29d-471c-861a-3a8ae0103c8b_normal.jpg"
 )
 
 chai_latte = Item.create!(
@@ -481,7 +487,7 @@ cappuccino_cafeine = Item.create!(
   description: "Our signature blend of coffee with a hot creamy milk and dusted with chocolate powder",
   price: 3,
   shop: coffee_makers,
-  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/piccolo-latte-655x370.jpg"
+  remote_photo_url: "https://images.marmitoncdn.org/recipephotos/multiphoto/0c/0c4f019b-e29d-471c-861a-3a8ae0103c8b_normal.jpg"
 )
 
 chai_latte = Item.create!(
@@ -521,7 +527,7 @@ cappuccino_cafeine = Item.create!(
   description: "Our signature blend of coffee with a hot creamy milk and dusted with chocolate powder",
   price: 3,
   shop: wallys_coffee,
-  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/piccolo-latte-655x370.jpg"
+  remote_photo_url: "https://images.marmitoncdn.org/recipephotos/multiphoto/0c/0c4f019b-e29d-471c-861a-3a8ae0103c8b_normal.jpg"
 )
 
 chai_latte = Item.create!(
