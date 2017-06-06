@@ -89,7 +89,7 @@
       <div class="col-sm-7 address">
         <h4 class='menu-subtitle' id='list'><%= Shop.find(@shop_id).name + "'s address :"%></h4>
       </div>
-      <div class="col-sm-5">
+      <div class="col-sm-5 address">
         <p class='menu-detail text-center'><%= Shop.find(@shop_id).address %></p>
       </div>
 
@@ -110,10 +110,10 @@
 
     <% if @Order.orders.first nil? %>
       <div class="col-sm-6 order">
-        <div class="col-sm-5">
+        <div class="col-sm-5 address">
           <h4 class='menu-subtitle' id='list'><%= @child_user + "'s contact :"%></h4>
         </div>
-        <div class="col-sm-7">
+        <div class="col-sm-7 address">
         <p class='menu-detail text-center'><%= @child_user_address + " - " + @child_user_phone  %></p>
         </div>
       </div>
