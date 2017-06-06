@@ -1,6 +1,6 @@
 <br>
 <div class='text-center'>
-  <h3 class='module-title'>Choose an order to deliver</h3>
+  <h3 class='menu-subtitle'>3- Take another order in charge for delivery</h3>
 </div>
 
 <div>
@@ -9,7 +9,7 @@
     <% if order.order_items.first.item.shop_id == @shop.id && order.status == true %>
       <% @total_orders += 1 %>
       <div class='child col-md-offset-2 col-md-8'>
-        <div class='col-md-4'><!-- bloc Item list -->
+        <div class='col-md-4'> <!-- bloc Item list -->
           <div>
             <h3>Order n°<%= order.id %></h3>
           </div>
@@ -23,10 +23,10 @@
             <h4><%= 'Total : ' + @total_list.to_s + '€' %></h4>
           </div>
         </div>
-        <div class='col-md-6'><!-- bloc Map with direction Render à intégrer / manu -->
+        <div class='col-md-6'> <!-- bloc Map with direction Render à intégrer / manu -->
           <%= render 'cart-show-map', order: order %>
         </div>
-        <div class='col-md-2'><!-- select delivery button -->
+        <div class='col-md-2 text-center'> <!-- select delivery button -->
           <div class='child_order' data-child-id="<%= order.id %>">
             <div class='fa fa-check-circle fa-5x text-center'></div>
           </div>
@@ -37,7 +37,7 @@
 </div>
 <div>
   <% if @total_orders == 0 %>
-    <div>
+    <div class='text-center'>
       <h3>Thanks but no ones needs a delivery right now.</h3>
     </div>
   <% end %>

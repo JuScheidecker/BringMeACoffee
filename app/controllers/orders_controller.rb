@@ -65,8 +65,7 @@ class OrdersController < ApplicationController
       if !child_order_id.blank?
         ChildOrder.create(main_order_id: @order.id, order_id: child_order_id.to_i)
         @child_order_status = Order.find(params[:order][:child_order_id].to_i)
-        @child_order_status.status = false
-        @child_order_status.save
+        @child_order_status.update_attribute(:status, false)
       end
 
       redirect_to order_path(@order)
