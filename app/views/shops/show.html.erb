@@ -11,7 +11,7 @@
             <figcaption>
               <div class="caption-inner">
                 <div class="overlay-icon">
-                  <span class="fa fa-plus" aria-hidden="true">
+                  <span class="fa fa-plus add-button" aria-hidden="true">
                     <a href="<%=add_to_cart_shop_path(@shop, item_id: item.id)%>" data-remote="true"></a>
                   </span>
                 </div>
@@ -32,7 +32,6 @@
     <% end %>
   </div>
 
-    <h4><%= link_to 'Check my cart', cart_shop_path(@shop.id) %></h4>
   <div class="col-sm-12 text-center">
     <p><%= link_to 'Back to list', shops_path %></p>
   </div>
