@@ -23,4 +23,3 @@
     $(this).addClass('selected_child');
   });
 })
-

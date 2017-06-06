@@ -1,25 +1,22 @@
 <div class ='row text-center'>
-  <h3 class='module-title'>Your order list of items from <%= @shop.name %> </h3>
+  <h3 class='menu-subtitle'>1- Check your order from <%= @shop.name %> </h3>
 </div>
-  <div class='row text-center'>
-      <%= link_to 'Back to Coffee shop', shop_path(@shop.id) %>
-      <br>
-  </div>
 
 <div class ='row text-center'>
+  <br>
   <% @total = 0 %>
   <% @item_data.each do |k, v| %>
-<br>
   <div class='col-sm-3 position_relative'>
-    <div class='col-sm-12 position_relative'>
-      <%= cl_image_tag ("shop_tqpajv") %>
-      <span class='col-sm-9 bottom_left'><%= Item.find(k.to_i).name %></span>
-      <span class='col-sm-3 bottom_right'><%= Item.find(k.to_i).price.round(2).to_s + '€' %></span>
-    </div>
-
-    <div class='col-sm-12 position_relative'>
-      <span class='col-sm-6'><%= 'Qty : ' + v.to_s %></span>
-      <span class='col-sm-6'><%= 'Total : ' + (Item.find(k.to_i).price * v).round(2).to_s + '€' %></span>
+    <div class='col-sm-12 position_relative menu-classic'>
+    <figure class='overlay'>
+      <%= cl_image_tag Item.find(k.to_i).photo, width: 256, height: 256, crop: "fill" %>
+      <div class="col-sm-8">
+        <h4 class='menu-title'><%= Item.find(k.to_i).name %></h4>
+      </div>
+      <div class="col-sm-4">
+        <h4 class='menu-price'><%= v.to_s + ' x  '  + Item.find(k.to_i).price.round(2).to_s + '€' %></h4>
+      </div>
+      </figure>
     </div>
   </div>
 
@@ -32,4 +29,9 @@
   <div class='col-md-12 text-center menu-subtitle'>
     <h4><%= 'Total amount : ' + @total.round(2).to_s + '€' %></h4>
   </div>
+</div>
+
+<div class='row text-center'>
+  <%= link_to 'Back to Coffee shop', shop_path(@shop.id) %>
+  <br>
 </div>
