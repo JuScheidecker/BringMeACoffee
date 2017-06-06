@@ -2,14 +2,14 @@
 <div class='container margin-top-page'>
   <div class='row'>
 
-    <div class="col-sm-6">
+    <div class="col-sm-6" style="height: 700px;overflow:scroll;">
       <% @shops.each do |shop| %>
       <%= link_to shop_path(shop.id) do %>
       <div class="col-sm-6">
-        <figure class="overlay">
-          <%= cl_image_tag shop.photo %>
-          <h4 class='menu-title'><%= shop.name %></h4>
-        </figure>
+        <div class="menu-classic text-center">
+          <%= cl_image_tag shop.photo, width: 260, height: 170, crop: "fill" %>
+          <h4 class='menu-title text-center'><%= shop.name %></h4>
+        </div>
       </div>
       <% end %>
       <% end %>
