@@ -3,14 +3,12 @@
   <%= hidden_field_tag("order[child_order_id]", "") %>
 
   <div class='container margin-top-page' id='cart_details'>
-  <!-- Set the items -->
+    <!-- Set the items -->
     <%= render 'cart_details' %>
   </div>
 
   <div class='container'>
     <br>
-
-
     <div class ='row text-center'>
       <h3 class='module-title'>Select your delivery method</h3>
     </div>
@@ -21,20 +19,19 @@
     </div>
 
     <div class='row' id='pending_orders' style='display: none'>
-    <!-- set the child_order -->
+      <!-- set the child_order -->
       <%= render 'cart_pending_orders' %>
     </div>
 
     <div class ='row text-center'>
-    <!-- Submit data to create order -->
-    <br>
-    <% session[:carts][params[:id]] %>
-      <button class='btn btn-custom-3 btn-lg' type="submit"> CONFIRM ORDER(S)
-      </button>
+      <!-- Submit data to create order -->
+      <br>
+      <% session[:carts][params[:id]] %>
+      <button class='btn btn-custom-3 btn-lg' type="submit">CONFIRM ORDER(S)</button>
+
     </div>
     <br>
   </div>
-
 <% end %>
 
 <% content_for :after_js do %>

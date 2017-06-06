@@ -12,7 +12,7 @@
 <br>
   <div class='col-sm-3 position_relative'>
     <div class='col-sm-12 position_relative'>
-      <%= image_tag 'cappucino.jpg' %>
+      <%= cl_image_tag ("shop_tqpajv") %>
       <span class='col-sm-9 bottom_left'><%= Item.find(k.to_i).name %></span>
       <span class='col-sm-3 bottom_right'><%= Item.find(k.to_i).price.round(2).to_s + '€' %></span>
     </div>

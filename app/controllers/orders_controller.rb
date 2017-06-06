@@ -6,18 +6,16 @@ class OrdersController < ApplicationController
   end
 
   def show
-
     @Order = Order.find(params[:id])
-
     # Setting orderitem pour le show des child_orders
     @orderitem = @Order.orders.first.order_items if @Order.orders.first
     # Setting shop_id pour récupérer l'id du shop à partir de l'order
     @orders = Order.all
     @shop_id = @orders.first.order_items.first.item.shop_id
-
   end
 
   def add_to_cart
+    session[:numbcart] = { sum: sum_cart + 1, shop: params[:id] || nil } #Rom1 : crée une variable de session pour stocker le nb d'items dans le cart + l'id du shop
     session[:carts] = {} unless session[:carts].present?
     session[:carts][params[:id]] = {} unless session[:carts][params[:id]].present?
     session[:carts][params[:id]][params[:item_id]] = session[:carts][params[:id]][params[:item_id]].to_i + 1
@@ -34,7 +32,6 @@ class OrdersController < ApplicationController
 
     @orders = Order.all
     @shop_id = @orders.first.order_items.first.item.shop_id
-
 
     respond_to do |format|
       format.html { render 'orders/cart'}
@@ -83,4 +80,13 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:delivery_type)
   end
 
+  private
+
+  def sum_cart
+    sum = 0
+    unless (session[:carts].nil? || session[:carts].empty? || params[:id].nil?)
+      session[:carts][params[:id]].each { |k, v| sum += v }
+    end
+    sum
+  end
 end

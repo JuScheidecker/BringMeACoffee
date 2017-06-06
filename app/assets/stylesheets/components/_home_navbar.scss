@@ -15,3 +15,32 @@ a.login-btn:hover {
   background-color:rgba(245,215,110,0.7) !important;
   color:white !important;
 }
+
+.icon-navbar{
+  color:white;
+  font-size:30px;
+  margin:0px 30px;
+  margin-top:6px;
+  font-weight:100;
+}
+
+.cart-items{
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  padding-top: 0.1px;
+  position: absolute;
+  top: 4px;
+  right: 19px;
+  vertical-align: baseline;
+  line-height: 21px;
+}
+
+  .cart-hidden{
+  visibility:hidden;
+}

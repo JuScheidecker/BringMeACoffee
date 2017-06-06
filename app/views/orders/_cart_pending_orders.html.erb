@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class='col-md-6'><!-- bloc Map with direction Render à intégrer / manu -->
-          <%= image_tag 'directions_test_cart.png' %>
+          <%= render 'cart-show-map', order: order %>
         </div>
         <div class='col-md-2'><!-- select delivery button -->
           <div class='child_order' data-child-id="<%= order.id %>">

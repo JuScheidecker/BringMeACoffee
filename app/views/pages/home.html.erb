@@ -14,21 +14,10 @@
       <div class="intro-slider">
         <!-- Slide 1 -->
         <div class="owl-item">
-          <h1 class="intro-title">Best Coffee just a mile away</h1>
+          <h1 class="intro-title">A good coffee, just a mile away</h1>
         </div>
-        <!-- Slide 2 -->
-        <div class="owl-item">
-          <h1 class="intro-title">Make yourself delivered</h1>
-        </div>
-        <!-- Slide 3 -->
-        <div class="owl-item">
-          <h1 class="intro-title">Or Become the welcomed deliver</h1>
-        </div>
+
       </div><!-- .intro-slider -->
-
-
-
-
 
       <div class="container"> <!-- home searchbar -->
         <div class="row">
@@ -42,11 +31,10 @@
                 </button>
                 </span>
               </form>
-                </div>
             </div>
           </div><!-- end col -->
-        </div><!-- end row -->
-      </div><!-- end searchbar -->
+      </div><!-- end row -->
+    </div><!-- end searchbar -->
 
     </div><!-- .intro -->
 
@@ -89,7 +77,7 @@
             <div class="iconbox-body flex-align-3-height" >
               <div class="iconbox-icon"><span class="icon-directions"></span></div>
               <div class="iconbox-text">
-                <h3 class="iconbox-title">Deliver</h3>
+                <h3 class="iconbox-title">Deliver or be delivered</h3>
                 <div class="iconbox-desc">
                   You choosed to get delivered ? Just wait for a little while ! You choosed to deliver ? You just made savings!
                 </div>
@@ -114,7 +102,7 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
           <div class="devider">
-            <%= image_tag "/theme/images/divider-down.svg" %>
+            <%= cl_image_tag ("divider-down_lxs9rq") %>
           </div>
         </div>
       </div><!-- .row -->
@@ -131,7 +119,7 @@
 
       <div class="row">
         <div class="col-sm-2 col-sm-offset-5 text-center long-down">
-          <%= image_tag "/theme/images/divider-top.svg" %>
+          <%= cl_image_tag "/theme/images/divider-top.svg" %>
         </div>
       </div><!-- .row -->
 
@@ -148,13 +136,13 @@
 
   <!-- Gallery start -->
 
-  <section class="module">
+  <section class="module" id ="gallery">
     <div class="container">
 
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
           <div class="module-header wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-            <h2 id ="gallery" class="module-title">Gallery</h2>
+            <h2 class="module-title">Gallery</h2>
             <h3 class="module-subtitle">Photo of our customers</h3>
           </div>
         </div>
@@ -165,7 +153,7 @@
         <div class="col-sm-4">
           <div class="gallery-item">
             <figure class="overlay">
-              <%= image_tag ('gallery_home_page/photo1.jpg') %>
+              <%= cl_image_tag ("photo1_de5x9k") %>
               <figcaption>
                 <%= link_to "", 'gallery_home_page/photo1.jpg', class: "gallery" %>
                 <div class="caption-inner">
@@ -184,7 +172,7 @@
         <div class="col-sm-4">
           <div class="gallery-item">
             <figure class="overlay">
-              <%= image_tag ('gallery_home_page/photo2.jpg') %>
+              <%= cl_image_tag ("photo2_uxnlst") %>
               <figcaption>
                 <%= link_to "", 'gallery_home_page/photo2.jpg', class: "gallery" %>
                 <div class="caption-inner">
@@ -203,7 +191,7 @@
         <div class="col-sm-4">
           <div class="gallery-item">
             <figure class="overlay">
-              <%= image_tag ('gallery_home_page/photo3.jpg') %>
+              <%= cl_image_tag ("photo3_vhy0le") %>
               <figcaption>
                 <%= link_to "", 'gallery_home_page/photo3.jpg', class: "gallery" %>
                 <div class="caption-inner">
@@ -226,7 +214,7 @@
         <div class="col-sm-4">
           <div class="gallery-item">
             <figure class="overlay">
-              <%= image_tag ('gallery_home_page/photo8.jpg') %>
+              <%= cl_image_tag ("photo8_lsoo6o") %>
               <figcaption>
                 <%= link_to "", 'gallery_home_page/photo8.jpg', class: "gallery" %>
                 <div class="caption-inner">
@@ -245,7 +233,7 @@
         <div class="col-sm-4">
           <div class="gallery-item">
             <figure class="overlay">
-              <%= image_tag ('gallery_home_page/photo5.jpg') %>
+              <%= cl_image_tag ("photo1_de5x9k") %>
               <figcaption>
                 <%= link_to "", 'gallery_home_page/photo5.jpg', class: "gallery" %>
                 <div class="caption-inner">
@@ -264,7 +252,7 @@
         <div class="col-sm-4">
           <div class="gallery-item">
             <figure class="overlay">
-              <%= image_tag ('gallery_home_page/photo6.jpg') %>
+              <%= cl_image_tag ("photo6_qnua82") %>
               <figcaption>
                 <%= link_to "", 'gallery_home_page/test.jpg', class: "gallery" %>
                 <div class="caption-inner">
@@ -285,7 +273,7 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
           <div class="devider">
-            <img src="assets/images/divider-down.svg" alt="">
+            <%= cl_image_tag ("divider-down_lxs9rq") %>
           </div>
         </div>
       </div><!-- .row -->
