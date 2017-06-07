@@ -1,6 +1,9 @@
 
-<div class='container margin-top-page'>
+<div class='container-fluid margin-top-page'>
   <div class='row'>
+    <div class="col-sm-12" id="back">
+      <p><%= link_to 'Back to Coffee Shops', shops_path(address: @params), style:"color:darkgrey" %></p>
+    </div>
     <h3 class="menu-subtitle text-center shop"><%= "Coffee's from" + ' ' + @shop.name %></h3>
     <% @shop.items.each do |item| %>
     <div class="col-sm-3">
@@ -30,10 +33,6 @@
       </div>
     </div>
     <% end %>
-  </div>
-
-  <div class="col-sm-12 text-center">
-    <p><%= link_to 'Back to list', shops_path %></p>
   </div>
 
   </br>

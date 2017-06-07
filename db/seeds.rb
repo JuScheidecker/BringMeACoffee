@@ -174,7 +174,7 @@ caffè_misto = Item.create!(
 )
 
 decaf_pike = Item.create!(
-  name: "Decaf Pike Place® Roast",
+  name: "Decaf Pike",
   description: "Our signature medium roasted coffee with a smooth, balanced and rich flavor, minus the caffeine",
   price: 4,
   shop: starbucks_euralille,
@@ -190,7 +190,7 @@ iced_coffee = Item.create!(
 )
 
 nitro_cold = Item.create!(
-  name: "Nitro Cold Brew with Sweet Cream",
+  name: "Nitro Cold",
   description: "Served cold, straight from the tap, our Nitro Cold Brew is topped with a float of house-made vanilla sweet cream. The result is a subtly-sweet cascade of velvety coffee that is more sippable than ever",
   price: 4,
   shop: starbucks_euralille,
@@ -198,7 +198,7 @@ nitro_cold = Item.create!(
 )
 
 toasted_coconut = Item.create!(
-  name: "Toasted Coconut Cold Brew",
+  name: "Coconut Brew",
   description: "Served cold, straight from the tap, our Nitro Cold Brew is topped with a float of house-made vanilla sweet cream. The result is a subtly-sweet cascade of velvety coffee that is more sippable than ever",
   price: 5,
   shop: starbucks_euralille,
@@ -222,7 +222,7 @@ caffè_misto = Item.create!(
 )
 
 decaf_pike = Item.create!(
-  name: "Decaf Pike Place® Roast",
+  name: "Decaf Pike",
   description: "Our signature medium roasted coffee with a smooth, balanced and rich flavor, minus the caffeine",
   price: 4,
   shop: starbucks_vieuxlille,
@@ -238,7 +238,7 @@ iced_coffee = Item.create!(
 )
 
 nitro_cold = Item.create!(
-  name: "Nitro Cold Brew with Sweet Cream",
+  name: "Nitro Cold",
   description: "Served cold, straight from the tap, our Nitro Cold Brew is topped with a float of house-made vanilla sweet cream. The result is a subtly-sweet cascade of velvety coffee that is more sippable than ever",
   price: 4,
   shop: starbucks_vieuxlille,
@@ -246,7 +246,7 @@ nitro_cold = Item.create!(
 )
 
 toasted_coconut = Item.create!(
-  name: "Toasted Coconut Cold Brew",
+  name: "Coconut Brew",
   description: "Served cold, straight from the tap, our Nitro Cold Brew is topped with a float of house-made vanilla sweet cream. The result is a subtly-sweet cascade of velvety coffee that is more sippable than ever",
   price: 5,
   shop: starbucks_vieuxlille,

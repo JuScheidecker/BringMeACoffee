@@ -1,10 +1,10 @@
 
-<div class='container margin-top-page'>
+<div class='container-fluid margin-top-page'>
   <div class='row'>
 
     <div class="col-sm-6" style="height: 700px;overflow-y:scroll;">
       <% @shops.each do |shop| %>
-      <%= link_to shop_path(shop.id) do %>
+      <%= link_to shop_path(shop.id, address: @params) do %>
       <div class="col-sm-6">
         <div class="menu-classic text-center">
           <%= cl_image_tag shop.photo, width: 260, height: 170, crop: "fill" %>
@@ -17,7 +17,7 @@
 
     <div class="col-sm-6">
       <div class='map'>
-        <div id="map" style="width: 110%; height: 600px;">
+        <div id="map" style="width: 110%; height: 700px;">
         <%= render 'shop-show-map' %>
         </div>
       </div>

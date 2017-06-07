@@ -5,9 +5,12 @@
 
 <div>
   <% @total_orders = 0 %>
+  <% conteur = 0 %>
   <% @orders.each do |order| %>
+    <% break if conteur == 3%>
     <% if order.order_items.first.item.shop_id == @shop.id && order.status == true %>
       <% @total_orders += 1 %>
+      <% conteur+=1 %>
       <div class='child col-md-offset-2 col-md-8'>
         <div class='col-md-4'> <!-- bloc Item list -->
           <div>
@@ -38,7 +41,11 @@
 <div>
   <% if @total_orders == 0 %>
     <div class='text-center'>
-      <h3>Thanks but no ones needs a delivery right now.</h3>
+      <h3 class="module-subtitle">Thanks but no one needs a delivery right now,</h3>
+      <h3 class="module-subtitle">you can proceed to your order confirmation below.</h3>
     </div>
   <% end %>
 </div>
+
+
+<!-- @orders.select {|order| condition(order)}.first(3).each do  -->
