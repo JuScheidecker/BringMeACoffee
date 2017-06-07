@@ -61,3 +61,13 @@ a.login-btn:hover {
 .visible-message{
   visibility:hidden;
 }
+
+
+.img-saturated{
+  filter: saturate(60%);
+  transition: filter 0.5s;
+}
+
+.img-saturated:hover{
+  filter: saturate(100%) brightness(1.1);
+}
