@@ -10,6 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      <%# cl_image_tag ('logo_white_agf8mg') %>
       <%= link_to 'BringMeACoffee', root_path, class: 'navbar-brand' %>
     </div> <!-- end navbar-header -->
 
@@ -42,7 +43,7 @@
                   <% if current_user.photo? %>
                     <%= cl_image_tag current_user.photo.path, class: "avatar-large avatar-navbar-margin" %>
                   <% else %>
-                    <%= cl_image_tag ("Profile_avatar"), class: "avatar-large avatar-navbar-margin" %>
+                    <i class="fa fa-user avatar-navbar-margin" aria-hidden="true" style="font-size:30px;color:white;margin-top:11px;margin-left:7px"></i>
                   <% end %>
                 <% end %>
                 <ul class="dropdown-menu" role="menu">
