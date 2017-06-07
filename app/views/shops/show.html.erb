@@ -1,10 +1,17 @@
 
 <div class='container-fluid margin-top-page'>
   <div class='row'>
-    <div class="col-sm-12">
-      <p><%= link_to 'Back to Coffee Shops', shops_path(address: @params), style:"color:darkgrey" %></p>
+    <div class="col-sm-12 position_relative_top">
+      <div class="col-sm-3 relative_child">
+        <%= link_to '< Back to Coffee Shops', shops_path(address: @params), style:"color:darkgrey" %>
+      </div>
+      <div class="col-sm-6 text-center">
+      <h3 class="menu-subtitle text-center shop"><%= "Coffee's from" + ' ' + @shop.name %></h3>
+      </div>
+      <div class="col-sm-3 relative_child">
+        <a href="#footer_shop"><i class="fa fa-info-circle fa-lg page-scroll" aria-hidden="true" style="color:darkgrey"></i></a>
+      </div>
     </div>
-    <h3 class="menu-subtitle text-center shop"><%= "Coffee's from" + ' ' + @shop.name %></h3>
     <% @shop.items.each do |item| %>
     <div class="col-sm-3">
       <div class="menu">
@@ -38,8 +45,8 @@
   </br>
   </br>
 
-  <div class="row">
-    <div class="col-sm-4">
+  <div class="row footer_shop" id="footer_shop">
+    <div class="col-sm-4 footer_shop_padding">
     <h3 class="menu-subtitle"><%= @shop.name %></h3>
     <h4 class='menu-subtitle'><%= @shop.address %></h4>
     <p class='menu-subtitle'><i class="fa fa-phone" aria-hidden="true"></i><%= " " + @shop.phone %></p>
