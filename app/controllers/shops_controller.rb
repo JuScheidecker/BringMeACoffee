@@ -14,11 +14,21 @@ class ShopsController < ApplicationController
       end
     end
 
-
     @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
       marker.lat shop.latitude
       marker.lng shop.longitude
       marker.infowindow render_to_string(partial: "/shops/map_box", locals: { shop: shop })
+    end
+
+    # setting de params pour récupérer l'adresse à partir de l'autocomplete
+    @params = params[:address]
+    # ajout d'un nouveau marqueur correpondant aux params
+    # if params[:address] != ""
+    #   lat = Geocoder.search(params[:address]).first.geometry['location']['lat']
+    #   lng = Geocoder.search(params[:address]).first.geometry['location']['lng']
+    #   icon = "http://maps.google.com/mapfiles/ms/icons/" + 'green' + ".png"
+
+    #   @hash.push({lat: lat, lng: lng,})
     end
   end
 
@@ -33,6 +43,7 @@ class ShopsController < ApplicationController
       marker.lat shop.latitude
       marker.lng shop.longitude
     end
+    @params = params[:address]
   end
 
     def cart
