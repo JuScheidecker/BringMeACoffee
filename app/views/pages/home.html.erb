@@ -138,19 +138,17 @@
 
         <div class="col-sm-4">
           <div class="gallery-item">
-            <figure class="overlay">
-              <%= cl_image_tag ("photo1_de5x9k") %>
-              <figcaption>
-                <%= link_to "", 'gallery_home_page/photo1.jpg', class: "gallery" %>
-                <div class="caption-inner">
-                  <div class="overlay-icon">
-                    <span class="icon-magnifier"></span>
-                  </div>
-                </div>
-              </figcaption>
-            </figure>
+            <% shops_ids = Shop.all.map(&:id) %>
+            <% id = shops_ids.sample %>
+            <% shop1 = Shop.find(id) %>
+            <%= link_to shop_path(id) do %>
+              <figure class="overlay">
+                <%= cl_image_tag shop1.photo,
+                width: 260, height: 170, crop: "fill", class: "img-saturated" %>
+              </figure>
+            <% end %>
             <div class="gallery-detail">
-              <h4 class="gallery-title">SoGood - November 2016</h4>
+              <h4 class="gallery-title"><%= shop1.name %></h4>
             </div>
           </div>
         </div>
@@ -158,15 +156,8 @@
         <div class="col-sm-4">
           <div class="gallery-item">
             <figure class="overlay">
-              <%= cl_image_tag ("photo2_uxnlst") %>
-              <figcaption>
-                <%= link_to "", 'gallery_home_page/photo2.jpg', class: "gallery" %>
-                <div class="caption-inner">
-                  <div class="overlay-icon">
-                    <span class="icon-magnifier"></span>
-                  </div>
-                </div>
-              </figcaption>
+              <%= cl_image_tag("photo8_lsoo6o",
+              width: 260, height: 170, crop: "fill", class: "img-saturated") %>
             </figure>
             <div class="gallery-detail">
               <h4 class="gallery-title">Colleagues' cup board</h4>
@@ -176,19 +167,17 @@
 
         <div class="col-sm-4">
           <div class="gallery-item">
+            <% items_ids = Item.all.map(&:id) %>
+            <% id_item = items_ids.sample %>
+            <% item1 = Item.find(id_item) %>
+            <%= link_to shop_path(item1.shop_id) do %>
             <figure class="overlay">
-              <%= cl_image_tag ("photo3_vhy0le") %>
-              <figcaption>
-                <%= link_to "", 'gallery_home_page/photo3.jpg', class: "gallery" %>
-                <div class="caption-inner">
-                  <div class="overlay-icon">
-                    <span class="icon-magnifier"></span>
-                  </div>
-                </div>
-              </figcaption>
+              <%= cl_image_tag item1.photo,
+              width: 260, height: 170, crop: "fill", class: "img-saturated" %>
             </figure>
+            <% end %>
             <div class="gallery-detail">
-              <h4 class="gallery-title">Mark Random - Coffee Lover </h4>
+              <h4 class="gallery-title"><%= item1.name + " - " + item1.shop.name %></h4>
             </div>
           </div>
         </div>
@@ -199,19 +188,33 @@
 
         <div class="col-sm-4">
           <div class="gallery-item">
-            <figure class="overlay">
-              <%= cl_image_tag ("photo8_lsoo6o") %>
-              <figcaption>
-                <%= link_to "", 'gallery_home_page/photo8.jpg', class: "gallery" %>
-                <div class="caption-inner">
-                  <div class="overlay-icon">
-                    <span class="icon-magnifier"></span>
-                  </div>
-                </div>
-              </figcaption>
-            </figure>
+            <% id2 = items_ids.select { |x| x != id_item }.sample %>  <!-- on retire la première photo du random -->
+            <% item2 = Item.find(id2) %>
+            <%= link_to shop_path(item2.shop_id) do %>
+              <figure class="overlay">
+                <%= cl_image_tag item2.photo,
+                width: 260, height: 170, crop: "fill", class: "img-saturated" %>
+              </figure>
+            <% end %>
             <div class="gallery-detail">
-              <h4 class="gallery-title">Planning a Trip - March 2014</h4>
+              <h4 class="gallery-title"><%= item2.name + " - " + item2.shop.name %></h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="gallery-item">
+            <% id2 = shops_ids.select { |x| x != id }.sample %>  <!-- on retire la première photo du random -->
+            <% shop2 = Shop.find(id2) %>
+            <%= link_to shop_path(id2) do %>
+              <figure class="overlay">
+                <%= cl_image_tag shop2.photo,
+                  width: 260, height: 170, crop: "fill", class: "img-saturated"
+                %>
+              </figure>
+            <% end %>
+            <div class="gallery-detail">
+              <h4 class="gallery-title"><%= shop2.name %></h4>
             </div>
           </div>
         </div>
@@ -219,34 +222,8 @@
         <div class="col-sm-4">
           <div class="gallery-item">
             <figure class="overlay">
-              <%= cl_image_tag ("photo1_de5x9k") %>
-              <figcaption>
-                <%= link_to "", 'gallery_home_page/photo5.jpg', class: "gallery" %>
-                <div class="caption-inner">
-                  <div class="overlay-icon">
-                    <span class="icon-magnifier"></span>
-                  </div>
-                </div>
-              </figcaption>
-            </figure>
-            <div class="gallery-detail">
-              <h4 class="gallery-title">Calm moment during Winter 2015</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-4">
-          <div class="gallery-item">
-            <figure class="overlay">
-              <%= cl_image_tag ("photo6_qnua82") %>
-              <figcaption>
-                <%= link_to "", 'gallery_home_page/test.jpg', class: "gallery" %>
-                <div class="caption-inner">
-                  <div class="overlay-icon">
-                    <span class="icon-magnifier"></span>
-                  </div>
-                </div>
-              </figcaption>
+              <%= cl_image_tag("photo6_qnua82",
+              width: 260, height: 170, crop: "fill", class: "img-saturated") %>
             </figure>
             <div class="gallery-detail">
               <h4 class="gallery-title">Elisa Johns - Brainstorming</h4>
