@@ -1,5 +1,8 @@
-<div class ='row text-center'>
-  <h3 class='menu-subtitle'>1- Check your order from <%= @shop.name %> </h3>
+<div class ='row'>
+  <div class="col-sm-12">
+    <p><%= link_to 'Back to Coffee shop', shop_path(@shop.id), style:'color:darkgrey' %><p>
+  </div>
+  <h3 class='menu-subtitle text-center'>1- Check your order from <%= @shop.name %> </h3>
 </div>
 
 <div class ='row text-center'>
@@ -31,9 +34,4 @@
   <div class='col-md-12 text-center menu-subtitle'>
     <h4><%= 'Total amount : ' + @total.round(2).to_s + '€' %></h4>
   </div>
-</div>
-
-<div class='row text-center'>
-  <%= link_to 'Back to Coffee shop', shop_path(@shop.id), style:'color:darkgrey' %>
-  <br>
 </div>
