@@ -1,15 +1,15 @@
  $(document).ready(function() {
   $('#take_away').on("click", function() {
-    $('#take_away').addClass('img-thumbnail');
-    $('#delivery').removeClass('img-thumbnail');
+    $('#img_take_away').addClass('deliver_select');
+    $('#img_delivery').removeClass('deliver_select');
     $('#pending_orders').fadeIn(500, function() {
       $('#take_away').trigger('orders-shown');
     });
     document.getElementById("order_delivery_type").value = "false";
   });
   $('#delivery').on('click', function() {
-    $('#delivery').addClass('img-thumbnail');
-    $('#take_away').removeClass('img-thumbnail');
+    $('#img_delivery').addClass('deliver_select');
+    $('#img_take_away').removeClass('deliver_select');
     $('#pending_orders').fadeOut(500, function() {
       $('#delivery').trigger('orders-shown');
     });
