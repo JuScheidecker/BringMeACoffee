@@ -1,29 +1,40 @@
 
 <div class='container margin-top-page'>
   <div class='row'>
-    <h3 class="menu-subtitle text-center"><%= "Coffee's from" + ' ' + @shop.name %></h3>
-    <p><%= link_to 'Back to list', shops_path %></p>
+    <h3 class="menu-subtitle text-center shop"><%= "Coffee's from" + ' ' + @shop.name %></h3>
     <% @shop.items.each do |item| %>
     <div class="col-sm-3">
-      <div class="menu-classic">
-        <figure class="overlay">
-          <%= cl_image_tag item.photo %>
-            <div class="col-sm-9">
-              <h4 class='menu-title'><%= item.name %></h4>
-            </div>
-            <div class="col-sm-3">
-              <h4 class='menu-price'><%= item.price.to_s + '€' %></h4>
-            </div>
-        </figure>
-          <div>
-            <h4 class="add-button"><%= link_to 'Add', add_to_cart_shop_path(@shop, item_id: item.id), remote: true %></h4>
+      <div class="menu">
+        <div class="item-description">
+          <figure class="overlay">
+            <%= cl_image_tag item.photo, width: 256, height: 256, crop: "fill"%>
+            <figcaption>
+              <div class="caption-inner">
+                <div class="overlay-icon">
+                  <span class="fa fa-plus add-button" aria-hidden="true">
+                    <a href="<%=add_to_cart_shop_path(@shop, item_id: item.id)%>" data-remote="true"></a>
+                  </span>
+                </div>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="description">
+          <div class="col-sm-9">
+            <h4 class='menu-title'><%= item.name %></h4>
           </div>
+          <div class="col-sm-3 text-center">
+            <h4 class='menu-price'><%= item.price.to_s + '€' %></h4>
+          </div>
+        </div>
       </div>
     </div>
     <% end %>
-    <h4><%= link_to 'Check my cart', cart_shop_path(@shop.id) %></h4>
   </div>
 
+  <div class="col-sm-12 text-center">
+    <p><%= link_to 'Back to list', shops_path %></p>
+  </div>
 
   </br>
   </br>
@@ -32,7 +43,7 @@
     <div class="col-sm-4">
     <h3 class="menu-subtitle"><%= @shop.name %></h3>
     <h4 class='menu-subtitle'><%= @shop.address %></h4>
-    <p class='menu-subtitle'><i class="fa fa-phone" aria-hidden="true"></i><%= " :" + @shop.phone %></p>
+    <p class='menu-subtitle'><i class="fa fa-phone" aria-hidden="true"></i><%= " " + @shop.phone %></p>
     <p class='menu-detail'><%= @shop.horaries %></p>
     <p class='menu-detail'><%= @shop.description %></p>
     </div>

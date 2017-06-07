@@ -55,7 +55,7 @@
   </head>
   <body>
     <%= render 'shared/home_navbar' %>
-    <main class="min-heightfull margin-top-page">
+    <main class="min-heightfull">
       <%= yield %>
     </main>
     <%= render 'shared/footer' %>
@@ -98,6 +98,7 @@
     <!-- <script src="theme/js/gmaps.js"></script> -->
     <%= javascript_include_tag 'application' %>
     <%= yield :after_js %>
+
 
     <%= cloudinary_js_config %>
 
