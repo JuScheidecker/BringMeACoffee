@@ -78,4 +78,5 @@ class OrdersController < ApplicationController
     end
     sum
   end
+
 end
