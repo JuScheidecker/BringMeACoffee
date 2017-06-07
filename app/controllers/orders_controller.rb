@@ -26,20 +26,7 @@ class OrdersController < ApplicationController
     end
   end
 
-  def cart
-    @shop = Shop.find(session[:carts].keys.first.to_i)
-    @item_data = session[:carts][params[:id]].to_a
-
-    @orders = Order.all
-    @shop_id = @orders.first.order_items.first.item.shop_id
-
-    respond_to do |format|
-      format.html { render 'orders/cart'}
-    end
-  end
-
   def create
-    # order => {delivery_type: "", item_ids: [], child_order_ids: []}
 
     # Creation de l'order
     @order = Order.new(cart_params)

@@ -33,6 +33,18 @@ class ShopsController < ApplicationController
     end
   end
 
+    def cart
+    @shop = Shop.find(params[:id])
+
+    if session[:carts].nil? || session[:carts].empty?
+      @item_data = nil
+    else
+      @item_data = session[:carts][params[:id]].to_a
+    end
+
+    @orders = Order.all # TODO : available_orders
+  end
+
   private
 
   def reset_cart(id)
