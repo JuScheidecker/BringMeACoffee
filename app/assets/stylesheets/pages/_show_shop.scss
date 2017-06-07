@@ -3,3 +3,25 @@
   padding-bottom: 20px;
   border-bottom: 1px dotted;
 }
+
+.footer_shop {
+  background-color: #F5F5F5 !important;
+
+}
+
+.footer_shop_padding {
+   padding-top: 10px;
+}
+
+.relative_child {
+  position: relative;
+  top: 10px;
+}
+
+.position_relative_top {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+
+
