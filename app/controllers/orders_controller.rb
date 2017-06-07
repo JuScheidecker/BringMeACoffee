@@ -59,6 +59,7 @@ class OrdersController < ApplicationController
     if @order.save
       # Destroy the cart
       session[:carts] = nil
+      session[:numbcart] = nil
 
       # Creating child orders
       child_order_id = params[:order][:child_order_id]
