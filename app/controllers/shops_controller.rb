@@ -1,5 +1,7 @@
 class ShopsController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: [ :index, :show, :cart ]
+
   def index
     # shop geolocation set-up
     if params[:address] == nil

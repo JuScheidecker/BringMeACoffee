@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: [ :add_to_cart ]
+
   def index
     # @orders = Order.all
     @orders = current_user.orders
