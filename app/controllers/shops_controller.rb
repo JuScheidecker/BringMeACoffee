@@ -1,5 +1,7 @@
 class ShopsController < ApplicationController
 
+  before_action :store_current_location, :unless => :devise_controller?
+
   skip_before_action :authenticate_user!, only: [ :index, :show, :cart ]
 
   def index
@@ -68,4 +70,9 @@ class ShopsController < ApplicationController
   def shop_params
   params.require(:shop).permit(:name, :address, :latitude, :longitude, :photo)
   end
+
+  def store_current_location
+    store_location_for(:user, request.url)
+  end
+
 end
