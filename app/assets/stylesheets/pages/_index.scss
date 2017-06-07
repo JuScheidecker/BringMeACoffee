@@ -23,3 +23,34 @@
 .scroll {
   overflow: scroll;
 }
+
+.order-index{
+  .icon-body {
+    position: relative;
+  }
+
+  .iconbox {
+    position: relative;
+    height: 380px
+
+  }
+
+  .iconbox-icon {
+    position: relative;
+    right: 155px;
+    top: 47px;
+  }
+
+  .iconbox-text {
+    position: relative;
+    right: -199px;
+    top: -110px;
+  }
+
+  .iconbox-button {
+    position: relative;
+    right: 0px;
+    top: -40px;
+  }
+
+}
