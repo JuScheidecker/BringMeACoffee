@@ -46,3 +46,26 @@
   color: #5FB863;
 }
 
+.cart_item {
+  margin-top: 20px;
+  padding: 3px;
+  border-bottom: 1px dotted
+}
+
+.cart_text {
+  margin-top: 6px;
+}
+
+#take_away:hover {
+  box-shadow: 0 0 0 rgba(0,0,0,0.25), 0 0 0 rgba(0,0,0,0.22);
+  opacity: 0.6;
+}
+
+#delivery:hover {
+  box-shadow: 0 0 0 rgba(0,0,0,0.25), 0 0 0 rgba(0,0,0,0.22);
+  opacity: 0.6;
+}
+
+.deliver_select {
+  border: solid 2px black;
+}
