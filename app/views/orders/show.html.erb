@@ -96,7 +96,9 @@
 
       <!-- Set condition to display delivery guy -->
       <% if @Order.status == true %>
-      <h4><%= "Don't worry, your order will be soon delivered to you !" %></h4>
+      <br>
+      <br>
+      <h3 class='module-subtitle text-center'><%= "Don't worry, your order will be soon delivered to you !" %></h3>
       <% elsif @Order.delivery_type == true %>
       <% if @Order.main_orders.first %>
       <% @main_user = @Order.main_orders.first.user.first_name %>
