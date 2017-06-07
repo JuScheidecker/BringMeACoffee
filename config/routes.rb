@@ -7,7 +7,7 @@ devise_for :users
       get 'add_to_cart', to: 'orders#add_to_cart'
     end
     member do
-      get 'cart', to: 'orders#cart'
+      get 'cart'
     end
   end
 

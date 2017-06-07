@@ -1,5 +1,7 @@
 class ShopsController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: [ :index, :show, :cart ]
+
   def index
     # shop geolocation set-up
     if params[:address] == nil
@@ -42,6 +44,18 @@ class ShopsController < ApplicationController
       marker.lng shop.longitude
     end
     @params = params[:address]
+  end
+
+    def cart
+    @shop = Shop.find(params[:id])
+
+    if session[:carts].nil? || session[:carts].empty?
+      @item_data = nil
+    else
+      @item_data = session[:carts][params[:id]].to_a
+    end
+
+    @orders = Order.all # TODO : available_orders
   end
 
   private
