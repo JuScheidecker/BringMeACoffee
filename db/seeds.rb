@@ -12,8 +12,8 @@ vincent =  User.create!(
   first_name:'Vincent',
   last_name: 'Textoris',
   email:'vincent@gmail.com',
-  phone: '06 11 11 11 11',
-  delivery_address: '31 Rue Faidherbe, Lille',
+  phone: '06.11.34.56.48',
+  delivery_address: '31 Rue Faidherbe, 59800 Lille'
   latitude: 50.637138,
   longitude: 3.066851,
   password: '123456'
@@ -23,7 +23,7 @@ romain =  User.create!(
   first_name:'Romain',
   last_name: ' Despature',
   email:'romain@gmail.com',
-  phone: '06 22 22 22 22',
+  phone: '06.22.12.58.87',
   delivery_address: '22 rue basse, lille',
   latitude: 50.639077,
   longitude: 3.062780,
@@ -34,7 +34,7 @@ manuel =  User.create!(
   first_name:'Manuel',
   last_name: 'Sabine',
   email:'manuel@gmail.com',
-  phone: '06 33 33 33 33',
+  phone: '06.07.52.66.87',
   delivery_address: '22 Place des Patiniers, lille',
   latitude: 50.639831,
   longitude: 3.064498,
@@ -45,7 +45,7 @@ juliette =  User.create!(
   first_name:'Juliette',
   last_name: 'Scheidecker ',
   email:'juliette@gmail.com',
-  phone: '06 44 44 44 44',
+  phone: '06.44.37.56.94',
   delivery_address: '8 Rue de la Clef, lille',
   latitude: 50.638416,
   longitude: 3.064993,
@@ -348,7 +348,8 @@ tall_latte = Item.create!(
   description: "Our signature blend of coffee blended with hot creamy milk in a tall glass.",
   price: 4.5,
   shop: cafeine_coffee,
-  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/tall-latte-655x370.jpg"
+  remote_photo_url: "http://blog.surlatable.com/wp-content/uploads/2015/08/cold-brew-irish-coffee.jpg"
+  #"http://www.coffeeclub.com.au/wp-content/uploads/2016/06/tall-latte-655x370.jpg"
 )
 
 piccolo_latte = Item.create!(
@@ -389,7 +390,8 @@ tall_latte = Item.create!(
   description: "Our signature blend of coffee blended with hot creamy milk in a tall glass.",
   price: 4.5,
   shop: impertinente,
-  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/tall-latte-655x370.jpg"
+  remote_photo_url: "http://blog.surlatable.com/wp-content/uploads/2015/08/cold-brew-irish-coffee.jpg"
+  #"http://www.coffeeclub.com.au/wp-content/uploads/2016/06/tall-latte-655x370.jpg"
 )
 
 piccolo_latte = Item.create!(
@@ -430,7 +432,8 @@ tall_latte = Item.create!(
   description: "Our signature blend of coffee blended with hot creamy milk in a tall glass.",
   price: 4.5,
   shop: tamper,
-  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/tall-latte-655x370.jpg"
+  remote_photo_url: "http://blog.surlatable.com/wp-content/uploads/2015/08/cold-brew-irish-coffee.jpg"
+  #"http://www.coffeeclub.com.au/wp-content/uploads/2016/06/tall-latte-655x370.jpg"
 )
 
 piccolo_latte = Item.create!(
@@ -471,7 +474,8 @@ tall_latte = Item.create!(
   description: "Our signature blend of coffee blended with hot creamy milk in a tall glass.",
   price: 4.5,
   shop: coffee_makers,
-  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/tall-latte-655x370.jpg"
+  remote_photo_url: "http://blog.surlatable.com/wp-content/uploads/2015/08/cold-brew-irish-coffee.jpg"
+  #"http://www.coffeeclub.com.au/wp-content/uploads/2016/06/tall-latte-655x370.jpg"
 )
 
 piccolo_latte = Item.create!(
@@ -511,7 +515,8 @@ tall_latte = Item.create!(
   description: "Our signature blend of coffee blended with hot creamy milk in a tall glass.",
   price: 4.5,
   shop: wallys_coffee,
-  remote_photo_url: "http://www.coffeeclub.com.au/wp-content/uploads/2016/06/tall-latte-655x370.jpg"
+  remote_photo_url: "http://blog.surlatable.com/wp-content/uploads/2015/08/cold-brew-irish-coffee.jpg"
+  #"http://www.coffeeclub.com.au/wp-content/uploads/2016/06/tall-latte-655x370.jpg"
 )
 
 piccolo_latte = Item.create!(
