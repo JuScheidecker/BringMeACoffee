@@ -2,7 +2,7 @@ class ShopsController < ApplicationController
 
   before_action :store_current_location, :unless => :devise_controller?
 
-  skip_before_action :authenticate_user!, only: [ :index, :show, :cart ]
+  skip_before_action :authenticate_user!, only: [ :index, :show, :cart, :additem, :removeitem ]
 
   def index
     # shop geolocation set-up
@@ -48,7 +48,7 @@ class ShopsController < ApplicationController
     @params = params[:address]
   end
 
-    def cart
+  def cart
     @shop = Shop.find(params[:id])
 
     if session[:carts].nil? || session[:carts].empty?
@@ -58,6 +58,24 @@ class ShopsController < ApplicationController
     end
 
     @orders = Order.all # TODO : available_orders
+  end
+
+  def additem
+    session[:carts].first[1][params.first[0]] += 1
+    @cart = session[:carts]
+
+    respond_to do |format|
+      format.json { render json: session[:carts] }
+    end
+  end
+
+  def removeitem
+    session[:carts].first[1][params.first[0]] -= 1
+    @cart = session[:carts]
+
+    respond_to do |format|
+      format.json { render json: session[:carts] }
+    end
   end
 
   private
@@ -74,5 +92,4 @@ class ShopsController < ApplicationController
   def store_current_location
     store_location_for(:user, request.url)
   end
-
 end

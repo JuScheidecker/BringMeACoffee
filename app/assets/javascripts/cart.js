@@ -1,4 +1,42 @@
  $(document).ready(function() {
+
+  $('.remove_item').on('click', function(){
+    var id = $(this).attr('id')
+    downquantity(id);
+  });
+
+  function downquantity(id) {
+    $.ajax({
+      url: '/downquantity',
+      type: 'POST',
+      dataType: 'json',
+      data: id,
+      success: function(data) {
+        console.log(data);
+        $('#' + id).html(parseInt($('#' + id).html()) - 1);
+      }
+    })
+  }
+
+  $('.add_item').on('click', function(){
+    var id = $(this).attr('id')
+    upquantity(id);
+  });
+
+  function upquantity(id) {
+    $.ajax({
+      url: '/upquantity',
+      type: 'POST',
+      dataType: 'json',
+      data: id,
+      success: function(data) {
+        console.log(data);
+        $('#' + id).html(parseInt($('#' + id).html()) + 1);
+      }
+    })
+  }
+
+
   $('#take_away').on("click", function() {
     $('#img_take_away').addClass('deliver_select');
     $('#img_delivery').removeClass('deliver_select');

@@ -1,11 +1,8 @@
 <div class ='row'>
-  <div class="col-sm-12 position_relative_top">
-    <div class="col-sm-2 relative_child">
-      <%= link_to '< Back to Coffee shop', shop_path(@shop.id), style:'color:darkgrey' %>
-    </p>
+  <div class="col-sm-12">
+      <p><%= link_to '< Back to Coffee shop', shop_path(@shop.id), style:'color:darkgrey' %></p>
   </div>
-    <h3 class='menu-subtitle text-center col-sm-8'>1- Check your order from <%= @shop.name %> </h3>
-  <div class='col-sm-2'></div>
+  <h3 class='menu-subtitle text-center'>1- Check your order from <%= @shop.name %> </h3>
 </div>
 
 
@@ -18,11 +15,20 @@
     <figure class='overlay'>
       <%= cl_image_tag Item.find(k.to_i).photo, width: 256, height: 256, crop: "fill" %>
       <div class='cart_text'>
-        <div class="col-sm-6">
+        <div class="col-sm-5">
           <h4 class='menu-title'><%= Item.find(k.to_i).name %></h4>
         </div>
+        <div class="col-sm-4">
+          <h4 class='menu-title' id=<%=k.to_s%>><%=v.to_s%></h4>
+          <h4 class="menu-title">
+            <%= ' x  '  + Item.find(k.to_i).price.round(2).to_s + '€' %>
+          </h4>
+        </div>
         <div class="col-sm-3">
-          <h4 class='menu-title'><%= v.to_s + ' x  '  + Item.find(k.to_i).price.round(2).to_s + '€' %></h4>
+          <h4 class='menu-title'>
+          <i class="fa fa-minus-circle remove_item" id=<%=k.to_s%> aria-hidden="true" style="color:darkgrey"></i>
+          <i class="fa fa-plus-circle add_item" id=<%=k.to_s%> aria-hidden="true" style="color:darkgrey"></i>
+          </h4>
         </div>
       </div>
       </figure>
