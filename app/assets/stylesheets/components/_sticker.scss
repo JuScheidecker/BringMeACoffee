@@ -1,0 +1,45 @@
+.sticker-small{
+  width:30px;
+  height:30px;
+  object-fit:cover;
+  border-radius:3px;
+  margin-right:5px;
+  position:relative;
+  bottom:3px;
+}
+
+.sticker-md{
+  width:60px;
+  height:60px;
+  object-fit:cover;
+  border-radius:3px;
+  margin-right:5px;
+}
+
+.deliver-card{
+  margin-top:10px;
+  padding:15px 10px 10px 15px;
+  display:flex;
+  box-shadow:1px 1px 2px lightgray;
+  width:320px;
+  background-color:#FDFDFD;
+  border-radius:3px;
+  border:0.4px solid lightgray;
+  transition:box-shadow 0.2s;
+}
+
+.deliver-card-title{
+  flex:auto;
+  padding: 0px 10px;
+  font-size: 18px
+}
+
+.deliver-card-number{
+  font-size: 22px;
+  line-height: normal;
+}
+
+
+.deliver-card:hover{
+  box-shadow:2px 2px 4px gray;
+}
