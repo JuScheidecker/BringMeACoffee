@@ -106,7 +106,7 @@
       <% @main_user_phone = @Order.main_orders.first.user.phone %>
       <% @main_user_address = @Order.main_orders.first.user.delivery_address %>
 
-      <h4 class="menu-subtitle" id='list' style="display:inline;">Delivered by :</h4>
+      <h4 class=" module-subtitle menu-subtitle" id='list' style="display:inline;">Delivered by :</h4>
         <article class="deliver-card">
           <div>
             <%= cl_image_tag @Order.main_orders.first.user.photo,
