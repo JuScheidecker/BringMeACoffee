@@ -24,9 +24,8 @@
             <figcaption>
               <div class="caption-inner">
                 <div class="overlay-icon">
-                  <span class="fa fa-plus add-button" aria-hidden="true">
-                    <a href="<%=add_to_cart_shop_path(@shop, item_id: item.id)%>" data-remote="true"></a>
-                  </span>
+                  <a href="<%=add_to_cart_shop_path(@shop, item_id: item.id)%>" data-remote="true" class="add-button"></a>
+                  <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
                 </div>
               </div>
             </figcaption>
