@@ -13,7 +13,7 @@ vincent =  User.create!(
   last_name: 'Textoris',
   email:'vincent@gmail.com',
   phone: '06.11.34.56.48',
-  delivery_address: '31 Rue Faidherbe, 59800 Lille',
+  delivery_address: '31 Rue Faidherbe, 59800 Lille'
   latitude: 50.637138,
   longitude: 3.066851,
   password: '123456'
