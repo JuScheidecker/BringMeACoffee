@@ -41,7 +41,6 @@ class ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     reset_cart(params[:id]) unless session[:carts] == nil
-
     # shop geolocation set-up
     @shop_coordinates = { lat: @shop.latitude, lng: @shop.longitude }
 
@@ -67,7 +66,7 @@ class ShopsController < ApplicationController
   def additem
     session[:carts].first[1][params.first[0]] += 1
     @cart = session[:carts]
-
+    session[:numbcart]['sum'] += 1
     respond_to do |format|
       format.json { render json: session[:carts] }
     end
@@ -76,6 +75,7 @@ class ShopsController < ApplicationController
   def removeitem
     session[:carts].first[1][params.first[0]] -= 1
     @cart = session[:carts]
+    session[:numbcart]['sum'] -= 1
 
     respond_to do |format|
       format.json { render json: session[:carts] }

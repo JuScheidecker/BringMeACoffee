@@ -3,6 +3,7 @@
   $('.remove_item').on('click', function(){
     var id = $(this).attr('id')
     downQuantity(id);
+    $('.cart-items').html(parseInt($('.cart-items').html().match(/\d+/)[0]) - 1);
   });
 
   function downQuantity(id) {
@@ -21,7 +22,9 @@
   $('.add_item').on('click', function(){
     var id = $(this).attr('id')
     upQuantity(id);
+    $('.cart-items').html(parseInt($('.cart-items').html().match(/\d+/)[0]) + 1);
   });
+
 
   function upQuantity(id) {
     $.ajax({
