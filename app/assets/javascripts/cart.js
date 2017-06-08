@@ -1,4 +1,56 @@
  $(document).ready(function() {
+
+  $('.remove_item').on('click', function(){
+    var id = $(this).attr('id')
+    downQuantity(id);
+    $('.cart-items').html(parseInt($('.cart-items').html().match(/\d+/)[0]) - 1);
+  });
+
+  function downQuantity(id) {
+    $.ajax({
+      url: '/downquantity',
+      type: 'POST',
+      dataType: 'json',
+      data: id,
+      success: function(data) {
+        $('#' + id).html((parseInt($('#' + id).html().split(' x')[0]) - 1) + ' x');
+        updatePrice();
+      }
+    })
+  }
+
+  $('.add_item').on('click', function(){
+    var id = $(this).attr('id')
+    upQuantity(id);
+    $('.cart-items').html(parseInt($('.cart-items').html().match(/\d+/)[0]) + 1);
+  });
+
+
+  function upQuantity(id) {
+    $.ajax({
+      url: '/upquantity',
+      type: 'POST',
+      dataType: 'json',
+      data: id,
+      success: function(data) {
+        $('#' + id).html((parseInt($('#' + id).html().split(' x')[0]) + 1) + ' x');
+        updatePrice();
+      }
+    })
+  }
+
+  function updatePrice() {
+    $.ajax({
+      url: '/total_price',
+      dataType: 'json',
+      success: function(data) {
+      $('#total').html("TOTAL AMOUNT : " + data + '€');
+      console.log(data);
+      }
+    })
+  }
+
+
   $('#take_away').on("click", function() {
     $('#img_take_away').addClass('deliver_select');
     $('#img_delivery').removeClass('deliver_select');

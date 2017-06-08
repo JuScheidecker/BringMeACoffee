@@ -2,7 +2,7 @@ class ShopsController < ApplicationController
 
   before_action :store_current_location, :unless => :devise_controller?
 
-  skip_before_action :authenticate_user!, only: [ :index, :show, :cart ]
+  skip_before_action :authenticate_user!, only: [ :index, :show, :cart, :additem, :removeitem, :total_price ]
 
   def index
     # shop geolocation set-up
@@ -41,7 +41,6 @@ class ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     reset_cart(params[:id]) unless session[:carts] == nil
-
     # shop geolocation set-up
     @shop_coordinates = { lat: @shop.latitude, lng: @shop.longitude }
 
@@ -52,7 +51,7 @@ class ShopsController < ApplicationController
     @params = params[:address]
   end
 
-    def cart
+  def cart
     @shop = Shop.find(params[:id])
 
     if session[:carts].nil? || session[:carts].empty?
@@ -62,6 +61,35 @@ class ShopsController < ApplicationController
     end
 
     @orders = Order.all # TODO : available_orders
+  end
+
+  def additem
+    session[:carts].first[1][params.first[0]] += 1
+    @cart = session[:carts]
+    session[:numbcart]['sum'] += 1
+    respond_to do |format|
+      format.json { render json: session[:carts] }
+    end
+  end
+
+  def removeitem
+    session[:carts].first[1][params.first[0]] -= 1
+    @cart = session[:carts]
+    session[:numbcart]['sum'] -= 1
+
+    respond_to do |format|
+      format.json { render json: session[:carts] }
+    end
+  end
+
+  def total_price
+    sum = 0
+    session[:carts].first[1].each { |k,v| sum += Item.find(k.to_i).price * v }
+    # total_price = @item_data.map { |x| Item.find(x[0].to_i).price}.inject(:+)
+
+    respond_to do |format|
+      format.json { render json: sum }
+    end
   end
 
   private
@@ -78,5 +106,4 @@ class ShopsController < ApplicationController
   def store_current_location
     store_location_for(:user, request.url)
   end
-
 end

@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
 devise_for :users
 
+  post 'upquantity', to: 'shops#additem'
+  post 'downquantity', to: 'shops#removeitem'
+  get 'total_price', to: 'shops#total_price'
+
   resources :shops, only: [:index, :show] do
     member do
       get 'add_to_cart', to: 'orders#add_to_cart'

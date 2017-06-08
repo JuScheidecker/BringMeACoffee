@@ -11,6 +11,7 @@
     </div>
 </div>
 
+
 <div class ='row text-center'>
   <br>
   <% @total = 0 %>
@@ -20,11 +21,22 @@
     <figure class='overlay'>
       <%= cl_image_tag Item.find(k.to_i).photo, width: 256, height: 256, crop: "fill" %>
       <div class='cart_text'>
-        <div class="col-sm-6">
+        <div class="col-sm-5">
           <h4 class='menu-title'><%= Item.find(k.to_i).name %></h4>
         </div>
+
+          <div class='col-sm-2'>
+            <h4 class='menu-title' id=<%=k.to_s%>><%=v.to_s%><%= ' x' %></h4>
+          </div>
+          <div class="col-sm-2">
+            <h4 class="menu-title"><%= Item.find(k.to_i).price.round(2).to_s + '€' %></h4>
+          </div>
+
         <div class="col-sm-3">
-          <h4 class='menu-title'><%= v.to_s + ' x  '  + Item.find(k.to_i).price.round(2).to_s + '€' %></h4>
+          <h4 class='menu-title'>
+          <i class="fa fa-minus-circle remove_item" id=<%=k.to_s%> aria-hidden="true" style="color:darkgrey"></i>
+          <i class="fa fa-plus-circle add_item" id=<%=k.to_s%> aria-hidden="true" style="color:darkgrey"></i>
+          </h4>
         </div>
       </div>
       </figure>
