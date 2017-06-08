@@ -11,9 +11,9 @@ User.destroy_all
 vincent =  User.create!(
   first_name:'Vincent',
   last_name: 'Textoris',
-  email:'vincent.textoris@gmail.com',
-  phone: '0611111111',
-  delivery_address: '31 Rue Faidherbe, 59800 Lille',
+  email:'vincent@gmail.com',
+  phone: '06 11 11 11 11',
+  delivery_address: '31 Rue Faidherbe, Lille',
   latitude: 50.637138,
   longitude: 3.066851,
   password: '123456'
@@ -22,8 +22,8 @@ vincent =  User.create!(
 romain =  User.create!(
   first_name:'Romain',
   last_name: ' Despature',
-  email:'rdespature@gmail.com',
-  phone: '0622222222',
+  email:'romain@gmail.com',
+  phone: '06 22 22 22 22',
   delivery_address: '22 rue basse, lille',
   latitude: 50.639077,
   longitude: 3.062780,
@@ -33,8 +33,8 @@ romain =  User.create!(
 manuel =  User.create!(
   first_name:'Manuel',
   last_name: 'Sabine',
-  email:'manuel.sabine@gmail.com',
-  phone: '0633333333',
+  email:'manuel@gmail.com',
+  phone: '06 33 33 33 33',
   delivery_address: '22 Place des Patiniers, lille',
   latitude: 50.639831,
   longitude: 3.064498,
@@ -44,8 +44,8 @@ manuel =  User.create!(
 juliette =  User.create!(
   first_name:'Juliette',
   last_name: 'Scheidecker ',
-  email:'juscheidecker@gmail.com',
-  phone: '0644444444',
+  email:'juliette@gmail.com',
+  phone: '06 44 44 44 44',
   delivery_address: '8 Rue de la Clef, lille',
   latitude: 50.638416,
   longitude: 3.064993,

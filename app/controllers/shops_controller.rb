@@ -6,14 +6,13 @@ class ShopsController < ApplicationController
 
   def index
     # shop geolocation set-up
-    if params[:address] == nil
-      @shops = Shop.all
+    if params[:address].present?
+      session[:address] = params[:address]
+      @shops = Shop.near(params[:address], 0.5)
+    elsif session[:address].present?
+      @shops = Shop.near(session[:address], 0.5)
     else
-      if params[:address] != ""
-        @shops = Shop.near(params[:address], 0.5)
-      else
-        @shops = Shop.where.not(latitude: nil, longitude: nil)
-      end
+      @shops = Shop.where.not(latitude: nil, longitude: nil)
     end
 
     @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
@@ -23,9 +22,8 @@ class ShopsController < ApplicationController
     end
 
     # setting de params pour récupérer l'adresse à partir de l'autocomplete
-    @params = params[:address]
     # ajout d'un nouveau marqueur correpondant aux params
-    if params[:address] != ""
+    if params[:address].present?
       lat = Geocoder.search(params[:address]).first.geometry['location']['lat']
       lng = Geocoder.search(params[:address]).first.geometry['location']['lng']
       icon = "http://maps.google.com/mapfiles/ms/icons/green.png"
@@ -48,7 +46,7 @@ class ShopsController < ApplicationController
       marker.lat shop.latitude
       marker.lng shop.longitude
     end
-    @params = params[:address]
+
   end
 
   def cart
