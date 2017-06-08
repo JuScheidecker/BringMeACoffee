@@ -18,12 +18,14 @@
         <div class="col-sm-5">
           <h4 class='menu-title'><%= Item.find(k.to_i).name %></h4>
         </div>
-        <div class="col-sm-4">
-          <h4 class='menu-title' id=<%=k.to_s%>><%=v.to_s%></h4>
-          <h4 class="menu-title">
-            <%= ' x  '  + Item.find(k.to_i).price.round(2).to_s + '€' %>
-          </h4>
-        </div>
+
+          <div class='col-sm-2'>
+            <h4 class='menu-title' id=<%=k.to_s%>><%=v.to_s%><%= ' x' %></h4>
+          </div>
+          <div class="col-sm-2">
+            <h4 class="menu-title"><%= Item.find(k.to_i).price.round(2).to_s + '€' %></h4>
+          </div>
+
         <div class="col-sm-3">
           <h4 class='menu-title'>
           <i class="fa fa-minus-circle remove_item" id=<%=k.to_s%> aria-hidden="true" style="color:darkgrey"></i>
@@ -42,6 +44,6 @@
 <div class ='row'>
   <br>
   <div class='col-md-12 text-center menu-subtitle'>
-    <h4><%= 'Total amount : ' + @total.round(2).to_s + '€' %></h4>
+    <div id='total'><%= 'Total amount : ' + @total.round(2).to_s + '€' %></div>
   </div>
 </div>

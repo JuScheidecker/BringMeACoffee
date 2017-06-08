@@ -12,7 +12,6 @@
       dataType: 'json',
       data: id,
       success: function(data) {
-        console.log(data);
         $('#' + id).html(parseInt($('#' + id).html()) - 1);
       }
     })
@@ -30,7 +29,6 @@
       dataType: 'json',
       data: id,
       success: function(data) {
-        console.log(data);
         $('#' + id).html(parseInt($('#' + id).html()) + 1);
       }
     })
