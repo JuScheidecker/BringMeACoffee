@@ -4,11 +4,12 @@ class OrdersController < ApplicationController
 
   def index
     # @orders = Order.all
-    @orders = current_user.orders
+    @orders = current_user.orders.reverse
   end
 
   def show
     @Order = Order.find(params[:id])
+
     # Setting orderitem pour le show des child_orders
     @orderitem = @Order.orders.first.order_items if @Order.orders.first
     # Setting shop_id pour récupérer l'id du shop à partir de l'order

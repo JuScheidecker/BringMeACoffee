@@ -41,7 +41,7 @@
       url: '/total_price',
       dataType: 'json',
       success: function(data) {
-      $('#total').html("Total amount : " + data + '€');
+      $('#total').html("TOTAL AMOUNT : " + data + '€');
       console.log(data);
       }
     })

@@ -25,13 +25,17 @@ class ShopsController < ApplicationController
     # setting de params pour récupérer l'adresse à partir de l'autocomplete
     @params = params[:address]
     # ajout d'un nouveau marqueur correpondant aux params
-    #if params[:address] != ""
-       #lat = Geocoder.search(params[:address]).first.geometry['location']['lat']
-       #lng = Geocoder.search(params[:address]).first.geometry['location']['lng']
-    #   icon = "http://maps.google.com/mapfiles/ms/icons/" + 'green' + ".png"
+    if params[:address] != ""
+      lat = Geocoder.search(params[:address]).first.geometry['location']['lat']
+      lng = Geocoder.search(params[:address]).first.geometry['location']['lng']
+      icon = "http://maps.google.com/mapfiles/ms/icons/green.png"
 
-    #   @hash.push({lat: lat, lng: lng,})
-    #end
+      @hash.push ({lat: lat, lng: lng, picture: {
+        url: icon,
+        width:  32,
+        height: 32
+      }})
+    end
   end
 
   def show
