@@ -101,12 +101,27 @@
       <h3 class='module-subtitle text-center'><%= "Don't worry, your order will be soon delivered to you !" %></h3>
       <% elsif @Order.delivery_type == true %>
       <% if @Order.main_orders.first %>
+      <% @main_user_photo = @Order.main_orders.first.user.photo %>
       <% @main_user = @Order.main_orders.first.user.first_name %>
       <% @main_user_phone = @Order.main_orders.first.user.phone %>
       <% @main_user_address = @Order.main_orders.first.user.delivery_address %>
-      <h4 class="menu-subtitle" id='list'>Delivered by : <%= @main_user + ' - ' + @main_user_phone %></h4>
+
+      <h4 class="menu-subtitle" id='list' style="display:inline;">Delivered by :</h4>
+        <article class="deliver-card">
+          <div>
+            <%= cl_image_tag @Order.main_orders.first.user.photo,
+            class: "sticker-md" %>
+          </div>
+          <div class="deliver-card-title">
+            <p class="deliver-card-number"><strong><%= @main_user %></strong>
+            <br/><i class="fa fa-mobile" aria-hidden="true"></i>
+            <%= @main_user_phone %><p>
+          </div>
+       </article>
       <% end %>
       <% end %>
+
+      <img src="" alt""/>
     </div>
 
     <% if @Order.orders.first nil? %>
