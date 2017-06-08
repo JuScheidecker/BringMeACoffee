@@ -13,7 +13,7 @@ vincent =  User.create!(
   last_name: 'Textoris',
   email:'vincent@gmail.com',
   phone: '06.11.34.56.48',
-  delivery_address: '31 Rue Faidherbe, 59800 Lille'
+  delivery_address: '31 Rue Faidherbe, Lille',
   latitude: 50.637138,
   longitude: 3.066851,
   password: '123456'
@@ -24,7 +24,7 @@ romain =  User.create!(
   last_name: ' Despature',
   email:'romain@gmail.com',
   phone: '06.22.12.58.87',
-  delivery_address: '22 rue basse, lille',
+  delivery_address: '22 rue basse, Lille',
   latitude: 50.639077,
   longitude: 3.062780,
   password: '123456'
@@ -35,7 +35,7 @@ manuel =  User.create!(
   last_name: 'Sabine',
   email:'manuel@gmail.com',
   phone: '06.07.52.66.87',
-  delivery_address: '22 Place des Patiniers, lille',
+  delivery_address: '22 Place des Patiniers, Lille',
   latitude: 50.639831,
   longitude: 3.064498,
   password: '123456'
@@ -46,7 +46,7 @@ juliette =  User.create!(
   last_name: 'Scheidecker ',
   email:'juliette@gmail.com',
   phone: '06.44.37.56.94',
-  delivery_address: '8 Rue de la Clef, lille',
+  delivery_address: '8 Rue de la Clef, Lille',
   latitude: 50.638416,
   longitude: 3.064993,
   password: '123456'
@@ -67,7 +67,7 @@ starbucks_vieuxlille = Shop.create!(
 
 starbucks_euralille = Shop.create!(
   name:'Starbucks Euralille',
-  address: 'Centre Commercial Euralille, 59777 Lille',
+  address: 'Centre Commercial Euralille, Lille',
   latitude: 50.637649,
   longitude: 3.073004,
   phone: "09 66 90 32 71",
@@ -145,7 +145,7 @@ nottinghill_gdplace = Shop.create!(
 
 nottinghill_vieuxlille= Shop.create!(
   name:'Notting Hill Vieux Lille',
-  address: '94 Rue Esquermoise, 59000 Lille',
+  address: '94 Rue Esquermoise, Lille',
   latitude: 50.638680,
   longitude: 3.059966,
   phone: "03 20 56 28 07",
