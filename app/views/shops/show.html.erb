@@ -3,13 +3,16 @@
   <div class='row'>
     <div class="col-sm-12 position_relative_top">
       <div class="col-sm-3 relative_child">
-        <%= link_to '< Back to Coffee Shops', shops_path(address: @params), style:"color:darkgrey" %>
+        <i class="fa fa-long-arrow-left" aria-hidden="true"></i><%= link_to ' Back to Coffee Shops', shops_path(address: @params), style:"color:darkgrey" %>
       </div>
       <div class="col-sm-6 text-center">
       <h3 class="menu-subtitle text-center shop"><%= "Coffee's from" + ' ' + @shop.name %></h3>
       </div>
       <div class="col-sm-3 relative_child">
-        <a href="#footer_shop"><i class="fa fa-info-circle fa-lg page-scroll" aria-hidden="true" style="color:darkgrey"></i></a>
+        <div class='pull-right'>
+        <a href="#footer_shop"><p class="menu-subtitle text-center shop" style="color:darkgrey"><%= "More info on your Coffee Shop  " %><i class="fa fa-info-circle page-scroll" aria-hidden="true" style="color:darkgrey"></p></i>
+        </a>
+        </div>
       </div>
     </div>
     <% @shop.items.each do |item| %>
