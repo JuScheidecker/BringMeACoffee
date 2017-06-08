@@ -4,6 +4,7 @@ devise_for :users
 
   post 'upquantity', to: 'shops#additem'
   post 'downquantity', to: 'shops#removeitem'
+  get 'total_price', to: 'shops#total_price'
 
   resources :shops, only: [:index, :show] do
     member do

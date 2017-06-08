@@ -2,7 +2,7 @@ class ShopsController < ApplicationController
 
   before_action :store_current_location, :unless => :devise_controller?
 
-  skip_before_action :authenticate_user!, only: [ :index, :show, :cart, :additem, :removeitem ]
+  skip_before_action :authenticate_user!, only: [ :index, :show, :cart, :additem, :removeitem, :total_price ]
 
   def index
     # shop geolocation set-up
@@ -75,6 +75,16 @@ class ShopsController < ApplicationController
 
     respond_to do |format|
       format.json { render json: session[:carts] }
+    end
+  end
+
+  def total_price
+    sum = 0
+    session[:carts].first[1].each { |k,v| sum += Item.find(k.to_i).price * v }
+    # total_price = @item_data.map { |x| Item.find(x[0].to_i).price}.inject(:+)
+
+    respond_to do |format|
+      format.json { render json: sum }
     end
   end
 

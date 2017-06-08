@@ -2,34 +2,47 @@
 
   $('.remove_item').on('click', function(){
     var id = $(this).attr('id')
-    downquantity(id);
+    downQuantity(id);
   });
 
-  function downquantity(id) {
+  function downQuantity(id) {
     $.ajax({
       url: '/downquantity',
       type: 'POST',
       dataType: 'json',
       data: id,
       success: function(data) {
-        $('#' + id).html(parseInt($('#' + id).html()) - 1);
+        $('#' + id).html((parseInt($('#' + id).html().split(' x')[0]) - 1) + ' x');
+        updatePrice();
       }
     })
   }
 
   $('.add_item').on('click', function(){
     var id = $(this).attr('id')
-    upquantity(id);
+    upQuantity(id);
   });
 
-  function upquantity(id) {
+  function upQuantity(id) {
     $.ajax({
       url: '/upquantity',
       type: 'POST',
       dataType: 'json',
       data: id,
       success: function(data) {
-        $('#' + id).html(parseInt($('#' + id).html()) + 1);
+        $('#' + id).html((parseInt($('#' + id).html().split(' x')[0]) + 1) + ' x');
+        updatePrice();
+      }
+    })
+  }
+
+  function updatePrice() {
+    $.ajax({
+      url: '/total_price',
+      dataType: 'json',
+      success: function(data) {
+      $('#total').html("Total amount : " + data + '€');
+      console.log(data);
       }
     })
   }
