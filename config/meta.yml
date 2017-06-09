@@ -1,0 +1,5 @@
+meta_product_name: "Bring Me A Coffee"
+meta_title: "Bring Me A Coffee"
+meta_description: "Order coffee - Get a free delivery from your neighborhood"
+meta_image: "coffee-delivery4_k3qqyy.jpg"   # should exist in `app/assets/images/`
+twitter_account: "@coffeeXall"   # required for Twitter Cards
